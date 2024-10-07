@@ -1,4 +1,4 @@
-# Representation Theory Notes
+# Notes on Lie Algebras
 
 [Notes](https://github.com/thefundamentaltheor3m/LieAlgebrasNotes/blob/main/TeX_Outputs/main.pdf) for MATH70062 (Lie Algebras) taught by Ambrus Pal at Imperial in Autumn 2024. They are a work in progress.
 
