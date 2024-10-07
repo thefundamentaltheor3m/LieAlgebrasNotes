@@ -74,11 +74,11 @@ One may recall that the $\liebrac$ notation is often used in group theory to den
 \Cref{Ch1:Lemma:CommBracket} gives us a large class of examples of Lie algebras. One of the most important of these is the following.
 
 \begin{boxexample}[General Linear Lie Algebra]\label{Ch1:Eg:gl}
-    For all $n \in \N$, the set of all $n \times n$ matrices forms a Lie algebra under the commutator bracket: this follows immediately from \Cref{Ch1:Lemma:CommBracket} and \Cref{Ch1:Eg:MatrixAlgebra}. We call this the \textbf{General Linear Lie Algebra}.
+    For all $n \in \N$, the set of all $n \times n$ matrices forms a Lie algebra under the commutator bracket: this follows immediately from applying \Cref{Ch1:Lemma:CommBracket} to \Cref{Ch1:Eg:MatrixAlgebra}. We call this the \textbf{General Linear Lie Algebra}, denoted $\gl{n}$.
 \end{boxexample}
 
 \begin{boxconvention}
-    We will denote by $\MnC$ the set of all $n \times n$ matrices, viewed (interchangeably) as a set, a vector space or an associative algebra. When viewing it as a Lie algebra under the commutator bracket, we will adopt the notation $\gl{n, \C}$, where $\C$ can be replaced by any field. We will usually abbreviate this to $\gl{n}$, because we will primarily work over $\C$.
+    We will denote by $\MnC$ the set of all $n \times n$ matrices, viewed (interchangeably) as a \textit{set}, a \textit{vector space} or an \textit{associative algebra}. When viewing it as a \textit{Lie algebra under the commutator bracket}, we will adopt the notation $\gl{n, \C}$, where $\C$ can be replaced by any field. We will usually abbreviate this to $\gl{n}$, because we will primarily work over $\C$.
 \end{boxconvention}
 
 Lastly, we will define the notion of an abelian Lie algebra.
@@ -151,12 +151,8 @@ This allows us to construct another matrix Lie algebra.
     \begin{align*}
         \Tr{\brac{A, B}} = \Tr{AB - BA} = \Tr{AB} - \Tr{BA} = 0 = \brac{\Tr{A}, \Tr{B}}
     \end{align*}
-    because the Lie algebra $\gl{1}$ is abelian (see \Cref{Ch1:Eg:gl1}). By \Cref{Ch1:Lemma:im_ker_subalg}, its kernel, the set of all $n \times n$ matrices of trace zero, is a Lie subalgebra of $\gl{n}$. We call this the \textbf{Special Linear Lie Algebra}.
+    because the Lie algebra $\gl{1}$ is abelian (see \Cref{Ch1:Eg:gl1}). By \Cref{Ch1:Lemma:im_ker_subalg}, its kernel, the set of all $n \times n$ matrices of trace zero, is a Lie subalgebra of $\gl{n}$. We call this the \textbf{Special Linear Lie Algebra}, denoted $\sl{n}$.
 \end{boxexample}
-
-\begin{boxconvention}
-    We will denote the Special Linear Lie Algebra of degree $n$ by $\sl{n}$.
-\end{boxconvention}
 
 \begin{remark}
     In \Cref{Ch1:Eg:sl}, we have indirectly shown that
@@ -191,3 +187,9 @@ The very natural relationship between associative and Lie algebra structures giv
     % The Lean coder in me wants to put coercion arrows everywhere... :,)
     Therefore, since $B$ is closed under $\liebrac_B$ (which, by definition, is a map from $B \times B$ to $B$), $B$ must be closed under $\liebrac_A$.
 \end{proof}
+
+This allows us to construct more examples still.
+
+\begin{boxexample}[The Upper-Triangular Lie Algebra]
+    For $n \in \N$, we define the \textbf{Upper-Triangular Lie Algebra} to be the set of all $n \times n$ upper-triangular matrices (with respect to some predetermined basis), denoted $\t{n}$. Given that the product of upper-triangular matrices is upper-triangular, $\t{n}$ forms an associative subalgebra of $\MnC$, and therefore, a Lie subalgebra of $\gl{n}$.
+\end{boxexample}
