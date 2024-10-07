@@ -1,4 +1,5 @@
 \usepackage{amsthm}
+\usepackage{cleveref}
 
 \newtheorem*{theorem*}{Theorem}
 \newtheorem{theorem}{Theorem}[section]
@@ -36,11 +37,11 @@
 }{
     \end{definition}\end{tcolorbox}
 }
-\newtheorem*{notation}{Notation}
-\newenvironment{boxnotation}{
-    \begin{tcolorbox}[colback=magenta!3!white,colframe=magenta!70!black, breakable, enhanced]\begin{notation}
+\newtheorem*{convention}{Convention}
+\newenvironment{boxconvention}{
+    \begin{tcolorbox}[colback=magenta!3!white,colframe=magenta!70!black, breakable, enhanced]\begin{convention}
 }{
-    \end{notation}\end{tcolorbox}
+    \end{convention}\end{tcolorbox}
 }
 \newtheorem{example}[theorem]{Example}
 \newenvironment{boxexample}{

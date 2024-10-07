@@ -85,7 +85,7 @@
 \newcommand{\pgcds}[1]{\gcd\!\parenth{#1}}
 \newcommand{\plcms}[1]{\operatorname{lcm}\!\parenth{#1}}
 
-\newcommand{\eutot}[1]{\phi\!\parenth{#1}}  % Euler's Totient Function
+\newcommand{\varphiof}[1]{\varphi\!\parenth{#1}}
 \newcommand{\phiof}[1]{\phi\!\parenth{#1}}
 \newcommand{\xiof}[1]{\xi\!\parenth{#1}}
 \newcommand{\rhoof}[1]{\rho\!\parenth{#1}}
@@ -106,6 +106,7 @@
 \newcommand{\mat}[3]{\operatorname{M}_{{#1} \times {#2}}\!\parenth{{#3}}}
 \newcommand{\matsq}[2]{\operatorname{M}_{{#1} \times {#1}}\!\parenth{\mathbb{#2}}}
 \newcommand{\MnR}{\operatorname{M}_{n}\!\parenth{\real}}
+\newcommand{\MnC}{\operatorname{M}_{n}\!\parenth{\C}}
 \newcommand{\Mn}[2]{\operatorname{M}_{#1}\!\parenth{#2}}
 \newcommand{\GL}[1]{\operatorname{GL}\!\parenth{#1}}
 \newcommand{\SL}[1]{\operatorname{SL}\!\parenth{#1}}
@@ -236,34 +237,9 @@
 
 % BOILERPLATE
 
-\newcommand{\letg}{Let $G$ be a group}
-\newcommand{\letfg}{Let $G$ be a finite group}
-\newcommand{\letgv}{\letg\ and let $\parenth{V, \rho}$ be a representation of $G$}
-\newcommand{\letfgv}{\letfg\ and let $\parenth{V, \rho}$ be a representation of $G$}
-\newcommand{\letfgfv}{\letfg\ and let $\parenth{V, \rho}$ be a finite-dimensional representation of $G$}
-\newcommand{\letfgfnzv}{\letfg\ and let $\parenth{V, \rho}$ be a finite-dimensional, non-zero representation of $G$}
-\newcommand{\letgvv}{\letg\ and let $\parenth{V, \rho}$ and $\parenth{V', \rho'}$ be representations of $G$}
-\newcommand{\Vp}{\parenth{V, \rho}}
-\newcommand{\CGM}{$\C G$-module}
-\newcommand{\CHM}{$\C H$-module}
-\newcommand{\CGHM}{$\C\parenth{G \times H}$-module}
+\newcommand{\liebrac}{\brac{\cdot, \cdot}}
 
-% REPRESENTATION THEORY: GENERAL NOTATION
+% LIE ALGEBRAS
 
-\newcommand{\rhow}{\rho\vert_{W}}
-\newcommand{\rhowof}[1]{\rhow\!\parenth{#1}}
-\newcommand{\U}[1]{\operatorname{U}\!\parenth{#1}}
-\newcommand{\rhoff}[2]{\rhoof{#1}\!\parenth{#2}}
-\newcommand{\eps}{\varepsilon}
-\newcommand{\Fof}[1]{\mathcal{F}\!\parenth{#1}}
-\newcommand{\Fcof}[1]{\mathcal{F}_C\!\parenth{#1}}
-\newcommand{\FGC}{\Fof{G, \C}}
-\newcommand{\FcGC}{\Fcof{G, \C}}
-\newcommand{\Irr}[1]{\operatorname{Irr}\!\parenth{#1}}
-\newcommand{\reg}{\operatorname{reg}}
-\newcommand{\chiof}[2]{\chi_{#1}\!\parenth{#2}}
-\renewcommand{\hat}{\widehat}
-\renewcommand{\bar}{\overline}
-\renewcommand{\tilde}{\widetilde}
-\newcommand{\Ind}{\operatorname{Ind}}
-\newcommand{\Res}{\operatorname{Res}}
+\newcommand{\gl}[1]{\mathfrak{gl}\!\parenth{#1}}
+\renewcommand{\sl}[1]{\mathfrak{sl}\!\parenth{#1}}
