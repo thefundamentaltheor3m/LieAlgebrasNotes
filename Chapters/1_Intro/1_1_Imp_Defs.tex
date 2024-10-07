@@ -55,6 +55,15 @@ We will come back to associative algebras soon enough. We will now define the ma
     Such a bilinear map $\liebrac$ is known as a \textbf{Lie Bracket}, and~\eqref{Ch1:eq:JacobiIdentity} is known as the \textbf{Jacobi Identity}.
 \end{boxdefinition}
 
+\begin{remark}
+    We immediately notice that the first condition (over not just $\C$ but any field) implies the fact that
+    \begin{align}
+        \brac{x, y} = - \brac{y, x}
+        \label{SP:Eq:LieBracSymmNeg}
+    \end{align}
+    One simply needs to apply bilinearity and the first condition to evaluate $\brac{x + y, x + y}$. This argument reverses nicely as well, but only over fields of characteristic $\neq 2$.
+\end{remark} 
+
 One may recall that the $\liebrac$ notation is often used in group theory to denote the \textbf{commutator} of two elements. The reason why the same notation is used for the Lie bracket is the following.
 
 \begin{lemma}\label{Ch1:Lemma:CommBracket}
@@ -193,3 +202,95 @@ This allows us to construct more examples still.
 \begin{boxexample}[The Upper-Triangular Lie Algebra]
     For $n \in \N$, we define the \textbf{Upper-Triangular Lie Algebra} to be the set of all $n \times n$ upper-triangular matrices (with respect to some predetermined basis), denoted $\t{n}$. Given that the product of upper-triangular matrices is upper-triangular, $\t{n}$ forms an associative subalgebra of $\MnC$, and therefore, a Lie subalgebra of $\gl{n}$.
 \end{boxexample}
+
+\subsection{Ideals and Quotients}
+
+Throughout this subsection, we will denote by $L$ an arbitrary Lie algebra.
+
+\begin{boxdefinition}[Ideal]\label{Ch1:Def:Ideal}
+    We say that $I \subseteq L$ is an \textbf{ideal} of $L$, denoted $I \nsg L$, if $I$ is a linear subspace of $L$ and $\brac{x, y} \in I$ for all $x \in L$ and $y \in I$.
+\end{boxdefinition}
+
+\begin{boxconvention}
+    We will use the notation $\brac{I, L}$ to denote the subspace of $\gl{n}$ spanned by all elements of the form $\brac{i, \ell}$ for $i \in I$ and $\ell \in L$.
+\end{boxconvention}
+
+\begin{remark}
+    We could equivalently require that $\brac{I, L}\leq L$ in the definition of an ideal instead of requiring that $\brac{x, y} \in I$ for all $x \in L$ and $y \in I$. Similarly, we can observe that it doesn't matter whether we require $\brac{x, y} \in I$ or $\brac{y, x} \in I$ because of~\eqref{SP:Eq:LieBracSymmNeg} and bilinearity.
+\end{remark}
+
+\begin{boxexample}[Trivial Ideals]
+    Given any Lie algebra $L$, both $\set{0}$ and $L$ are ideals of $L$.
+\end{boxexample}
+
+\begin{lemma}
+    Given a Lie algebra homomorphism $\phi : L \to K$, $\pker{\phi} \nsg L$.
+\end{lemma}
+\begin{proof}
+    \verb|sorry|
+\end{proof}
+
+\begin{boxdefinition}[The Centre of a Lie Algebra]
+    We define the \textbf{centre} of $L$ to be
+    \begin{align*}
+        \Zof{L} := \setst{x \in L}{\forall y \in L, \ \brac{x, y} = 0}
+    \end{align*}
+\end{boxdefinition}
+
+\begin{lemma}
+    $\Zof{L}$ is an ideal of $L$.
+\end{lemma}
+\begin{proof}
+    \verb|sorry|
+\end{proof}
+
+\begin{boxexample}
+    For all $n \in \N$,
+    \begin{align*}
+        \Zof{\gl{n}} = \setst{A \in \gl{n}}{\exists \lambda \in \C \st A = \lambda I}
+    \end{align*}
+    \begin{proof}
+        \verb|sorry|
+    \end{proof}
+\end{boxexample}
+
+For the remainder of this subsection, let $I$ be an arbitrary ideal of $L$.
+
+\begin{boxproposition}
+    Consider the vector space $\quotient{L}{I}$. The map $\liebrac : \quotient{L}{I} \times \quotient{L}{I} \to \quotient{L}{I}$ given by
+    \begin{align*}
+        \brac{x + I, y + I} := \brac{x, y} + I
+    \end{align*}
+    for all $x, y \in L$ is a Lie bracket on $\quotient{L}{I}$.
+\end{boxproposition}
+\begin{proof}
+    We primarily need to show that the Lie bracket on $\quotient{L}{I}$ is well-defined. It would then suffice to prove the much easier fact that the quotient map $x \mapsto x + I : L \surj \quotient{L}{I}$ is a Lie algebra homomorphism. \verb|sorry|
+\end{proof}
+
+\begin{boxdefinition}[Quotient Algebra]
+    
+\end{boxdefinition}
+
+\subsection{Adjoints and Derivations}
+
+Throughout this subsection, $V$ will refer to a finite-dimensional vector space.
+
+We begin with a general Lie algebra construction.
+
+\begin{boxdefinition}[General Linear Lie Algebra over an Arbitrary Vector Space]
+    We define the \textbf{General Linear Lie Algebra over $V$} to be the set of all linear maps from $V$ to $V$, viewed as a Lie algebra under the commutator bracket. We denote it $\gl{V}$.
+\end{boxdefinition}
+
+That this is, indeed, a Lie algebra should come as no surprise. Given that this construction is well-defined over \textit{any} vector space, we can, in particular, apply it to Lie algebras.
+
+Let $L$ denote an arbitrary Lie algebra. There exists a rather nice map that relates $L$ with $\gl{L}$: the adjoint.
+
+\begin{boxdefinition}[Adjoint Map]
+    To every $x \in L$, we can associate the linear map
+    \begin{align*}
+        \ad{x} : L \to L : y \mapsto \brac{x, y}
+    \end{align*}
+    We call this map the \textbf{adjoint map} associated to $x$.
+\end{boxdefinition}
+
+
