@@ -1,0 +1,22 @@
+\section{Lie Algebras of Dimension $\leq 3$}
+
+It turns out that we do not need any particularly sophisticated machinery to classify \underline{all} Lie algebras of dimension less than or equal to $3$.
+
+\subsection{Preliminaries}
+
+We begin with a simple observation about abelian Lie algebras.
+
+\begin{proposition}\label{Ch1:Prop:Abelian_Lie_Algebras_Iso}
+    Fix $n \in \N$. Then, any abelian Lie algebra of dimension $n$ is isomorphic to $\C^n$ with the zero bracket.
+\end{proposition}
+\begin{proof}
+    Let $L$ be a Lie algebra of dimension $n$. We know there exists a $\C$-linear isomorphism $\phi : L \to \C^n$. It follows immediately that for any $x, y \in L$,
+    \begin{align*}
+        \phiof{\brac{x, y}} = \phiof{0} = 0 = \brac{\phiof{x}, \phiof{y}}
+    \end{align*}
+    A similar argument will show that $\phi\inv : \C^n \to L$, viewed as a linear map, is a Lie algebra homomorphism as well, proving that $L \cong \C^n$.
+\end{proof}
+
+Recall that the only $\C$-vector space of dimension $1$ is $\C$ itself. \Cref{Ch1:Prop:Abelian_Lie_Algebras_Iso} then tells us that any Lie algebra of dimension $1$ is isomorphic to $\C$ with the zero bracket.
+
+It therefore suffices to classify non-abelian Lie algebras of dimension $2$ and $3$.
