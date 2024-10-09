@@ -212,7 +212,7 @@ Throughout this subsection, we will denote by $L$ an arbitrary Lie algebra.
 \end{boxdefinition}
 
 \begin{boxconvention}
-    We will use the notation $\brac{I, L}$ to denote the subspace of $\gl{n}$ spanned by all elements of the form $\brac{i, \ell}$ for $i \in I$ and $\ell \in L$.
+    We will use the notation $\brac{I, L}$ to denote the subspace of $L$ spanned by all elements of the form $\brac{i, \ell}$ for $i \in I$ and $\ell \in L$.
 \end{boxconvention}
 
 \begin{remark}
@@ -223,12 +223,27 @@ Throughout this subsection, we will denote by $L$ an arbitrary Lie algebra.
     Given any Lie algebra $L$, both $\set{0}$ and $L$ are ideals of $L$.
 \end{boxexample}
 
+In certain respects, despite their name, ideals of Lie algebras are more like normal subgroups of a group than they are like ideals of a ring.
+
 \begin{lemma}
-    Given a Lie algebra homomorphism $\phi : L \to K$, $\pker{\phi} \nsg L$.
+    Any ideal $I \nsg L$ is also a subalgebra of $L$.
 \end{lemma}
 \begin{proof}
-    \verb|sorry|
+    This is clear from \Cref{Ch1:Def:Ideal}.
 \end{proof}
+
+\begin{lemma}
+    For any Lie algebra $K$ and homomorphism $\phi : L \to K$, we have $\pker{\phi} \nsg L$.
+\end{lemma}
+\begin{proof}
+    From \Cref{Ch1:Lemma:im_ker_subalg}, we know that $\pker{\phi}$ is a linear subspace of $L$. We now need to show that $\brac{x, y} \in \pker{\phi}$ for all $x \in L$ and $y \in \pker{\phi}$. To that end, fix $x \in \pker{\phi}$ and $y \in L$. Then,
+    \begin{align*}
+        \phiof{\brac{x, y}} = \brac{\phiof{x}, \phiof{y}} = \brac{0, \phiof{y}} = 0
+    \end{align*}
+    proving that $\brac{x, y} \in \pker{\phi}$ as required.
+\end{proof}
+
+We come back to the theme of the Lie bracket being some sort of `commutator' when we define the notion of the centre of a Lie algebra: the terminology and notation match those from group theory, where the centre consists of elements that commute with every other element of the group (making its commutator with every other element the identity).
 
 \begin{boxdefinition}[The Centre of a Lie Algebra]
     We define the \textbf{centre} of $L$ to be
@@ -241,7 +256,7 @@ Throughout this subsection, we will denote by $L$ an arbitrary Lie algebra.
     $\Zof{L}$ is an ideal of $L$.
 \end{lemma}
 \begin{proof}
-    \verb|sorry|
+    The fact that $\Zof{L}$ is a subspace of $L$ follows from the fact that $\liebrac$ is bilinear. Now, fix $x \in \Zof{L}$ and $y \in L$. Clearly, $\brac{x, y} = 0$, and it is easily seen that $0 \in \Zof{L}$.
 \end{proof}
 
 \begin{boxexample}
@@ -250,25 +265,39 @@ Throughout this subsection, we will denote by $L$ an arbitrary Lie algebra.
         \Zof{\gl{n}} = \setst{A \in \gl{n}}{\exists \lambda \in \C \st A = \lambda I}
     \end{align*}
     \begin{proof}
-        \verb|sorry|
+        Let $S := \setst{A \in \gl{n}}{\exists \lambda \in \C \st A = \lambda I}$. It is clear that $S \subseteq \Zof{\gl{n}}$. Now, fix $A \in \Zof{\gl{n}}$. Then, for all $B \in \gl{n}$, we have that $\brac{A, B} = AB - BA = 0$. In particular, this implies that $A$ commutes with all the elementary matrices $E_{ij}$, which are the matrices with a $1$ in the $ij$-th position and $0$ elsewhere. Therefore, $A$ must be a diagonal matrix. 
     \end{proof}
 \end{boxexample}
 
 For the remainder of this subsection, let $I$ be an arbitrary ideal of $L$.
 
-\begin{boxproposition}
+\begin{boxproposition}\label{Ch1:Prop:QuotientAlgebraLieBracket}
     Consider the vector space $\quotient{L}{I}$. The map $\liebrac : \quotient{L}{I} \times \quotient{L}{I} \to \quotient{L}{I}$ given by
-    \begin{align*}
+    \begin{align}
         \brac{x + I, y + I} := \brac{x, y} + I
-    \end{align*}
+        \label{Ch1:Eq:QuotientBracket}
+    \end{align}
     for all $x, y \in L$ is a Lie bracket on $\quotient{L}{I}$.
 \end{boxproposition}
 \begin{proof}
-    We primarily need to show that the Lie bracket on $\quotient{L}{I}$ is well-defined. It would then suffice to prove the much easier fact that the quotient map $x \mapsto x + I : L \surj \quotient{L}{I}$ is a Lie algebra homomorphism. \verb|sorry|
+    We begin by showing that the Lie bracket on $\quotient{L}{I}$ is well-defined. Fix $x, x', y, y' \in L$ with $x - x' = i \in I$ and $y - y' = j \in I$, so that $x + I = x' + I$ and $y + I = y' + I$. Then,
+    \begin{align*}
+        \brac{x, y} - \brac{x', y'}
+        &= \brac{x' + i, y' + j} - \brac{x', y'} \\
+        &= \cancel{\brac{x', y'}} + \brac{i, y'} + \brac{x', j} + \brac{i, j} - \cancel{\brac{x', y'}} \\
+        &= \brac{i, y'} + \brac{x', j} + \brac{i, j} \in I
+    \end{align*}
+    because $I$ is an ideal, proving that $\brac{x, y} + I = \brac{x', y'} + I$, making the choice of representative irrelevant and the bracket on $\quotient{L}{I}$ well-defined.
+
+    From the definition of $\liebrac$ on $\quotient{L}{I}$, it is clear that $\brac{x + I, x + I} = 0$ for all $x \in L$. Now, for all $x, y, z \in L$, notice that
+    \begin{align*}
+        \brac{x + I, \brac{y + I, z + I}} = \brac{x + I, \brac{y, z} + I} = \brac{x, \brac{y, z}} + I
+    \end{align*}
+    The Jacobi identity follows immediately.
 \end{proof}
 
 \begin{boxdefinition}[Quotient Algebra]
-    
+    The \textbf{quotient algebra} of $L$ with respect to $I$ is the vector space $\quotient{L}{I}$ equipped with the bracket defined in \eqref{Ch1:Eq:QuotientBracket}, which we showed to be a Lie bracket in \Cref{Ch1:Prop:QuotientAlgebraLieBracket} above.
 \end{boxdefinition}
 
 \subsection{Adjoints and Derivations}
