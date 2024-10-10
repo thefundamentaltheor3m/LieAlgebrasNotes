@@ -6,9 +6,9 @@ It turns out that we do not need any particularly sophisticated machinery to cla
 
 We begin with a simple observation about abelian Lie algebras.
 
-\begin{proposition}\label{Ch1:Prop:Abelian_Lie_Algebras_Iso}
+\begin{boxproposition}\label{Ch1:Prop:Abelian_Lie_Algebras_Iso}
     Fix $n \in \N$. Then, any abelian Lie algebra of dimension $n$ is isomorphic to $\C^n$ with the zero bracket.
-\end{proposition}
+\end{boxproposition}
 \begin{proof}
     Let $L$ be a Lie algebra of dimension $n$. We know there exists a $\C$-linear isomorphism $\phi : L \to \C^n$. It follows immediately that for any $x, y \in L$,
     \begin{align*}
@@ -17,9 +17,20 @@ We begin with a simple observation about abelian Lie algebras.
     A similar argument will show that $\phi\inv : \C^n \to L$, viewed as a linear map, is a Lie algebra homomorphism as well, proving that $L \cong \C^n$.
 \end{proof}
 
-Recall that the only $\C$-vector space of dimension $1$ is $\C$ itself. \Cref{Ch1:Prop:Abelian_Lie_Algebras_Iso} then tells us that any Lie algebra of dimension $1$ is isomorphic to $\C$ with the zero bracket.
+The classification of Lie algebras in $1$ dimension is then straightforward.
 
-It therefore suffices to classify non-abelian Lie algebras of dimension $2$ and $3$.
+\begin{proposition}\label{Ch1:Prop:1D_Lie_Algebras}
+    Any $\C$-vector space of dimension $1$ is an abelian Lie algebra isomorphic to $\C$ equipped with the zero bracket.
+\end{proposition}
+\begin{proof}
+    Let $L$ be a $\C$-vector space of dimension $1$. We know any $\C$-basis consists of a single, nonzero element. Consider one such basis element $x$. For any $y_1, y_2 \in L$, there exist $\lambda_1, \lambda_2 \in \C$ such that $y_1 = \lambda_1 x$ and $y_2 = \lambda_2 x$. Then,
+    \begin{align*}
+        \brac{y_1, y_2} = \brac{\lambda_1 x_1, \lambda_1 x_2} = \lambda_1 \lambda_2 \brac{x, x} = 0
+    \end{align*}
+    proving that $L$ is abelian. \Cref{Ch1:Prop:Abelian_Lie_Algebras_Iso} then tells us that $L \cong \C$.
+\end{proof}
+
+We can now turn our attention to the slightly more non-trivial problem of classifying non-abelian Lie algebras of dimension $2$ and $3$.
 
 \subsection{Dimension $2$}
 
@@ -53,7 +64,14 @@ It turns out that we are done!
     Any non-abelian Lie algebra of dimension $2$ is isomorphic to $L$.
 \end{boxproposition}
 \begin{proof}
-    Let $K$ be a Lie algebra of dimension $2$. Let $\set{u, v}$ be a $\C$-basis of $K$. Then, since $K$ is non-abelian, $x := \brac{u, v} \neq 0$.
+    Let $K$ be a Lie algebra of dimension $2$. It suffices to show that $K$ admits a basis $\set{x, y}$ such that $\brac{x, y} = y$, as this will readily yield the right structure constants.
+    
+    Let $\set{u, v}$ be a $\C$-basis of $K$. Then, since $K$ is non-abelian, $x := \brac{u, v} \neq 0$.
 
-    Since $x$ is a nonzero element of the $2$-dimensional vector space $K$ the linear subspace $K' := \Span{\brac{u, v}}$. 
+    Since $x$ is a nonzero element of the $2$-dimensional vector space $K$ the linear subspace $K' := \Span{x}$. We know that $K'$ is an abelian Lie algebra by \Cref{Ch1:Prop:1D_Lie_Algebras}. It turns out that $K'$ is also an ideal. We know there exists some $v \in K$ that is linearly independent of $x$. Fix $z \in K$. Then, there exist $\lambda, \mu \in \C$ such that $z = \lambda x + \mu v$. Then,
+    \begin{align*}
+        \brac{x, z} = \lambda \brac{x, x} + \mu \brac{x, y} = \lambda \brac{x, y}
+    \end{align*}
 \end{proof}
+
+\subsection{Dimension $3$}
