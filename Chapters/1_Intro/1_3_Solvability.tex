@@ -1,0 +1,78 @@
+\section{Solvability and Nilpotency}
+
+We now begin discussing some nontrivial objects in the theory of Lie algebras. Throughout this section, $L$ will denote an arbitrary Lie algebra.
+
+\subsection{Descending Series of Ideals}
+
+\begin{boxdefinition}[Derived Series]
+    The \textbf{derived series} of $L$ is the descending series of ideals
+    \begin{align*}
+        L = L^{(0)} \supseteq L^{(1)} \supseteq L^{(2)} \supseteq \cdots % \supseteq L^{(n - 1)} \supseteq L^{(n)}
+    \end{align*}
+    where $L^{(i)} := \brac{L^{(i - 1)}, L^{(i-1)}}$ for $1 \leq i$. % \leq n$.
+\end{boxdefinition}
+
+\begin{boxdefinition}[Solvability]
+    $L$ is said to be \textbf{solvable} if there exists an $n \in \N$ such that $L^{(n)} = 0$.
+\end{boxdefinition}
+
+\begin{boxdefinition}[Lower Central Series]
+    The \textbf{lower central series} of $L$ is the descending series of ideals
+    \begin{align*}
+        L = L^{0} \supseteq L^{1} \supseteq L^{2} \supseteq \cdots % \supseteq L^{n - 1} \supseteq L^{n}
+    \end{align*}
+    where $L^{i} := \brac{L, L^{i-1}}$ for $1 \leq i$. % \leq n$.
+\end{boxdefinition}
+
+\begin{boxconvention}
+    Elements of the derived series are denoted $L^{(i)}$, with parenthesised exponents, whereas elements of the lower central series are denoted $L^{i}$, with no parentheses.
+\end{boxconvention}
+
+\begin{boxdefinition}[Nilpotency]
+    $L$ is said to be \textbf{nilpotent} if there exists an $n \in \N$ such that $L^{n} = 0$.
+\end{boxdefinition}
+
+Indeed, there is the following relationship between solvability and nilpotency.
+
+\begin{lemma}
+    For all $i \in \N$, $L^i \supseteq L^{(i)}$.
+\end{lemma}
+\begin{proof}
+    \verb|sorry - argue by induction|
+\end{proof}
+
+\begin{boxcorollary}
+    If $L$ is nilpotent, then $L$ is solvable.
+\end{boxcorollary}
+
+\subsection{Ideals, Quotients and Subalgebras}
+
+Throughout this section, let $I \nsg L$ and $K \leq L$. Recall that $I$ is a Lie subalgebra of $L$ (cf. \Cref{Ch1:Lemma:IdealSubalg}), meaning we can impose solvability and nilpotency conditions on $I$ as well.
+
+\begin{definition}[Solvability of Subalgebras]
+    We say a subalgebra of $L$ is solvable if it is solvable as a Lie algebra in its own right.
+\end{definition}
+
+\begin{boxproposition}[Solvability Conditions]
+    \hfill
+    \begin{enumerate}[label = \normalfont\arabic*., noitemsep]
+        \item If $L$ is solvable, then so is $\quotient{L}{I}$.
+        \item If $L$ is solvable, then so is $K$.
+        \item If $I$ and $\quotient{L}{I}$ are solvable, then so is $L$.
+    \end{enumerate}
+\end{boxproposition}
+\begin{proof}
+    Let $\phi : L \surj \quotient{L}{I}$ be the quotient map. \verb|sorry - check phone|
+\end{proof}
+
+We have similar results for nilpotency.
+
+\begin{boxproposition}[Nilpotency Conditions]
+    \hfill
+    \begin{enumerate}[label = \normalfont\arabic*., noitemsep]
+        \item If $L$ is nilpotent, then so is $\quotient{L}{I}$.
+        \item If $L$ is nilpotent, then so is $K$.
+    \end{enumerate}
+\end{boxproposition}
+
+We will not prove these results here, as they are very similar to the corresponding results for solvability.

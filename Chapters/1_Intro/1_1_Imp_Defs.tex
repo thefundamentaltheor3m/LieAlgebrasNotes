@@ -225,7 +225,7 @@ Throughout this subsection, we will denote by $L$ an arbitrary Lie algebra.
 
 In certain respects, despite their name, ideals of Lie algebras are more like normal subgroups of a group than they are like ideals of a ring.
 
-\begin{lemma}
+\begin{lemma}\label{Ch1:Lemma:IdealSubalg}
     Any ideal $I \nsg L$ is also a subalgebra of $L$.
 \end{lemma}
 \begin{proof}
@@ -269,6 +269,20 @@ We come back to the theme of the Lie bracket being some sort of `commutator' whe
     \end{proof}
 \end{boxexample}
 
+It turns out that ideals are well-behaved under several operations.
+
+\begin{boxproposition}[The Behaviour of Ideals]
+    Let $I, J \nsg L$. Then,
+    \begin{enumerate}[label = \normalfont\arabic*., noitemsep]
+        \item $I + J \nsg L$
+        \item $\I \cap J \nsg L$
+        \item $\brac{I, J} \nsg L$
+    \end{enumerate}
+\end{boxproposition}
+\begin{proof}
+    \verb|sorry|
+\end{proof}
+
 \subsection{Quotients}
 
 We now define the notion of a quotient (Lie) algebra. For the remainder of this subsection, let $L$ be a Lie algebra and $I$ an arbitrary ideal of $L$. Given that we already have a notion of $\quotient{L}{I}$---recall that $I$ is a subspace of $L$, meaning we can take the quotient in a linear algebraic sense---it seems only natural to attempt to define a Lie bracket on this vector space. It turns out that the definition of an ideal allows us to do this in a very natural way.
@@ -301,6 +315,16 @@ We now define the notion of a quotient (Lie) algebra. For the remainder of this 
 \begin{boxdefinition}[Quotient Algebra]
     The \textbf{quotient algebra} of $L$ with respect to $I$ is the vector space $\quotient{L}{I}$ equipped with the bracket defined in \eqref{Ch1:Eq:QuotientBracket}, which we showed to be a Lie bracket in \Cref{Ch1:Prop:QuotientAlgebraLieBracket} above.
 \end{boxdefinition}
+
+Indeed, we can show that the map $x \mapsto x + I : L \to \quotient{L}{I}$ is a Lie algebra homomorphism. More generally, we have the following important theorem.
+
+\begin{boxtheorem}[First Isomorphism Theorem]\label{SP:Thm:FirstIsomorphism}
+    Let $K$ be a Lie algebra and $\phi : L \to K$ a Lie algebra homomorphism. Then,
+    \begin{align}
+        \quotient{L}{\pker{\phi}} \cong \pim{\phi}
+        \label{SP:Eq:FirstIsomorphism}
+    \end{align}
+\end{boxtheorem}
 
 \subsection{Adjoints}
 
@@ -420,3 +444,15 @@ Abbreviating the set $\setst{\pad{x}}{x \in L}$ of all adjoint maps on $L$ to $\
 \end{proof}
 
 \subsection{Structure Constants}
+
+Fix $n \in \N$, and let $L$ be an $n$-dimensional Lie algebra. Consider the $\C$-basis $\B = \set{e_1, \ldots, e_n}$ of $L$. Given the fundamentally linear algebraic nature of Lie algebras, it is natural to study what happens when we apply the Lie bracket to elements of $\B$.
+
+\begin{boxdefinition}[Structure Constants]
+    Fix $i, j \in \set{1, \ldots, n}$. We know that there exist unique constants $s_{ij1}, s_{ij2}, \ldots, s_{ijn}$ such that
+    \begin{align*}
+        \brac{e_i, e_j} = \sum_{k = 1}^{n} s_{ijk} e_k
+    \end{align*}
+    We call the constants $\set{s_{ijk}}_{1 \leq i, j, k \leq n}$ the \textbf{structure constants} of $L$ with respect to the basis $\B$.
+\end{boxdefinition}
+
+

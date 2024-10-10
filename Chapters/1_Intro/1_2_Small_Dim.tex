@@ -20,3 +20,40 @@ We begin with a simple observation about abelian Lie algebras.
 Recall that the only $\C$-vector space of dimension $1$ is $\C$ itself. \Cref{Ch1:Prop:Abelian_Lie_Algebras_Iso} then tells us that any Lie algebra of dimension $1$ is isomorphic to $\C$ with the zero bracket.
 
 It therefore suffices to classify non-abelian Lie algebras of dimension $2$ and $3$.
+
+\subsection{Dimension $2$}
+
+From \Cref{Ch1:Prop:Abelian_Lie_Algebras_Iso}, we already know that there is only one abelian Lie algebra of dimension $2$. The question remains, how many non-abelian Lie algebras of dimension $2$ are there?
+
+We begin by giving an example.
+
+\begin{boxexample}[A Two-Dimensional Non-Abelian Lie Algebra]
+    Consider the set
+    \begin{align*}
+        L := \setst{
+            \begin{bmatrix}
+                a & b \\ 0 & 0
+            \end{bmatrix}
+        }{a, b \in \C}
+        = \Span{\begin{bmatrix} 1 & 0 \\ 0 & 0 \end{bmatrix}, \begin{bmatrix} 0 & 1 \\ 0 & 0 \end{bmatrix}}
+        \subseteq \gl{2}
+    \end{align*}
+    Clearly, $L$ is a linear subspace of $\gl{2}$. Furthermore, One can show that
+    \begin{align*}
+        \brac{
+            \begin{bmatrix} 1 & 0 \\ 0 & 0 \end{bmatrix}, \begin{bmatrix} 0 & 1 \\ 0 & 0 \end{bmatrix}
+        } = \begin{bmatrix} 0 & 1 \\ 0 & 0 \end{bmatrix}
+    \end{align*}
+    proving that $L$ is closed under the commutator bracket. It follows that $L$ is a Lie subalgebra of $\gl{2}$, and therefore, a $2$-dimensional Lie algebra in its own right.
+\end{boxexample}
+
+It turns out that we are done!
+
+\begin{boxproposition}
+    Any non-abelian Lie algebra of dimension $2$ is isomorphic to $L$.
+\end{boxproposition}
+\begin{proof}
+    Let $K$ be a Lie algebra of dimension $2$. Let $\set{u, v}$ be a $\C$-basis of $K$. Then, since $K$ is non-abelian, $x := \brac{u, v} \neq 0$.
+
+    Since $x$ is a nonzero element of the $2$-dimensional vector space $K$ the linear subspace $K' := \Span{\brac{u, v}}$. 
+\end{proof}
