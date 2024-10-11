@@ -271,17 +271,29 @@ We come back to the theme of the Lie bracket being some sort of `commutator' whe
 
 It turns out that ideals are well-behaved under several operations.
 
-\begin{boxproposition}[The Behaviour of Ideals]
+\begin{boxproposition}[The Behaviour of Ideals]\label{Ch1:Prop:IdealBhv}
     Let $I, J \nsg L$. Then,
     \begin{enumerate}[label = \normalfont\arabic*., noitemsep]
         \item $I + J \nsg L$
-        \item $\I \cap J \nsg L$
-        \item $\brac{I, J} \nsg L$
+        \item $I \cap J \nsg L$
+        \item $\brac{I, J} := \Span{\setst{\brac{i, j}}{i \in I, j \in J}} \nsg L$
     \end{enumerate}
 \end{boxproposition}
 \begin{proof}
     \verb|sorry|
 \end{proof}
+
+We end by defining a special kind of ideal, which will become rather important.
+
+\begin{boxdefinition}[Derived Subalgebra]\label{Ch1:Def:DerivedSubalg}
+    The \textbf{derived subalgeba} of $L$, denoted $L'$, is the ideal (and subalgebra) $\brac{L, L}$.
+\end{boxdefinition}
+
+Note that $L'$ is, indeed, an ideal, by the third property proven in \Cref{Ch1:Prop:IdealBhv}.
+
+\begin{boxconvention}
+    Though $L'$ is an ideal, we will often refer to it as either the \textbf{derived subalgebra} or the \textbf{commutator subalgebra} of $L$. Indeed, \Cref{Ch1:Lemma:IdealSubalg} tells us that this is a reasonable, if not the most completely descriptive, thing to do.
+\end{boxconvention}
 
 \subsection{Quotients}
 

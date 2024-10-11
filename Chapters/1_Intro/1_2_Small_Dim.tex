@@ -32,7 +32,7 @@ The classification of Lie algebras in $1$ dimension is then straightforward. We 
 
 The classification of Lie algebras of dimension $1$ is then immediate.
 
-\begin{corollary}
+\begin{corollary}\label{Ch1:Cor:1D_Lie_Algebra_Classification}
     Any Lie algebra of dimension $1$ is abelian, isomorphic to $\C$ equipped with the zero bracket.
 \end{corollary}
 \begin{proof}
@@ -47,7 +47,7 @@ From \Cref{Ch1:Prop:Abelian_Lie_Algebras_Iso}, we already know that there is onl
 
 We begin by giving an example.
 
-\begin{boxexample}[A Two-Dimensional Non-Abelian Lie Algebra]
+\begin{boxexample}[A Two-Dimensional Non-Abelian Lie Algebra]\label{Ch1:Eg:2D_NonAbelian_Lie_Algebra}
     Consider the set
     \begin{align*}
         L := \setst{
@@ -67,23 +67,41 @@ We begin by giving an example.
     proving that $L$ is closed under the commutator bracket. It follows that $L$ is a Lie subalgebra of $\gl{2}$, and therefore, a $2$-dimensional Lie algebra in its own right.
 \end{boxexample}
 
-It turns out that we are done!
+The reason we are interested in the above example will become clear imminently. For the remainder of this section, we will reserve the notation $L$ for the Lie algebra described in \Cref{Ch1:Eg:2D_NonAbelian_Lie_Algebra} and let $K$ denote an arbitrary non-abelian Lie subalgebra of dimension $2$.
 
-\begin{boxproposition}
-    Any non-abelian Lie algebra of dimension $2$ is isomorphic to $L$.
-\end{boxproposition}
+We will begin by describing the derived subalgebra $K'$ (cf. \Cref{Ch1:Def:DerivedSubalg}) of $K$.
+
+\begin{lemma}
+    For any $\C$-basis $\set{u, v}$ of $K$, we have that $K' = \Span{\brac{u, v}}$.
+\end{lemma}
 \begin{proof}
-    Let $K$ be a non-abelian Lie algebra of dimension $2$. It suffices to show that $K$ admits a basis $\set{x, y}$ such that $\brac{x, y} = y$, as this will readily yield the right structure constants.\footnote{Alternatively, if we can show that $\brac{x, y} - y$, it will follow immediately that the linear isomorphism sending $x$ to $\begin{bmatrix} 1 & 0 \\ 0 & 0 \end{bmatrix}$ and $y$ to $\begin{bmatrix} 0 & 1 \\ 0 & 0 \end{bmatrix}$ is, indeed, a Lie algebra isomorphism.}
-    
-    Let $\set{u, v}$ be an arbitrary $\C$-basis of $K$. Then, since $K$ is non-abelian, $x := \brac{u, v} \neq 0$. Consider the $1$-dimensional the linear subspace $X := \Span{x}$. We know there exists some $z \in K \setminus \set{0}$ that is linearly independent of $x$. Write $z = \lambda u + \mu v$ for some $\lambda, \mu \in \C$. Then,
+    Let $\set{u, v}$ be a basis of $K$. Define $x := \brac{u, v}$. Since $K$ is non-abelian, $x \neq 0$, making $X := \Span{x}$ a $1$-dimensional subspace of $K$. Seeing as $K' = \brac{K, K} = \Span{\setst{\brac{x, y}}{x, y \in K}}$, it is clear that $K' \supseteq X$. It remains to show that $K' \subseteq X$.
+
+    It suffices to show that $\setst{\brac{x, y}}{x, y \in K} \subseteq X$. To that end, fix $a, b \in K$. We know there exist $\lambda_1, \mu_1, \lambda_2, \mu_2 \in \C$ such that $a = \lambda_1 u + \mu_1 v$ and $b = \lambda_2 u + \mu_2 v$. Then,
     \begin{align*}
-        \brac{x, z}
-        &= \brac{\brac{u, v}, \lambda u + \mu v} \\
-        &= \lambda \brac{\brac{u, v}, u} + \mu \brac{\brac{u, v}, v} \\
-        &= \lambda \brac{u, \brac{v, u}} - \mu \brac{v, \brac{u, v}} \\
-        &= \lambda\parenth{\brac{u, \brac{v, u}} + \brac{v, \brac{u, v}}} - \parenth{\lambda + \mu}\brac{v, \brac{u, v}}
+        \brac{a, b}
+        &= \brac{\lambda_1 u + \mu_1 v, \lambda_2 u + \mu_2 v} \\
+        &= \lambda_1 \lambda_2 \underbrace{\brac{u, u}}_{= 0} + \lambda_1 \mu_2 \brac{u, v} + \mu_1 \lambda_2 \brac{v, u} + \mu_1 \mu_2 \underbrace{\brac{v, v}}_{= 0} \\
+        &= \parenth{\lambda_1 \mu_2 - \mu_1 \lambda_2} \brac{u, v} \in X
     \end{align*}
-    \verb|sorry|
+    as required.
 \end{proof}
 
+This tells us, in particular, that the span of the commutator of any basis of $K$ is an ideal. We now have everything we need to describe $K$.
+
+\begin{boxproposition}
+    $K$ is isomorphic to $L$.
+\end{boxproposition}
+\begin{proof}
+    It suffices to show that $K$ admits a basis $\set{x, y}$ such that $\brac{x, y} = y$, as this will readily yield the right structure constants.\footnote{Alternatively, if we can show that $\brac{x, y} = y$, it will follow immediately that the linear isomorphism sending $x$ to $\begin{bmatrix} 1 & 0 \\ 0 & 0 \end{bmatrix}$ and $y$ to $\begin{bmatrix} 0 & 1 \\ 0 & 0 \end{bmatrix}$ is, indeed, a Lie algebra isomorphism.}
+    
+    Let $\set{u, v}$ be an arbitrary $\C$-basis of $K$. Let $y := \brac{u, v}$. Since $K$ is non-abelian, $y \neq 0$. Therefore, there exists some $z \in K \setminus \set{0}$ that is linearly independent of $y$. Since $\Span{y} = K' \nsg K$, we know that $\brac{z, y} \in K'$. In particular, $\exists \lambda \in \C$ such that $\brac{z, y} = \lambda y$. Furthermore, since $y$ and $z$ are linearly independent and $K$ is non-abelian, $\lambda \neq 0$. So, define $x := \lambda\inv z$. Then, $x$ is still linearly independent of $y$, making $\set{x, y}$ a basis of $K$, and $\brac{x, y} = y$, as required.
+\end{proof}
+
+Yes, it's true! Up to isomorphism, there is \underline{only one} non-abelian Lie algebra of dimension $2$. Therefore, there are \underline{only two} Lie algebras of dimension $2$: one non-abelian one and one abelian one.
+
+We can now turn our attention to the classification of Lie algebras in dimension $3$.
+
 \subsection{Lie Algebras of Dimension $3$}
+
+
