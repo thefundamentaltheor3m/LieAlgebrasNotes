@@ -50,7 +50,7 @@ We begin by giving an example.
 \begin{boxexample}[A Two-Dimensional Non-Abelian Lie Algebra]\label{Ch1:Eg:2D_NonAbelian_Lie_Algebra}
     Consider the set
     \begin{align*}
-        L := \setst{
+        \r_2 := \setst{
             \begin{bmatrix}
                 a & b \\ 0 & 0
             \end{bmatrix}
@@ -58,26 +58,28 @@ We begin by giving an example.
         = \Span{\begin{bmatrix} 1 & 0 \\ 0 & 0 \end{bmatrix}, \begin{bmatrix} 0 & 1 \\ 0 & 0 \end{bmatrix}}
         \subseteq \gl{2}
     \end{align*}
-    Clearly, $L$ is a linear subspace of $\gl{2}$. Furthermore, One can show that
+    Clearly, $\r_2$ is a linear subspace of $\gl{2}$. Furthermore, One can show that
     \begin{align*}
         \brac{
             \begin{bmatrix} 1 & 0 \\ 0 & 0 \end{bmatrix}, \begin{bmatrix} 0 & 1 \\ 0 & 0 \end{bmatrix}
         } = \begin{bmatrix} 0 & 1 \\ 0 & 0 \end{bmatrix}
     \end{align*}
-    proving that $L$ is closed under the commutator bracket. It follows that $L$ is a Lie subalgebra of $\gl{2}$, and therefore, a $2$-dimensional Lie algebra in its own right.
+    proving that $\r_2$ is closed under the commutator bracket. It follows that $\r_2$ is a Lie subalgebra of $\gl{2}$, and therefore, a $2$-dimensional Lie algebra in its own right.
 \end{boxexample}
 
-The reason we are interested in the above example will become clear imminently. For the remainder of this section, we will reserve the notation $L$ for the Lie algebra described in \Cref{Ch1:Eg:2D_NonAbelian_Lie_Algebra} and denote by $K$ an arbitrary non-abelian Lie subalgebra of dimension $2$.
+% The \r_2 notation comes from French literature: the \r stands for resoluble (solvable), and it is clear that the above Lie algebra is solvable.
 
-We will begin by describing the derived subalgebra $K'$ (cf. \Cref{Ch1:Def:DerivedSubalg}) of $K$.
+The reason we are interested in the above example will become clear, and we will reserve the notation $\r_2$ for this particular Lie algebra. For the remainder of this section, denote by $L$ an arbitrary non-abelian Lie subalgebra of dimension $2$.
+
+We will begin by describing the derived subalgebra $L'$ (cf. \Cref{Ch1:Def:DerivedSubalg}) of $L$.
 
 \begin{lemma}
-    For any $\C$-basis $\set{u, v}$ of $K$, we have that $K' = \Span{\brac{u, v}}$.
+    For any $\C$-basis $\set{u, v}$ of $L$, we have that $L' = \Span{\brac{u, v}}$.
 \end{lemma}
 \begin{proof}
-    Let $\set{u, v}$ be a basis of $K$. Define $x := \brac{u, v}$. Since $K$ is non-abelian, $x \neq 0$, making $X := \Span{x}$ a $1$-dimensional subspace of $K$. Seeing as $K' = \brac{K, K} = \Span{\setst{\brac{x, y}}{x, y \in K}}$, it is clear that $K' \supseteq X$. It remains to show that $K' \subseteq X$.
+    Let $\set{u, v}$ be a basis of $L$. Define $x := \brac{u, v}$. Since $L$ is non-abelian, $x \neq 0$, making $X := \Span{x}$ a $1$-dimensional subspace of $L$. Seeing as $L' = \brac{L, L} = \Span{\setst{\brac{x, y}}{x, y \in L}}$, it is clear that $L' \supseteq X$. It remains to show that $L' \subseteq X$.
 
-    It suffices to show that $\setst{\brac{x, y}}{x, y \in K} \subseteq X$. To that end, fix $a, b \in K$. We know there exist $\lambda_1, \mu_1, \lambda_2, \mu_2 \in \C$ such that $a = \lambda_1 u + \mu_1 v$ and $b = \lambda_2 u + \mu_2 v$. Then,
+    It suffices to show that $\setst{\brac{x, y}}{x, y \in L} \subseteq X$. To that end, fix $a, b \in L$. We know there exist $\lambda_1, \mu_1, \lambda_2, \mu_2 \in \C$ such that $a = \lambda_1 u + \mu_1 v$ and $b = \lambda_2 u + \mu_2 v$. Then,
     \begin{align*}
         \brac{a, b}
         &= \brac{\lambda_1 u + \mu_1 v, \lambda_2 u + \mu_2 v} \\
@@ -87,15 +89,15 @@ We will begin by describing the derived subalgebra $K'$ (cf. \Cref{Ch1:Def:Deriv
     as required.
 \end{proof}
 
-This tells us, in particular, that the span of the commutator of any basis of $K$ is an ideal. We now have everything we need to describe $K$.
+This tells us, in particular, that the span of the commutator of any basis of $L$ is an ideal. We now have everything we need to describe $L$.
 
 \begin{boxproposition}
-    $K$ is isomorphic to $L$.
+    $L$ is isomorphic to $\r_2$.
 \end{boxproposition}
 \begin{proof}
-    It suffices to show that $K$ admits a basis $\set{x, y}$ such that $\brac{x, y} = y$, as this will readily yield the right structure constants.\footnote{Alternatively, if we can show that $\brac{x, y} = y$, it will follow immediately that the linear isomorphism sending $x$ to $\begin{bmatrix} 1 & 0 \\ 0 & 0 \end{bmatrix}$ and $y$ to $\begin{bmatrix} 0 & 1 \\ 0 & 0 \end{bmatrix}$ is, indeed, a Lie algebra isomorphism.}
+    It suffices to show that $L$ admits a basis $\set{x, y}$ such that $\brac{x, y} = y$, as this will readily yield the right structure constants.\footnote{Alternatively, if we can show that $\brac{x, y} = y$, it will follow immediately that the linear isomorphism sending $x$ to $\begin{bmatrix} 1 & 0 \\ 0 & 0 \end{bmatrix}$ and $y$ to $\begin{bmatrix} 0 & 1 \\ 0 & 0 \end{bmatrix}$ is, indeed, a Lie algebra isomorphism.}
     
-    Let $\set{u, v}$ be an arbitrary $\C$-basis of $K$. Let $y := \brac{u, v}$. Since $K$ is non-abelian, $y \neq 0$. Therefore, there exists some $z \in K \setminus \set{0}$ that is linearly independent of $y$. Since $\Span{y} = K' \nsg K$, we know that $\brac{z, y} \in K'$. In particular, $\exists \lambda \in \C$ such that $\brac{z, y} = \lambda y$. Furthermore, since $y$ and $z$ are linearly independent and $K$ is non-abelian, $\lambda \neq 0$. So, define $x := \lambda\inv z$. Then, $x$ is still linearly independent of $y$, making $\set{x, y}$ a basis of $K$, and $\brac{x, y} = y$, as required.
+    Let $\set{u, v}$ be an arbitrary $\C$-basis of $L$. Let $y := \brac{u, v}$. Since $L$ is non-abelian, $y \neq 0$. Therefore, there exists some $z \in L \setminus \set{0}$ that is linearly independent of $y$. Since $\Span{y} = L' \nsg L$, we know that $\brac{z, y} \in L'$. In particular, $\exists \lambda \in \C$ such that $\brac{z, y} = \lambda y$. Furthermore, since $y$ and $z$ are linearly independent and $L$ is non-abelian, $\lambda \neq 0$. So, define $x := \lambda\inv z$. Then, $x$ is still linearly independent of $y$, making $\set{x, y}$ a basis of $L$, and $\brac{x, y} = y$, as required.
 \end{proof}
 
 Yes, it's true! Up to isomorphism, there is \underline{only one} non-abelian Lie algebra of dimension $2$. Therefore, there are \underline{only two} Lie algebras of dimension $2$: one non-abelian one and one abelian one.
