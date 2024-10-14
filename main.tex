@@ -27,12 +27,24 @@
 
 \newpage
 
+\nocite{*}
+
 \input{Chapters/1_Intro/1_Intro.tex}
 % \input{Chapters/2_Char/2_Char.tex}
 % \input{Chapters/3_App/3_App.tex}
 
-\nocite{HorawaLiebeck}
-\nocite{ErdmannWildon}
-\printbibliography
+\newpage
+
+% \chapter*{References}
+% \addcontentsline{toc}{chapter}{References}
+% \thispagestyle{empty}
+
+% These lecture notes are based heavily on the following references:~\cite{ErdmannWildon}
+
+\defbibnote{mybibnote}{These lecture notes are based heavily on the following references:}
+
+\printbibliography[prenote=mybibnote]
+\addcontentsline{toc}{chapter}{Bibliography}
+\thispagestyle{empty}
 
 \end{document}
