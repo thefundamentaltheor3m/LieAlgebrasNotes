@@ -34,23 +34,34 @@ We now begin discussing some nontrivial objects in the theory of Lie algebras. T
 
 Indeed, there is the following relationship between solvability and nilpotency.
 
-\begin{lemma}
+\begin{lemma}\label{Ch1:Lemma:DerivedSeriesContainedInLowerCentralSeries}
     For all $i \in \N$, $L^i \supseteq L^{(i)}$.
 \end{lemma}
 \begin{proof}
-    \sorry % Argue by induction on i
+    We argue by induction on $i$. The base case is trivial, because $L^0 = L = L^{(0)}$. Now, fix $i \in \N$ and assume that $L^i \supseteq L^{(i)}$. Then,
+    \begin{align*}
+        L^{i + 1}
+        = \brac{L, L^i} &= \brac{L, L^{(i)}} \\
+        &= \Span{\setst{\brac{\ell, x}}{x \in L^{(i)}, \ell \in L}} \\
+        &\supseteq \Span{\setst{\brac{\ell, x}}{x \in L^{(i)}, \ell \in L^{(i)}}} \\
+        &= \brac{L^{(i)}, L^{(i)}} = L^{(i + 1)}
+    \end{align*}
+    where the inclusion on the third line follows from the fact that $L^{(i)} \subseteq L$. This completes the induction and proves the desired result for all $i \in \N$.
 \end{proof}
 
 \begin{boxcorollary}
     If $L$ is nilpotent, then $L$ is solvable.
 \end{boxcorollary}
+\begin{proof}
+    \Cref{Ch1:Lemma:DerivedSeriesContainedInLowerCentralSeries} tells us that for all $n \in \N$, $L^n = 0$ implies $L^{(n)} = 0$. Thus, if such an $n$ exists that makes $L$ nilpotent, the same $n$ would also make $L$ solvable.
+\end{proof}
 
 \subsection{Ideals, Quotients and Subalgebras}
 
 Throughout this section, let $I \nsg L$ and $K \leq L$. Recall that $I$ is a Lie subalgebra of $L$ (cf. \Cref{Ch1:Lemma:IdealSubalg}), meaning we can impose solvability and nilpotency conditions on $I$ as well.
 
 \begin{definition}[Solvability of Subalgebras]
-    We say a subalgebra of $L$ is solvable if it is solvable as a Lie algebra in its own right.
+    We say a subalgebra of $L$ is \textbf{solvable} if it is solvable as a Lie algebra in its own right.
 \end{definition}
 
 \begin{boxproposition}[Solvability Conditions]
@@ -62,10 +73,58 @@ Throughout this section, let $I \nsg L$ and $K \leq L$. Recall that $I$ is a Lie
     \end{enumerate}
 \end{boxproposition}
 \begin{proof}
-    Let $\phi : L \surj \quotient{L}{I}$ be the quotient map. \sorry % Check phone
+    Let $\phi : L \surj \quotient{L}{I}$ be the quotient homomorphism.
+    \begin{enumerate}
+        \item Observe that it suffices to show that $\phiof{L^{(i)}} = \phiof{L}^{(i)}$ for all $i \in \N$: if this were true, then the existence of some $n \in \N$ such that $L^{(n)} = 0$ would imply that
+        \begin{align*}
+            \parenth{\quotient{L}{I}}^{(n)} = \phiof{L}^{(n)} = \phiof{L^{(n)}} = \phiof{0} = 0
+        \end{align*}
+        making $\quotient{L}{I}$ solvable whenever $L$ is.
+        
+        We will now prove that $\phiof{L^{(i)}} = \phiof{L}^{(i)}$ by induction on $i$. When $i = 0$, the result is trivial: it is true that $\phiof{L} = \phiof{L}$ by reflexivity. % Lean-like?
+        Now, fix $i \in \N$ and assume that $\phiof{L^{(i)}} = \phiof{L}^{(i)}$. Then,
+        \begin{align*}
+            \phiof{L^{(i + 1)}} = \phiof{\brac{L^{(i)}, L^{(i)}}}
+            &= \phiof{\Span{\setst{\brac{x,y}}{x, y \in L^{(i)}}}} \\
+            &= \Span{\phiof{\setst{\brac{x,y}}{x, y \in L^{(i)}}}} \\
+            &= \Span{\setst{\brac{\phiof{x}, \phiof{y}}}{x, y \in L^{(i)}}} \\
+            &= \brac{\phiof{L^{(i)}}, \phiof{L^{(i)}}} \\
+            &= \brac{\phiof{L}^{(i)}, \phiof{L}^{(i)}} = \phiof{L}^{(i + 1)}
+            % &= \brac{\parenth{\quotient{L}{I}}^{(i)}, \parenth{\quotient{L}{I}}^{(i)}}
+            % = \parenth{\quotient{L}{I}}^{(i + 1)}
+        \end{align*}
+        as required.
+
+        \item It suffices to prove that for all $i \in \N$, $K^{(i)} \subseteq L^{(i)}$: if this were true, then the existence of some $n \in \N$ such that $L^{(n)} = 0$ would imply that $K^{(n)} = 0$, making $K$ solvable whenever $L$ is.
+        
+        We will now prove that $K^{(i)} \subseteq L^{(i)}$ by induction on $i$. The base case is trivial, because $K^{(0)} = K \subseteq L = L^{(0)}$. Now, fix $i \in \N$ and assume that $K^{(i)} \subseteq L^{(i)}$. Then,
+        \begin{align*}
+            K^{(i + 1)} = \brac{K^{(i)}, K^{(i)}}
+            &= \Span{\setst{\brac{x,y}}{x, y \in K^{(i)}}} \\
+            &\subseteq \Span{\setst{\brac{x,y}}{x, y \in L^{(i)}}} \\
+            &= \brac{L^{(i)}, L^{(i)}} = L^{(i + 1)}
+        \end{align*}
+        as required.
+
+        \item Let $m \in \N$ be such that $I^{(m)} = 0$ and let $n \in \N$ be such that $\parenth{\quotient{L}{I}}^{(n)} = 0$. It suffices to prove that for all $i, j \in \N$, $\parenth{L^{(i)}}^{(j)} = L^{(i + j)}$: if this were true, then the fact that
+        \begin{align*}
+            \phiof{L^{(n)}} = \parenth{\quotient{L}{I}}^{(n)} = 0
+        \end{align*}
+        would immediately imply that $L^{(n)} \subseteq \pker{\phi} = I$, from which it would follow that $\parenth{L^{(n)}}^{(m)} = 0$, and therefore, that $L^{(n + m)} = 0$, making $L$ solvable whenever $I$ and $\quotient{L}{I}$ are.
+
+        We will now prove that $\parenth{L^{(i)}}^{(j)} = L^{(i + j)}$ by letting $i$ be arbitrary and performing induction on $j$. The base case is trivial, because $\parenth{L^{(i)}}^{(0)} = L^{(i)}$. Now, fix $j \in \N$ and assume that $\parenth{L^{(i)}}^{(j)} = L^{(i + j)}$. Then,
+        \begin{align*}
+            \parenth{L^{(i)}}^{(j + 1)} = \brac{\parenth{L^{(i)}}^{(j)}, \parenth{L^{(i)}}^{(j)}} = \brac{L^{(i + j)}, L^{(i + j)}} = L^{(i + j + 1)}
+        \end{align*}
+        as required.
+    \end{enumerate}
 \end{proof}
 
 We have similar results for nilpotency.
+
+\begin{definition}[Nilpotency of Subalgebras]
+    We say a subalgebra of $L$ is \textbf{nilpotent} if it is solvable as a Lie algebra in its own right.
+\end{definition}
 
 \begin{boxproposition}[Nilpotency Conditions]
     \hfill
@@ -75,4 +134,8 @@ We have similar results for nilpotency.
     \end{enumerate}
 \end{boxproposition}
 
-We will not prove these results here, as they are very similar to the corresponding results for solvability.
+We will not prove these results here, as they are very similar to the corresponding results for solvability. We will, however, mention that the reason why we do not have a nilpotency condition for $L$ when $I$ and $\quotient{L}{I}$ are nilpotent is that it is not, in general, true that $\parenth{L^i}^j = L^{i + j}$ for $i, j \in \N$, as we can easily see from the following counterexample.
+
+\begin{boxcexample}
+    \sorry
+\end{boxcexample}
