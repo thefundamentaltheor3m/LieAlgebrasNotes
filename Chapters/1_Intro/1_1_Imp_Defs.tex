@@ -277,6 +277,7 @@ It turns out that ideals are well-behaved under several operations.
         \item $I + J \nsg L$
         \item $I \cap J \nsg L$
         \item $\brac{I, J} := \Span{\setst{\brac{i, j}}{i \in I, j \in J}} \nsg L$
+        \item If $I + J = J$, then $I \subseteq J$.
     \end{enumerate}
 \end{boxproposition}
 \begin{proof}
@@ -328,15 +329,50 @@ We now define the notion of a quotient (Lie) algebra. For the remainder of this 
     The \textbf{quotient algebra} of $L$ with respect to $I$ is the vector space $\quotient{L}{I}$ equipped with the bracket defined in \eqref{Ch1:Eq:QuotientBracket}, which we showed to be a Lie bracket in \Cref{Ch1:Prop:QuotientAlgebraLieBracket} above.
 \end{boxdefinition}
 
-Indeed, we can show that the map $x \mapsto x + I : L \to \quotient{L}{I}$ is a Lie algebra homomorphism. More generally, we have the following important theorem.
+\begin{boxexample}[Quotienting by the Derived Subalgebra]
+    The quotient of $L$ by $L'$ is always an abelian Lie algebra.
+\end{boxexample}
 
-\begin{boxtheorem}[First Isomorphism Theorem]\label{SP:Thm:FirstIsomorphism}
+Indeed, we can show that the map $x \mapsto x + I : L \to \quotient{L}{I}$ is a Lie algebra homomorphism. More generally, we have the following results. % Correct term?
+
+\subsection{Isomorphism Theorems}
+
+Our favourite isomorphism theorems do, indeed, hold in the category of Lie algebras. Throughout this subsection, let $L$ be a Lie algebra.
+
+\begin{boxtheorem}[First Isomorphism Theorem]\label{SP:Thm:FirstIso}
     Let $K$ be a Lie algebra and $\phi : L \to K$ a Lie algebra homomorphism. Then,
     \begin{align}
         \quotient{L}{\pker{\phi}} \cong \pim{\phi}
         \label{SP:Eq:FirstIsomorphism}
     \end{align}
 \end{boxtheorem}
+
+\begin{boxtheorem}[Second Isomorphism Theorem]\label{SP:Thm:SecondIso}
+    Let $I, J \nsg L$. Thhen,
+    \begin{align}
+        \quotient{I + J}{I} \cong \quotient{J}{I \cap J}
+        \label{SP:Eq:SecondIsomorphism}
+    \end{align}
+\end{boxtheorem}
+
+% Keep adding to this section as needed
+
+We also have a correspondence between ideals of $L$ and ideals of $\quotient{L}{I}$.
+
+\begin{boxtheorem}[The Correspondence Theorme]\label{SP:Thm:Correspondence}
+    Let $I \nsg L$. Then, there is a one-to-one correspondence between the ideals of $L$ containing $I$ and the ideals of $\quotient{L}{I}$. Ie, there is a bijection
+    \begin{align}
+        \setst{J \nsg L}{J \supseteq I}
+        \longleftrightarrow
+        \set{J \nsg \quotient{L}{I}}
+    \end{align}
+    \label{SP:Eq:Correspondence}
+\end{boxtheorem}
+\begin{proof}
+    
+\end{proof}
+
+Note that each of the sets in \eqref{SP:Eq:Correspondence} is partially ordered by inclusion.
 
 \subsection{Adjoints}
 

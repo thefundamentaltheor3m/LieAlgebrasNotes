@@ -58,7 +58,7 @@ Indeed, there is the following relationship between solvability and nilpotency.
 
 \subsection{Ideals, Quotients and Subalgebras}
 
-Throughout this section, let $I \nsg L$ and $K \leq L$. Recall that $I$ is a Lie subalgebra of $L$ (cf. \Cref{Ch1:Lemma:IdealSubalg}), meaning we can impose solvability and nilpotency conditions on $I$ as well.
+Throughout this subsection, let $I \nsg L$ and $K \leq L$. Recall that $I$ is a Lie subalgebra of $L$ (cf. \Cref{Ch1:Lemma:IdealSubalg}), meaning we can impose solvability and nilpotency conditions on $I$ as well.
 
 \begin{definition}[Solvability of Subalgebras]
     We say a subalgebra of $L$ is \textbf{solvable} if it is solvable as a Lie algebra in its own right.
@@ -139,3 +139,44 @@ We will not prove these results here, as they are very similar to the correspond
 \begin{boxcexample}
     \sorry
 \end{boxcexample}
+
+\subsection{The Radical Ideal}
+
+Throughout this subsection, we will assume that $L$ is finite-dimensional.
+
+We begin with a basic result about the sums of ideals.
+
+\begin{lemma}\label{Ch1:Lemma:SumIdealSolvable}
+    Let $I, J \nsg L$. If $I$ and $J$ are solvable, then so is $I + J \nsg L$.
+\end{lemma}
+\begin{proof}
+    \sorry
+    % Apply 2nd iso thm
+\end{proof}
+
+\begin{boxcorollary}\label{Ch1:Cor:RadExists}
+    There exists a solvable ideal of $L$ that contains all other solvable ideals of $L$.
+\end{boxcorollary}
+\begin{proof}
+    Let $R$ be a solvable ideal of $L$ of maximal dimension.\footnote{When we say maximal dimension, we mean that the dimension of $R$ is the largest possible dimension such that a solvable ideal of that dimension exists. This is well-defined because $L$ is finite-dimensional, and the dimension of any ideal of $L$ is necessarily $\leq \pdim{L}$.} Now, fix any $I \nsg L$. \Cref{Ch1:Lemma:SumIdealSolvable} tells us that $I + R$ is a solvable ideal of $L$. But, since $R$ is of maximal dimension, we know that $\pdim{I + R} \leq \pdim{R}$. Therefore, we must have that $I + R = R$. The fourth point in \Cref{Ch1:Prop:IdealBhv} then tells us that $I \subseteq R$, as required.
+\end{proof}
+
+This solvable ideal has a name.
+
+\begin{boxdefinition}[Radical Ideal]
+    The \textbf{radical ideal} of $L$ is the solvable ideal of $L$ that contains all other solvable ideals of $L$, which we know exists from \Cref{Ch1:Cor:RadExists}.
+\end{boxdefinition}
+
+We can now define what it means for a Lie algebra to be semi-simple. We will be very interested in this class of Lie algebras going forward.
+
+\begin{boxdefinition}[Semi-Simplicity]\label{Ch1:Def:SemiSimple}
+    We say that $L$ is \textbf{semi-simple} if its radical ideal is the $0$ ideal.
+\end{boxdefinition}
+
+Our aim for this module will be to classify all semi-simple Lie algebras. We will do this by first classifying all solvable Lie algebras and then using that classification to classify all semi-simple Lie algebras. We will need a \textit{lot} more machinery before we can do this, but we will get there eventually.
+
+We also have a notion of simplicity, which is no different from what we would expect in groups.
+
+\begin{boxdefinition}[Simplicity]
+    We say that $L$ is \textbf{simple} if it has no nontrivial ideals.
+\end{boxdefinition}
