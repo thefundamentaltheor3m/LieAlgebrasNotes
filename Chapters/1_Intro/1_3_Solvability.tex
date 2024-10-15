@@ -140,6 +140,40 @@ We will not prove these results here, as they are very similar to the correspond
     \sorry
 \end{boxcexample}
 
+We will end the discussion on solvability and nilpotency by saying a bit about the derived subalgebra. We first make a general observation.
+
+\begin{lemma}\label{Ch1:Lemma:AllDerivsOfDerivEqTop}
+    If $L = L'$, then for all $i \in \N$, $L^{(i)} = L^{(1)} = L' = L$.
+\end{lemma}
+\begin{proof}
+    We argue by induction on $i$. The base case is trivial, because $L^{(0)} = L$. Now, fix $i \in \N$ and assume that $L^{(i)} = L$. Then,
+    \begin{align*}
+        L^{(i + 1)} = \brac{L^{(i)}, L^{(i)}} = \brac{L, L} = L'
+    \end{align*}
+    Furthermore, it is clear that $L^{(1)} = L'$, and, by assumption, $L' = L$. This completes the induction and proves the desired result for all $i \in \N$.
+\end{proof}
+
+There is an immediate consequence.
+
+\begin{corollary}\label{Ch1:Cor:DerivedSubalgLtOfSolvable}
+    If $L \neq 0$ and $L$ is solvable, then $L' < L$.
+\end{corollary}
+\begin{proof}
+    We argue by contraposition. If $L' = L$, then we know that $L^{(i)} = L$ for all $i \in \N$. In particular, since $L$ is nonzero, none of the $L^{(i)}$ can be zero. $L$ is therefore not solvable.
+\end{proof}
+
+We will be more interested the following, somewhat less immediate consequence that comes from combining applying the Correspondence Theorem to the ideals of quotient spaces of solvable Lie algebras.
+
+\begin{boxproposition}
+If $L$ is solvable, there exists an ideal $I \nsg L$ of codimension $1$.
+\end{boxproposition}
+\begin{proof}
+    Consider the quotient Lie algebra $K := \quotient{L}{L'}$. We know that $0 < K$, because $K = 0$ would imply that $L = L'$, which is impossible because $L$ is solvable, as shown in \Cref{Ch1:Cor:DerivedSubalgLtOfSolvable}. Therefore, $K$ contains a subspace $W$ of codimension $1$. Since $K$ is abelian, \Cref{Ch1:Prop:SubspaceIdealOfAbelian} tells us that $W$ is an ideal of $K$. \Cref{SP:Thm:Correspondence} tells us that the preimage $V$ of $W$ under the quotient epimorphism is an ideal of $L$ that contains $L'$. Simple arithmetic and dimension results from linear algebra then tell us
+    \begin{align*}
+        \pdim{V} = \pdim{W} + \pdim{L'} = \parenth{\pdim{L} - \pdim{L'} - 1} + \pdim{L'} = \pdim{L} - 1
+    \end{align*}
+\end{proof}
+
 \subsection{The Radical Ideal}
 
 Throughout this subsection, we will assume that $L$ is finite-dimensional.

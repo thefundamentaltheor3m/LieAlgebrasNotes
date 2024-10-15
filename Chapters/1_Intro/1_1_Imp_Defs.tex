@@ -284,6 +284,15 @@ It turns out that ideals are well-behaved under several operations.
     \sorry
 \end{proof}
 
+The abelian case is particularly nice.
+
+\begin{proposition}[Ideals of an Abelian Lie Algebra]\label{Ch1:Prop:SubspaceIdealOfAbelian}
+    Let $L$ be abelian. Then, every sub-vector space of $L$ is an ideal of $L$.
+\end{proposition}
+\begin{proof}
+    Let $I$ be a sub-vector space of $L$. Then, for all $x \in L$ and $y \in I$, we have $\brac{x, y} = 0$. Since $I$ is a subspace, we must have $0 \in I$, proving that $I$ is an ideal of $L$.
+\end{proof}
+
 We end by defining a special kind of ideal, which will become rather important.
 
 \begin{boxdefinition}[Derived Subalgebra]\label{Ch1:Def:DerivedSubalg}
@@ -505,3 +514,25 @@ Fix $n \in \N$, and let $L$ be an $n$-dimensional Lie algebra. Consider the $\C$
 
 %% TODO: Describe how structure constants give isomorphisms
 % Also talk about how they relate to matrices and how we can describe identities in them like Jacobi and skew-symmetry
+
+\subsection{Direct Sums}
+
+In this subsection, we briefly describe the theory of the direct sum of two Lie algebras. Let $L_1$ and $L_2$ be arbitrary Lie algebras. Just as we did in \Cref{Ch1:Prop:QuotientAlgebraLieBracket}, we will define a Lie bracket on the vector space $L_1 \+ L_2$, and define the Lie algebra direct sum of $L_1$ and $L_2$ to be this vector space equipped with this bracket.
+
+\begin{boxproposition}\label{Ch1:Prop:DirectSumLieBracket}
+    Define the map $\liebrac : \parenth{L_1 \+ L_2} \times \parenth{L_1 \+ L_2} \to \parenth{L_1 \+ L_2}$ given by
+    \begin{align}
+        \brac{x_1 \+ x_2, y_1 \+ y_2} := \brac{x_1, y_1} \+ \brac{x_2, y_2}
+        \label{Ch1:Eq:DirectSumBracket}
+    \end{align}
+    for all $x_1, y_1 \in L_1$ and $x_2, y_2 \in L_2$. Then, $\liebrac$ is a Lie bracket on $L_1 \+ L_2$.
+\end{boxproposition}
+\begin{proof}
+    \sorry
+\end{proof}
+
+\begin{boxdefinition}[Direct Sum]\label{Ch1:Def:DirectSum}
+    The \textbf{direct sum} of $L_1$ and $L_2$ is the vector space $L_1 \+ L_2$ equipped with the bracket defined in \eqref{Ch1:Eq:DirectSumBracket}, which we showed to be a Lie bracket in \Cref{Ch1:Prop:DirectSumLieBracket} above.
+\end{boxdefinition}
+
+We can repeat this definition successively to define the direct sum of any finite number of Lie algebras. We will not explore this idea in any more detail and will take it for granted.
