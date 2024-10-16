@@ -2,9 +2,38 @@
 
 We now turn our attention to the structure of subalgebras of $\gl{n}$ for some fixed $n \in \N$. We will begin by developing some mroe general theory, following which we will prove important theorems about the structure of such subalgebras.
 
+\subsection{Induced Actions on Quotients by Invariant Subspaces}
+\label{Ch1:Subsec:QuotientByInvariantSubspaces}
+
+We will begin by recalling the linear algebraic theory of invariant subspaces and adapt that theory to the context of Lie algebras. Throughout this subsection, we will fix a subset $L \subseteq \gl{n}$ and a subspace $U \leq \C^n$.
+
+\begin{definition}[Invariance]
+    We say that $U$ is \textbf{$L$-invariant} if for all $T \in L$ and $v \in U$, we have $\Tv \in U$.
+\end{definition}
+
+The action of $L$ on $\C^n$ induces a natural action on the quotient space of $\C^n$ by $U$.
+
+\begin{definition}[Induced Action]
+    To each $T \in L$, we can associate the linear map $\Tbar : \quotient{\C^n}{U} \to \quotient{\C^n}{U}$ defined by
+    \begin{align}
+        \Tbar(v + U) = \Tv + U
+    \end{align}
+    for all $v + U \in \quotient{\C^n}{U}$. We will refer to the map $T \mapsto \Tbar$ as the \textbf{induced action} of $L$ on $\quotient{\C^n}{U}$.
+\end{definition}
+
+Indeed, when $L$ is a Lie subalgebra of $\gl{n}$, we can go one step further.
+
+\begin{boxproposition}\label{Ch1:Prop:InducedActionLieAlg}
+    If $L$ is a Lie subalgebra of $\gl{n}$, the induced action map $\Phi : L \to \gl{\quotient{\C^n}{U}} : T \mapsto \Tbar$ is a Lie algebra homomorphism.
+\end{boxproposition}
+\begin{proof}
+    \sorry
+    % The idea is to show it to be a homomorphism of associative algebras instead.
+\end{proof}
+
 \subsection{Linear Algebraic and Lie Algebraic Nilpotency}
 
-We begin by recalling a basic definition from linear algebra.
+Recall the following definition from linear algebra.
 
 \begin{boxdefinition}[Nilpotency of Elements]
     We say that $x \in \gl{n}$ is \textbf{nilpotent} if there exists an $m \in \N$ such that $x^m = 0$. 
@@ -60,33 +89,36 @@ Before proving Engel's Theorem, we will state and prove the following Corollary 
     \sorry
 \end{proof}
 
-For the remainder of this subsection, we will focus on proving Engel's Theorem. We will fix a nilpotent subspace $N \leq \gl{n}$. The high-level idea is to perform induction on $\pdim{L}$ and draw a parallel with the proof of the Jordan Canonical Form theorem\footnote{Remember, we are working over $\C$.}. The proof is rather involved, and we will split it up into several steps, which we will put together at the end of this subsection.
+For the remainder of this subsection, we will focus on proving Engel's Theorem. We will fix a nilpotent subspace $N \leq \gl{n}$. The high-level idea is to perform induction on $\pdim{L}$ and draw a parallel with the proof of the Jordan Canonical Form theorem\footnote{Remember, we are working over $\C$.}. We will first show that it suffices to show that a certain distinguished vector exists, following which we will show that it does.
 
-We will begin by reducing the problem to one of showing that all elements of $N$ have a common eigenvector whose eigenvalue is $0$. For the remainder of this subsection, we will denote the \textbf{simultaneous kernel} of all elements of $N$ by
+For the remainder of this subsection, we will denote the \textbf{simultaneous kernel} of all elements of $N$ by
 \begin{align}
     U_n := \setst{v \in \C^n}{\forall T \in N, \ \Tv = 0} = \bigcap_{T \in N} \pker{T}
     \label{Ch1:Eq:Simultaneous_Kernel_Def}
 \end{align}
-As an intersection of sub-vector spaces, $U_n$ is a subspace of $\C^n$. Furthermore, $U_n$ is $N$-invariant: for all $T \in N$ and $v \in U_n$, we have $\Tv = 0 \in U_n$. There is therefore a natural action of $N$ on the well-defined quotient space $\quotient{\C^n}{U_n}$: to any $T \in N$, we can associate the linear map
-\begin{align}
-    \Tbar : \quotient{\C^n}{U_n} \to \quotient{\C^n}{U_n} : v + U_n \mapsto \Tv + U_n \in \gl{\quotient{\C^n}{U_n}}
-\end{align}
-
-\begin{lemma}
-    The map $T \mapsto \Tbar : N \to \gl{\quotient{\C^n}{U_n}}$ is a Lie algebra homomorphism.
-\end{lemma}
-\begin{proof}
-    \sorry
-    % The idea is to show it to be a homomorphism of associative algebras instead.
-\end{proof}
+As an intersection of sub-vector spaces, $U_n$ is a subspace of $\C^n$. Furthermore, $U_n$ (and, by extension, all of its subspaces) are $N$-invariant: for all $T \in N$ and $v \in U_n$, we have $\Tv = 0 \in U_n$.
 
 We are now ready to reduce the proof of Engel's Theorem to showing that all the elements of $T$ have a common eigenvector with eigenvalue $0$---or, equivalently, to showing that $U_n$ is nonzero.
 
 \begin{lemma}
-    If $U_n$ is nonempty, then there exists a basis of $\C^n$ with respect to which every element of $N$ is upper-triangular.
+    If $U_n$ contains a nonzero element, then there exists a basis of $\C^n$ with respect to which every element of $N$ is upper-triangular.
 \end{lemma}
 \begin{proof}
-    We argue by induction on $n$. When $n = 1$, the result is vacuously true. %(?)
+    We argue by induction on $n$. When $n = 1$, the result is trivial: every element of $N$ (and of $\gl{n} = \gl{1}$) is upper-triangular, so the fact that $U_n = 0$ is not a problem. Now, suppose that there exists a nonzero element $v \in U_n$, ie, such that $\Tv = 0$ for all $T \in N$. Let $V = \quotient{\C^n}{\Span{v}}$. Since $\Span{v} \leq U_n$ and $U_n$ is $N$-invariant, we know that $\Span{v}$ is $N$-invariant as well, allowing us to develop the machinery developed in \Cref{Ch1:Subsec:QuotientByInvariantSubspaces} that tells us about the Lie algebraic properties of $\gl{V}$.
+    
+    From \Cref{Ch1:Prop:InducedActionLieAlg}, we know that the map that takes $T \in N$ to its induced action on $V$ is a Lie algebra homomorphism. Therefore, by \Cref{Ch1:Lemma:im_ker_subalg}, its image is a subalgebra of $\gl{V}$. Indeed, the elements of this subalgebra consists of nilpotent elements: for any $T \in \gl{V}$, we know there exists some $m \in \N$ such that $T^m = 0$, and the same $m$ will work for the induced action $\Tbar$ of $T$ on the quotient space: for any $x + \Span{v} \in \quotient{\C^n}{\Span{v}}$,
+    \begin{align*}
+        \overline{T}^m(x + U) = \overline{T}^m(x) + U = 0 + U
+    \end{align*}
+    Therefore, by the induction hypothesis, there exists a basis
+    \begin{align*}
+        \overline{B} := \set{v_1 + \Span{v}, \ldots, v_{n - 1} + \Span{v}}
+    \end{align*}
+    of $V$ with respect to which every element of the image of $N$ is upper-triangular. We can then lift this basis to a basis and this basis
+    \begin{align*}
+        B := \set{v_1, \ldots, v_{n - 1}, v}
+    \end{align*}
+    of $\C^n$ by adding $v$ to it. $B$ has the desired property that every element of $N$ is upper-triangular with respect to it.
 \end{proof}
 
 % What exactly does this mean? Put it elsewhere perhaps...
@@ -107,15 +139,11 @@ We will now show that $U_n$ is, indeed, nonzero.
     There exists a nonzero vector $v \in U_n$.
 \end{lemma}
 \begin{proof}
-    We need to show that $\Tv = 0$ for all $T \in N$. We argue by induction on $\pdim{N}$. The base case is trivial. So, let $N$ be such that for all Lie subalgebras of $\gl{n}$ of dimension less than $\pdim{N}$, \sorry
+    We need to show that $\Tv = 0$ for all $T \in N$. We argue by induction on $\pdim{N}$. The base case $\pdim{N} = 1$ is clear: $N$ must be the span of a single, nilpotent element, which necessarily has a (nonzero) eigenvector with eigenvalue $0$. So, assume $N$ is such that for all Lie subalgebras of $\gl{n}$ of dimension less than $\pdim{N}$, there exists a nonzero vector in the simultaneous kernel $U_n$ of all elements of $N$.
     
-    Let $A \subseteq N$ be a maximal\footnote{with respect to inclusion}, proper Lie subalgebra of $N$. Consider the map
-    \begin{align*}
-        \phi : A \to \gl{\quotient{L}{A}} : \brac{g, \Tbar} \mapsto \overline{\brac{g, T}}
-    \end{align*}
-    where the map $\brac{g, T}$ is the map $gT - Tg$. One can show that this map is well-defined (\sorry) and that it is a Lie algebra homomorphism (\sorry).
+    Let $A \subseteq N$ be a maximal\footnote{with respect to inclusion}, proper Lie subalgebra of $N$. Consider the map $\phi : A \to \gl{\quotient{N}{A}}$ that maps any $g \in A$ to the map that sends every $T + A \in \quotient{N}{A}$ to the map $\brac{g, T} + A \in \quotient{N}{A}$, where the map $\brac{g, T}$ is the map $gT - Tg$. % Something like the induced action of the adjoint map??? That would immediately give us all the machinery defined in the section about quotienting by invariant subalgebras.
 
-    Observe that since $\pdim{\phiof{A}} \leq \pdim{A}$ and $A < L$ by the assumption that $A$ is proper, we know that $\pdim{A} < L$. Therefore,we can apply the induction hypothesis to $A$. 
+    Observe that since $\pdim{\phiof{A}} \leq \pdim{A}$ and $\pdim{A} < \pdim{L}$ by the assumption that $A$ is proper, we know that $\pdim{A} < L$. Therefore,we can apply the induction hypothesis to $A$.
     \sorry
 \end{proof}
 
@@ -133,7 +161,7 @@ There is also a more general formulation of Engel's Theorem over arbitrary Lie a
     \end{align*}
     This gives us one direction of the proof.
 
-    For the converse direction, we apply \Cref{Ch1:Thm:Engel} (the standard formulation of Engel's Theorem) to the 
+    For the converse direction, we apply \Cref{Ch1:Thm:Engel} (the standard formulation of Engel's Theorem) to the \sorry
 \end{proof}
 
 \subsection{Weights of Lie Algebras}
