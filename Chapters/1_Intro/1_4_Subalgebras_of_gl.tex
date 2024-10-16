@@ -16,6 +16,27 @@ We can extend this to sub-vector spaces.
     We say a sub-vector space $N \leq \gl{n}$ is \textbf{nilpotent} if every element of $N$ is nilpotent.
 \end{boxdefinition}
 
+We can say something about the adjoint of a nilpotent element.
+
+\begin{lemma}\label{Ch1:Lemma:adNilpotnetOfNilpotent}
+    Let $x \in \gl{n}$ be nilpotent. Then, $\pad{x} \in \gl{\gl{n}}$ is nilpotent as well.
+\end{lemma}
+\begin{proof}
+    We need to show that there exists an $m \in \N$ such that the map we get by successively composing the adjoint map $\pad{x}$ $m$ times is identically zero.
+    
+    Fix $y \in \gl{n}$. Then,
+    \begin{align*}
+        \pad{x}\!(y) = \brac{x, y} &= xy - yx \\
+        \pad{x}^2\!(y) = \brac{x, \brac{x, y}} &= x\brac{x, y} - \brac{x, y}x = x^2y - xyx - xyx + yx^2 \\
+        \pad{x}^3\!(y) = \brac{x, \brac{x, \brac{x, y}}} &= x^3y + \cdots + xyx^2 - yx^3
+    \end{align*}
+    More generally, one can show that
+    \begin{align*}
+        \pad{x}^m\!(y) = \sum_{i = 0}^{m} \lambda_{i, m} x^i y x^{m - i}
+    \end{align*}
+    for all $m \in \N$ and some $\lambda_{i, m} \in \Z$. In particular, since all powers of $x$ beyond some $m$ are zero, we have that $\pad{x}^m\!(y) = 0$ for all $y \in \gl{n}$.
+\end{proof}
+
 We have an important relationship between linear algebraic and lie algebraic nilpotency of a Lie subalgebra.
 
 \begin{boxtheorem}[Engel's Theorem]\label{Ch1:Thm:Engel}
@@ -28,6 +49,14 @@ Before proving Engel's Theorem, we will state and prove the following Corollary 
     Any nilpotent sub-vector space of $\gl{n}$ is also nilpotent as a Lie subalgebra.
 \end{boxcorollary}
 \begin{proof}
+    Let $N$ be a nilpotent sub-vector space of $\gl{n}$. By Engel's Theorem, there exists a basis of $\C^n$ with respect to which every element of $N$ is upper-triangular. In particular, they must all have zeros on the diagonal, because they are nilpotent: they are of the form
+    \begin{align*}
+        \begin{bmatrix}
+            0 & & * \\
+            \vdots & \ddots & \\
+            0 & \cdots & 0
+        \end{bmatrix}
+    \end{align*}
     \sorry
 \end{proof}
 
@@ -35,30 +64,76 @@ For the remainder of this subsection, we will focus on proving Engel's Theorem. 
 
 We will begin by reducing the problem to one of showing that all elements of $N$ have a common eigenvector whose eigenvalue is $0$. For the remainder of this subsection, we will denote the \textbf{simultaneous kernel} of all elements of $N$ by
 \begin{align}
-    N_0 := \setst{v \in \C^n}{\forall T \in N, \ \Tv = 0} = \bigcap_{T \in N} \pker{T}
+    U_n := \setst{v \in \C^n}{\forall T \in N, \ \Tv = 0} = \bigcap_{T \in N} \pker{T}
     \label{Ch1:Eq:Simultaneous_Kernel_Def}
 \end{align}
-Note that $N_0$ is $N$-invariant: for all $T \in N$ and $v \in N_0$, we have $\Tv = 0 \in N_0$. There is therefore a natural action of $N$ on $\quotient{\C^n}{N_0}$: to any $T \in N$, we can associate the linear map
+As an intersection of sub-vector spaces, $U_n$ is a subspace of $\C^n$. Furthermore, $U_n$ is $N$-invariant: for all $T \in N$ and $v \in U_n$, we have $\Tv = 0 \in U_n$. There is therefore a natural action of $N$ on the well-defined quotient space $\quotient{\C^n}{U_n}$: to any $T \in N$, we can associate the linear map
 \begin{align}
-    \Tbar : \quotient{\C^n}{N_0} \to \quotient{\C^n}{N_0} : v + N_0 \mapsto \Tv + N_0 \in \gl{\quotient{\C^n}{N_0}}
+    \Tbar : \quotient{\C^n}{U_n} \to \quotient{\C^n}{U_n} : v + U_n \mapsto \Tv + U_n \in \gl{\quotient{\C^n}{U_n}}
 \end{align}
 
 \begin{lemma}
-    The map $T \mapsto \Tbar : N \to \gl{\quotient{\C^n}{N_0}}$ is a Lie algebra homomorphism.
+    The map $T \mapsto \Tbar : N \to \gl{\quotient{\C^n}{U_n}}$ is a Lie algebra homomorphism.
 \end{lemma}
 \begin{proof}
     \sorry
     % The idea is to show it to be a homomorphism of associative algebras instead.
 \end{proof}
 
-We are now ready to reduce the proof of Engel's Theorem to showing that all the elements of $T$ have a common eigenvector with eigenvalue $0$---or, equivalently, to showing that $N_0$ is nonzero.
+We are now ready to reduce the proof of Engel's Theorem to showing that all the elements of $T$ have a common eigenvector with eigenvalue $0$---or, equivalently, to showing that $U_n$ is nonzero.
 
 \begin{lemma}
-    If $N_0$ is nonempty, then there exists a basis of $\C^n$ with respect to which every element of $N$ is upper-triangular.
+    If $U_n$ is nonempty, then there exists a basis of $\C^n$ with respect to which every element of $N$ is upper-triangular.
 \end{lemma}
 \begin{proof}
+    We argue by induction on $n$. When $n = 1$, the result is vacuously true. %(?)
+\end{proof}
+
+% What exactly does this mean? Put it elsewhere perhaps...
+
+The way we will prove Engel's Theorem is to construct a sequence of subspaces
+\begin{align*}
+    0 = V_0 \subsetneq V_1 \subsetneq \cdots \subsetneq V_m = \C^n
+\end{align*}
+such that $N(V_i) \subseteq V_{i - 1}$. We will refine this sequence so that $m = n$, ie, so that
+\begin{align*}
+    \pdim{\quotient{V_{i}}{V_{i - 1}}} = 1
+\end{align*}
+using \Cref{Ch1:Prop:ExistsIdealCodim1}. We can then take distinguished elements from each of the quotients to form a basis of $\C^n$, and this will be the basis with respect to which every element of $N$ is upper-triangular.
+
+We will now show that $U_n$ is, indeed, nonzero.
+
+\begin{lemma}
+    There exists a nonzero vector $v \in U_n$.
+\end{lemma}
+\begin{proof}
+    We need to show that $\Tv = 0$ for all $T \in N$. We argue by induction on $\pdim{N}$. The base case is trivial. So, let $N$ be such that for all Lie subalgebras of $\gl{n}$ of dimension less than $\pdim{N}$, \sorry
+    
+    Let $A \subseteq N$ be a maximal\footnote{with respect to inclusion}, proper Lie subalgebra of $N$. Consider the map
+    \begin{align*}
+        \phi : A \to \gl{\quotient{L}{A}} : \brac{g, \Tbar} \mapsto \overline{\brac{g, T}}
+    \end{align*}
+    where the map $\brac{g, T}$ is the map $gT - Tg$. One can show that this map is well-defined (\sorry) and that it is a Lie algebra homomorphism (\sorry).
+
+    Observe that since $\pdim{\phiof{A}} \leq \pdim{A}$ and $A < L$ by the assumption that $A$ is proper, we know that $\pdim{A} < L$. Therefore,we can apply the induction hypothesis to $A$. 
     \sorry
-    % Watch from minute 45 of the recording: https://imperial.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=9d823173-f757-41e5-9a0e-b1fe00ff933f.
+\end{proof}
+
+% IDEA: Begin by taking a nonzero element of the overarching Lie algebra N. We know that its bracket with itself is zero. Its span is a subalgebra because any 1D subspace is a subalgebra. We need other guys such that their brackets with the first guy are contained in their span. This is how we build the basis we need.
+
+There is also a more general formulation of Engel's Theorem over arbitrary Lie algebras.
+
+\begin{boxtheorem}[Engel's Theorem, Second Version]\label{Ch1:Thm:EngelOverAnyLie}
+    Let $L$ be an arbitrary Lie algebra. Then, $L$ is nilpotent if and only if for all $x \in L$, the adjoint map $\pad{x}$ is nilpotent.
+\end{boxtheorem}
+\begin{proof}
+    Assume that $L$ is nilpotent. Then, there exists some $m \in \N$ such that $L^m = 0$. Then, any composition of Lie brackets of length $m$ is zero: for all $x, y \in L$,
+    \begin{align*}
+        \pad{x}^n\!(y) = \brac{x, \brac{x, \cdots \brac{x, y}\cdots}} = 0
+    \end{align*}
+    This gives us one direction of the proof.
+
+    For the converse direction, we apply \Cref{Ch1:Thm:Engel} (the standard formulation of Engel's Theorem) to the 
 \end{proof}
 
 \subsection{Weights of Lie Algebras}
