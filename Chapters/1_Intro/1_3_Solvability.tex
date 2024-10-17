@@ -56,6 +56,19 @@ Indeed, there is the following relationship between solvability and nilpotency.
     \Cref{Ch1:Lemma:DerivedSeriesContainedInLowerCentralSeries} tells us that for all $n \in \N$, $L^n = 0$ implies $L^{(n)} = 0$. Thus, if such an $n$ exists that makes $L$ nilpotent, the same $n$ would also make $L$ solvable.
 \end{proof}
 
+The converse is not true. We need to develop a bit of theory to see this.
+
+\begin{lemma}\label{Ch1:Lemma:NilpotentCentreNonzero}
+    If $L$ is nilpotent, its centre is nonzero.
+\end{lemma}
+\begin{proof}
+    Let $n \in \N$ be such that
+    \begin{align*}
+        L = L^0 \supseteq L^1 \supseteq \cdots \supseteq L^n \subsetneq L^{n+1} = 0
+    \end{align*}
+    with $L^n \neq 0$.
+\end{proof}
+
 \subsection{Ideals, Quotients and Subalgebras}
 
 Throughout this subsection, let $I \nsg L$ and $K \leq L$. Recall that $I$ is a Lie subalgebra of $L$ (cf. \Cref{Ch1:Lemma:IdealSubalg}), meaning we can impose solvability and nilpotency conditions on $I$ as well.
@@ -64,7 +77,7 @@ Throughout this subsection, let $I \nsg L$ and $K \leq L$. Recall that $I$ is a 
     We say a subalgebra of $L$ is \textbf{solvable} if it is solvable as a Lie algebra in its own right.
 \end{definition}
 
-\begin{boxproposition}[Solvability Conditions]
+\begin{boxproposition}[Solvability Conditions]\label{Ch1:Prop:SolvabilityConditions}
     \hfill
     \begin{enumerate}[label = \normalfont\arabic*., noitemsep]
         \item If $L$ is solvable, then so is $\quotient{L}{I}$.
@@ -214,3 +227,53 @@ We also have a notion of simplicity, which is no different from what we would ex
 \begin{boxdefinition}[Simplicity]
     We say that $L$ is \textbf{simple} if it has no nontrivial ideals.
 \end{boxdefinition}
+
+\subsection{Ascending Series of Ideals}
+
+We will end by talking about ascending series of ideals and their corresponding quotients. Throughout this subsection, $L$ will denote an arbitrary Lie algebra.
+
+\begin{boxdefinition}[Ascending Central Series]
+    We say that an increasing chain of ideals
+    \begin{align*}
+        0 \subseteq L_1 \subseteq L_2 \subseteq L_3 \subseteq \cdots
+    \end{align*}
+    is an \textbf{ascending central series} of $L$ if $L_1 = \Zof{L}$ and for all $i \in \N$, we have
+    \begin{enumerate}
+        \item $L_i \nsg L$ with quotient map $g_i : L \surj \quotient{L}{L_i}$
+        \item $L_{i + 1} = g_i\inv\!\parenth{\Zof{\quotient{L}{L_i}}}$
+    \end{enumerate}
+\end{boxdefinition}
+
+\begin{boxconvention}
+    We will use subscripted $L_i$s to denote elements of the ascending central series, in contrast to superscripts used for the descending central series.
+\end{boxconvention}
+
+We now have an equivalent criterion for nilpotency.
+
+\begin{boxproposition}
+    $L$ is nilpotent if and only if $L_n = L$ for some $n \in \N$.
+\end{boxproposition}
+\begin{proof} \hfill
+    \begin{description}
+        \item[$\parenth{\implies}$]
+            One can show by induction on $n$ that if $L^n = 0$, then $L_n = L$. Then, if $\exists n \in \N$ such that $L^n = 0$, ie, if $L$ is nilpotent, then $L_n = 0$ as well. \sorry % (Same n works for both)
+
+        \item[$\parenth{\impliedby}$] 
+            % Use fact that image of centre in quotient map is centre of quotient
+            % The idea is to show that $L^{k + 1} = \brac{L, L^k} \subseteq L_{n + k - 1}$ and $\brac{L, L^k} \subseteq \brac{L, L_{n - l}}$. And $L_{n - k}$ is the preimage of $\Zof{\quotient{L}{L_{n - k - 1}}}$
+            \sorry
+    \end{description}
+\end{proof}
+
+We end with another counterexample that shows that solvable Lie algebras need not be nilpotent.
+
+\begin{boxcexample}
+    For all $n$, $\t{n}$ is solvable but not nilpotent.
+    \begin{proof}[Proof that $\t{n}$ is solvable]
+        First, observe that $\brac{\t{n}, \t{n}} = \t{n}' = \u{n}$. By \sorry, we know that $\u{n}$ is nilpotent. Therefore, $\u{n}$ is solvable. Furthermore, $\quotient{\t{n}}{\t{n}'}$ is abelian, making it solvable by \sorry. Therefore, by \Cref{Ch1:Prop:SolvabilityConditions}, $\t{n}$ is solvable.
+    \end{proof}
+
+    \begin{proof}[Proof that $\t{n}$ is not nilpotent]
+        
+    \end{proof}
+\end{boxcexample}
