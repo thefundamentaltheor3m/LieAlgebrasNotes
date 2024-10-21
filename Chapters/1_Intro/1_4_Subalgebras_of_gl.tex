@@ -166,9 +166,89 @@ There is also a more general formulation of Engel's Theorem over arbitrary Lie a
 
 \subsection{Weights of Lie Algebras}
 
+Throughout this subsection, let $V$ be a finite-dimensional $\C$-vector space, $L$ a lie subalgebra of $\gl{V}$, and $\lambda : L \to \C$ be an arbitrary function.
+
+\begin{boxdefinition}[Weight Space]
+    We say the \textbf{weight space} of $\lambda$ with respect to $L$ %?%
+    is the space
+    \begin{align*}
+        V_{\lambda} := \setst{v \in V}{\forall T \in L, \ \Tv = \lambda(T) \cdot v}
+    \end{align*}
+\end{boxdefinition}
+
+The weight space gives us useful information about $L$ and $\lambda$.
+
+\begin{lemma}
+    If $V_{\lambda}$ is nonzero, then $\lambda$ is a linear map.
+\end{lemma}
+\begin{proof}
+    Suppose that $V_{\lambda} \neq 0$. Fix $S, T \in L$. We know there exists a nonzero vector $v \in V$ such that $\Sof{v} = \lambda(S) \cdot v$ and $\Tv = \lambda(T) \cdot v$. In particular, we have that
+    \begin{align*}
+        \lambda(S + T) \cdot v = (S + T)(v) = \Sof{v} + \Tof{v} = \lambda(S) \cdot v + \lambda(T) \cdot v = (\lambda(S) + \lambda(T)) \cdot v
+    \end{align*}
+    Given that $\lambda(S + T)$ and $\lambda(S) + \lambda(T)$ are both scalars, we must have that $\lambda(S + T) = \lambda(S) + \lambda(T)$.
+\end{proof}
+
+\begin{lemma}
+    $V_\lambda$ is a sub-vector space of $\C^n$.
+\end{lemma}
+\begin{proof}
+    \sorry
+\end{proof}
+
+Weight spaces are rather interesting, and in the remainder of this subsection, we will develop some theory that will prove quite useful when we prove Lie's Theorem (\Cref{Ch1:Thm:Lie}, which we shall see shortly).
+
+\begin{boxlemma}\label{Ch1:Lemma:WeightSpaceIdealInvariant}
+    Let $I \nsg L$, and let $U \subseteq V$ be a weight space for $I$. Then, $U$ is $L$-invariant, ie, $L(U) \subseteq U$.
+\end{boxlemma}
+\begin{proof}
+    Fix $u \in U$ and $T \in L$. Let $\mu : I \to \C$ be a map such that $U = I_{\mu}$. We want $\Tof{u}$ to be in $U$ as well: for any $S \in I$, we would like to have that
+    \begin{align*}
+        \Sof{\Tof{u}} = \muof{S} \cdot \Tof{u}
+    \end{align*}
+    First, observe that
+    \begin{align*}
+        \Sof{\Tof{u}}
+        &= \text{\sorry} \\
+        &= \brac{S, T}\!(u) + \Tof{\Sof{u}} \\
+        &= \muof{\brac{S, T}} \cdot u + \Tof{\muof{S} \cdot u} \\
+        &= \muof{\brac{S, T}} \cdot u + \muof{S} \cdot \Tof{u}
+    \end{align*}
+    If we can show that $\muof{\brac{S, T}} = 0$, we will be done.
+
+    Consider the following subspace of $V$:
+    \begin{align}
+        W := \Span{\set{u, T(u), T^2(u), \ldots}}
+    \end{align}
+    Since $W \leq V$, which is finite-dimensional, we know $W$ is finite-dimensional as well. Then, let $m = \pdim{W}$. We know, from linear algebra, that $\setst{T^i(u)}{0 \leq i \leq m - 1}$ is a basis of $W$.
+    
+    We will begin by showing that for all $0 \leq i \leq m - 1$, there exist $\alpha_{i, 1}, \ldots, \alpha_{i, i - 1}$ such that
+    \begin{align}
+        ST^i(u) = 
+        \label{Ch1:Eq:WeightSpaceIdealInvariant_1}
+    \end{align}
+    We will prove \eqref{Ch1:Eq:WeightSpaceIdealInvariant_1} by induction on $i$.
+
+    \eqref{Ch1:Eq:WeightSpaceIdealInvariant_1} tells us the following two facts.
+    \begin{enumerate}
+        \item $W$ is $S$-invariant.
+
+        \item There exists a basis of $S\vert_{W}$ with respect to which the matrix of $S$ is
+        $\displaystyle \begin{bmatrix}
+            \muof{S} & & * \\
+            & \ddots & \\
+            0 & & \muof{S}
+        \end{bmatrix}$.
+    \end{enumerate}
+
+    The reason why we are interested in the above facts is that 
+
+    \sorry
+\end{proof}
+
 \subsection{Lie's Theorem}
 
-In this subsection, we discuss a result similar to Engel's Theorem, but for solvable Lie algebras instead of nilpotent ones. Throughout, we fix a solvable subalgebra $L \leq \gl{n}$ for some $n \in \N$.
+In this subsection, we discuss a result similar to Engel's Theorem, but for \textit{solvable} Lie algebras instead of nilpotent ones. Throughout, we fix a \textbf{solvable} subalgebra $L \leq \gl{n}$ for some $n \in \N$.
 
 \begin{boxtheorem}[Lie's Theorem]\label{Ch1:Thm:Lie}
     There exists a basis of $\C^n$ such that every element of $L$ is upper-triangular with respect to it.
@@ -183,3 +263,13 @@ Before proceeding with the proof of Lie's Theorem, we will prove a corollary tha
     Consider the adjoint map $\ad : L \to \gl{L}$. We know that $\pad{L}$ is solvable by \sorry; therefore, by Lie's Theorem, it is contained in $\t{L}$. % an object we have not quite defined...
     \sorry
 \end{proof}
+
+Our proof strategy will be to obtain some $\lambda \in L^*$, ie, a linear function $L \to \C$, such that ${\C^n}_{\lambda}$. We will repeat a simpler version of the proof of Engel's Theorem: we will perform induction on $n$, applying the induction hypothesis to the image of $L$ under the quotient epimorphism $\Phi_\lambda : L \surj \gl{\quotient{\C^n}{\C^n_\lambda}}$. $\Phi_\lambda(L)$ is solvable, because it is a quotient of a solvable Lie algebra. We will then be able to apply the fact that
+\begin{align*}
+    \pdim{\Phi_\lambda(L)}
+    \leq \pdim{\C^n} - \pdim{\C^n_\lambda}
+    < \pdim{\C^n} = n
+\end{align*}
+because $\C^n_{\lambda} \neq 0$, allowing us to apply the induction hypothesis on $\Phi_\lambda(L)$.
+
+
