@@ -1,0 +1,33 @@
+\section{Important Definitions and First Examples}
+
+\subsection{Representations and Modules}
+
+\begin{boxdefinition}[Representation]\label{Ch2:Def:Representation}
+    A \textbf{representation} of $L$ is a Lie algebra homomorpshism $\rho : L \to \gl{V}$ for some finite-dimensional $\C$-vector space $V$.
+\end{boxdefinition}
+
+\begin{boxexample}[The Adjoint Representation]
+    The adjoint map $\ad : L \to \gl{L}$ is a representation: \Cref{Ch1:Prop:AdjointLieAlgHom} tells us it is a Lie algebra homomorphism.
+\end{boxexample}
+
+If $\rho : L \to \gl{V}$ is a representation, then we can define a map $\parenth{\ell, v} \mapsto \rho(\ell)(v) : L \times V \to V$. We can use this to define a Lie algebra module, similar to the concept of group modules when defining complex representations thereof.
+
+\begin{boxdefinition}[Lie Algebra Module]\label{Ch2:Def:LieAlgModule}
+    A \textbf{Lie algebra module} is a finite-dimensional vector space $V$ with a pairing $\rho : L \times V \to V$ such that
+    \begin{enumerate}
+        \item $\rho$ is $\C$-bilinear.
+        \item $\rho(\brac{a, b}, v) = \rho(a, \rho(b, v)) - \rho(b, \rho(a, v))$.
+    \end{enumerate}
+\end{boxdefinition}
+
+Indeed, one can show that any representation $\rho : L \to V$ satisfies the above properties with respect to the pairing $\parenth{\ell, v} \mapsto \rho(\ell)(v)$ and that any Lie algebra module $V$ with pairing $\rho$ admits a uniquely defined representation $\ell \mapsto \rhoof{\ell, \cdot} : L \to \gl{V}$. Thus, the two concepts are equivalent.
+
+\begin{boxconvention}
+    We will abuse notation and not distinguish the notion of a representation and a module. Similarly, we will not split hairs about the notation for the two: $\rhoof{\cdot, \cdot}$ should be interpreted as meaning the same thing as $\rho(\cdot)(\cdot)$.
+\end{boxconvention}
+
+Indeed, as with representations of groups and group modules, we have an equivalence of categories between the category of representations of $L$ and that of $L$-modules. One would need to argue a bit more rigorously, by defining the morphisms in each one, but we will not do this and take this as an implicit fact.
+
+\subsection{Homomorphisms, Submodules and Quotient Modules}
+
+
