@@ -306,4 +306,4 @@ TSWLatexianTemp*
 #*Notes.bib
 
 .DS_Store
-./TeX_Outputs/.DS_Store
+TeX_Outputs/.DS_Store
