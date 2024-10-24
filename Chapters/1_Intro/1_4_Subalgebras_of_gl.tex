@@ -249,6 +249,42 @@ Weight spaces are rather interesting, and in the remainder of this subsection, w
     % Rephrase!!
 \end{proof}
 
+We end by computing all the weights and weight spaces of a few subalgebras of $\gl{n}$.
+
+\begin{boxexample}
+    Let $I$ denote the $n \times n$ identity matrix. Consider the set
+    \begin{align*}
+        \setst{\lambda \cdot I}{\lambda \in \C}
+    \end{align*}
+    One can show that this is a subalgebra of $\gl{n}$. In this case, there is only one weight: this is the map that sends every element $\lambda \cdot I$ of the above subalgebra to the corresponding $\lambda$. The weight space of this weight is all of $\C^n$.
+\end{boxexample}
+
+\begin{boxexample}
+    Let $n = 3$, and let $E_{ij}$ denote the $3 \times 3$ matrix whose only nonzero entry is a $1$ in the $i$th row and $j$th column. Consider the set
+    \begin{align*}
+        \setst{
+            % \lambda E_{11} + \lambda E_{22} + \mu E_{33}
+            \begin{bmatrix}
+                \alpha & 0 & 0 \\
+                0 & \alpha & 0 \\
+                0 & 0 & \beta
+            \end{bmatrix}
+        }{
+            \alpha, \beta \in \C
+        }
+        % \begin{bmatrix} \lambda & 0 & 0 \\ 0 & \lambda & 0 \\ 0 & 0 & \mu \end{bmatrix}
+    \end{align*}
+    One can show that the above set is a subalgebra. \\
+
+    The key to computing the weights and weight spaces is to consider the eigenvectors of the elements of the subalgebra. Clearly, a basis of the above is $\set{E_{11} + E_{22}, E_{33}}$. The two weights are the maps that send each of these to $1$. \sorry
+\end{boxexample}
+
+We can apply the above to compute the weights of the upper-triangular Lie subalgebra.
+
+\begin{boxexample}[$\t{n}$]
+    Consider the standard basis $\set{e_1, \ldots, e_n}$ of $\C^n$. We know that $\Span{e_1}$ is an eigenvector of every element of $\t{n}$. Indeed, one can show (\sorry) that it is the \textit{only} such simultaneous eigenvector. Therefore, the only weight is the one that maps any element of $\t{n}$ to the element that lives in its first row and first column, which is precisely the eigenvalue of $e_1$ under its action. \sorry
+\end{boxexample}
+
 \subsection{Lie's Theorem}
 
 In this subsection, we discuss a result similar to Engel's Theorem, but for \textit{solvable} Lie algebras instead of nilpotent ones. Throughout, we fix a \textbf{solvable} subalgebra $L \leq \gl{n}$ for some $n \in \N$.
@@ -260,7 +296,7 @@ In this subsection, we discuss a result similar to Engel's Theorem, but for \tex
 Before proceeding with the proof of Lie's Theorem, we will prove a corollary that underscores the significance of this result.
 
 \begin{boxcorollary}\label{Ch1:Cor:SolvableDerivNilpotent}
-    $L'$ is nilpotent.
+    $L'$ is solvable.
 \end{boxcorollary}
 \begin{proof}
     Consider the adjoint map $\ad : L \to \gl{L}$. We know that $\pad{L}$ is solvable by \sorry; therefore, by Lie's Theorem, it is contained in $\t{L}$. % an object we have not quite defined...
