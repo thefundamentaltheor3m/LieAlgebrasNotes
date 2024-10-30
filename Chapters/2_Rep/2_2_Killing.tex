@@ -1,0 +1,39 @@
+\section{The Killing Form}
+
+Let $L$ be a finite-dimensional Lie algebra. In this section, we will explore some of the properties of the killing form, a bilinear form on $L$ that will help us better understand its structure.
+
+\subsection{Preliminaries}
+
+We begin by defining the killing form on $L$.
+
+\begin{boxdefinition}[The Killing Form]
+    The \textbf{killing form} on $L$ is the map $\kappa : L \times L \to \C$ defined by
+    \begin{align}
+        \kappa(x, y) = \Tr{\pad{x} \cdot \pad{y}}
+    \end{align}
+    where $\ad : L \to \gl{L}$ denotes the adjoint representation of $L$.
+\end{boxdefinition}
+
+\begin{boxconvention}
+    For the remainder of this chapter, we will denote the killing form on $L$ by $\kappa$.
+\end{boxconvention}
+
+The basic properties of the killing form come from the following.
+
+\begin{boxproposition}
+    $\kappa$ is a symmetric, bilinear form on $L$.
+\end{boxproposition}
+
+We will not prove this proposition, as it involves checking basic facts from linear algebra. We will take it for granted going forward.
+
+Recall that we can assocate to any symmetric, bilinear form a symmetric matrix of it applied to any basis of a vector space. Denote
+\begin{align}
+    B := \begin{bmatrix}
+        \kof{e_1, e_1} & \cdots & \kof{e_1, e_n} \\
+        \vdots & \ddots & \vdots \\
+        \kof{e_n, e_1} & \cdots & \kof{e_n, e_n}
+    \end{bmatrix}
+\end{align}
+where $\set{e_1, \ldots, e_n}$ is a basis of $L$ and $n$ is its $\C$-dimension. Indeed, we can diagonalise $B$ by orthogonalising $\set{e_1, \ldots, e_n}$ with respect to $\kappa$ using the Gram-Schmidt process. Therefore, we may assume, without loss of generality, that $B$ is diagonal.
+
+
