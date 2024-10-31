@@ -1,10 +1,42 @@
-\section{The Killing Form}
+\section{The Adjoint Representation and the Killing Form}
 
-Let $L$ be a finite-dimensional Lie algebra. In this section, we will explore some of the properties of the killing form, a bilinear form on $L$ that will help us better understand its structure.
+In this section, we will explore some of the properties of the adjoint representation, which is closely related to the killing form, a bilinear form on $L$ that will help us better understand its structure.
 
-\subsection{Preliminaries}
+\subsection{Properties of the Adjoint Representation}
 
-We begin by defining the killing form on $L$.
+We begin with a result on the Jordan decomposition of the adjoint representation.
+
+Recall that the Jordan decomposition of a linear map $T$ (from some $\C$-vector space to itself) involves expressing $T$ as $d + n$, where $d$ is diagonalisable, $n$ is nilpotent and $dn = nd$. In particular, $d$ and $n$ are simultaneously triangularisable\footnote{That all commuting linear maps are simultaneously triangularisable is a well-known fact from linear algebra, and we do not prove it here.}, meaning that there exists some basis, known as a Jordan basis of $T$, with respect to whichthe matrix of $T$ is upper-triangular, with all of its diagonal entries being its eigenvalues (given by $d$) and its super-diagonal entries being either $0$ or $1$ in a nilpotent manner (given by $n$).
+
+We can show that the adjoint representation of a Lie algebra respects this decomposition. To that end, we show that it respects diagonalisability, nilpotency and commutativity.
+
+We begin with diagonalisability.
+
+\begin{boxlemma}\label{Ch2:Lemma:adDiagofDiag}
+    Let $d \in \gl{n}$ be diagonal with respect to some basis. Then, $\ad{d}$ is diagonalisable.
+\end{boxlemma}
+\begin{proof}
+    \sorry
+\end{proof}
+
+Recall that \Cref{Ch1:Lemma:adNilpotnetOfNilpotent} tells us precisely that the adjoint representation respects nilpotency. Finally, we can use the fact that the adjoint representation is a Lie algebra homomorphsim to show that it respects commutativity.
+
+\begin{lemma}
+    If $x, y \in \gl{n}$ are such that $xy = yx$, then $\pad{x} \pad{y} = \pad{y} \pad{x}$.
+\end{lemma}
+\begin{proof}
+    Observe that $xy = yx \iff \brac{x, y} = 0$. By \Cref{Ch1:Prop:AdjointLieAlgHom}, we have that
+    \begin{align*}
+        \brac{\pad{x}, \pad{y}} = \pad{\brac{x, y}}
+    \end{align*}
+    Since $\ad$ is linear and $\brac{x, y} = 0$, we have that $\brac{\pad{x}, \pad{y}} = 0$, or, equivalently, that $\pad{x} \pad{y} = \pad{y} \pad{x}$.
+\end{proof}
+
+
+
+\subsection{The Killing Form}
+
+We are now ready to define the killing form on $L$.
 
 \begin{boxdefinition}[The Killing Form]
     The \textbf{killing form} on $L$ is the map $\kappa : L \times L \to \C$ defined by

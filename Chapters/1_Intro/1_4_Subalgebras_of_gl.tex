@@ -292,6 +292,22 @@ We can apply the above to compute the weights of the upper-triangular Lie subalg
     Consider the standard basis $\set{e_1, \ldots, e_n}$ of $\C^n$. We know that $\Span{e_1}$ is an eigenvector of every element of $\t{n}$. Indeed, one can show (\sorry) that it is the \textit{only} such simultaneous eigenvector. Therefore, the only weight is the one that maps any element of $\t{n}$ to the element that lives in its first row and first column, which is precisely the eigenvalue of $e_1$ under its action. \sorry
 \end{boxexample}
 
+Finally, we underscore the importance of weight spaces by mentioning that they can be used to prove a seemingly unrelated fact about matrices.
+
+\begin{lemma}\label{Ch1:Lemma:SimulDiagOfCommuting}
+    Let $A, B \in \gl{n}$ be diagonalisable. If $A$ and $B$ commute, then there exists a basis with respect to which both $A$ and $B$ are diagonalisable.
+\end{lemma}
+\begin{proof}
+    Consider the subspace $L := \Span{A, B} \leq \gl{n}$. Observe that since $A$ and $B$ commute, $\brac{A, B} = 0$. Therefore, $L$ is an abelian Lie subalgebra of $\gl{n}$. The idea is that the weight space of 
+\end{proof}
+
+\begin{corollary}
+    Let $A, B \in \gl{n}$ be diagonalisable. If $A$ and $B$ commute, then $A + B$ is diagonalisable.
+\end{corollary}
+\begin{proof}
+    Rewrite $A$ and $B$ in the basis given in the previous lemma. Their sum is then a sum of diagonal matrices, which is diagonal (in that same basis).
+\end{proof}
+
 \subsection{Lie's Theorem}
 
 In this subsection, we discuss a result similar to Engel's Theorem, but for \textit{solvable} Lie algebras instead of nilpotent ones. Throughout, we fix a \textbf{solvable} subalgebra $L \leq \gl{n}$ for some $n \in \N$.
