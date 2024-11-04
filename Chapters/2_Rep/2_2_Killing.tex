@@ -58,6 +58,7 @@ The basic properties of the killing form come from the following.
 
 We will not prove this proposition, as it involves checking basic facts from linear algebra. We will take it for granted going forward.
 
+\begin{comment}
 Recall that we can assocate to any symmetric, bilinear form a symmetric matrix of it applied to any basis of a vector space. Denote
 \begin{align}
     B := \begin{bmatrix}
@@ -67,5 +68,29 @@ Recall that we can assocate to any symmetric, bilinear form a symmetric matrix o
     \end{bmatrix}
 \end{align}
 where $\set{e_1, \ldots, e_n}$ is a basis of $L$ and $n$ is its $\C$-dimension. Indeed, we can diagonalise $B$ by orthogonalising $\set{e_1, \ldots, e_n}$ with respect to $\kappa$ using the Gram-Schmidt process. Therefore, we may assume, without loss of generality, that $B$ is diagonal.
+\end{comment}
 
+We will now prove some identities about the killing form. We will begin by stating a basic identity involving the trace.
 
+\begin{lemma}\label{Ch2:Lemma:TraceAssoc}
+    For all $A, B, C \in \gl{L}$, we have that
+    \begin{align}
+        \Tr{\brac{A, B}, C} = \Tr{A, \brac{B, C}}
+        \label{Ch2:Eq:TraceAssoc}
+    \end{align}
+\end{lemma}
+\begin{proof}
+    The proof is a simple consequence of two facts: first, that matrix multiplication is associative, and second, that the trace of a product of two matrices is invariant under swapping them. We will leave the details to the reader.
+\end{proof}
+
+This gives us a similar identity for the killing form.
+\begin{boxproposition}\label{Ch2:Prop:KillingAssoc}
+    For any $A, B, C \in L$, we have that
+    \begin{align}
+        \kof{\brac{A, B}, C} = \kof{A, \brac{B, C}}
+        \label{Ch2:Eq:KillingAssoc}
+    \end{align}
+\end{boxproposition}
+\begin{proof}
+    \sorry  % See iPad (read bottom board before top board)
+\end{proof}
