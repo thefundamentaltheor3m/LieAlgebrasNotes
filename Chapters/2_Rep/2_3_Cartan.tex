@@ -40,6 +40,15 @@ We will also remind the reader of the definition of non-degeneracy for bilinear 
     We say the bilinear form $\parenth{\cdot, \cdot}$ is \textbf{non-degenerate} if it is not degenerate, ie, if for all $x \neq 0$, there exists a $y$ such that $\parenth{x, y} \neq 0$.
 \end{definition}
 
+Finally, we will note the following result on direct sums and non-degeneracy.
+
+\begin{boxproposition}
+    If $\parenth{V_1, \cycl{\cdot, \cdot}_1}$ and $\parenth{V_2, \cycl{\cdot, \cdot}_2}$ are non-degenerate, then so is $\parenth{V_1 \+ V_2, \cycl{\cdot, \cdot}_{1 \+ 2}}$, where $\cycl{\cdot, \cdot}_{1 \+ 2}$ is defined coordinate-wise.
+\end{boxproposition}
+\begin{proof}
+    \sorry
+\end{proof}
+
 \subsection{Cartan's Criterion for Solvability}
 
 In this subsection, we discuss and prove Cartan's Criterion for Solvability, also known as Cartan's First Criterion.
@@ -48,6 +57,27 @@ In this subsection, we discuss and prove Cartan's Criterion for Solvability, als
     $L$ is solvable if and only if for all $\ell \in L$ and $\ell' \in L'$, $\kof{\ell, \ell'} = 0$, where $L'$ is the derived subalgebra of $L$.
 \end{boxtheorem}
 
+One direction is easily proven.
+
+\begin{boxlemma}
+    If $L$ solvable, then for all $\ell \in L$ and $\ell' \in L'$, $\kof{\ell, \ell'} = 0$.
+\end{boxlemma}
+
+\begin{proof}
+    Assume that $L$ is solvable. Then, $\pad{L} \subset \gl{L}$ is solvable too: by the First Isomorphism Theorem, $\pad{L} \cong \quotient{L}{\pker{\ad}}$, and we know that any quotient of a solvable Lie algebra is solvable. Lie's Theorem then tells us that $\pad{L} \subseteq \t{L}$ (with respect to some basis of $L$), meaning that $\pad{L'} \subset \u{L}$ (as all the diagonal entries of the commutator of a matrix in $L$ with another matrix in $L$ are zero). \sorry % Finish!
+\end{proof}
+
+The converse is a bit more involved, and requires an intermediate proposition.
+
+\begin{proposition}
+    Let $K \leq \gl{n}$ be a Lie subalgebra such that the trace form $\parenth{A, B} \mapsto \Tr{AB} : K \times K \to \C$ is identically zero on $K$. Then, $K$ is solvable.
+\end{proposition}
+\begin{proof}
+    We show that $K'$ is nilpotent. This would imply that $K'$ is solvable. Furthermore, we know that $\quotient{K}{K'}$ is abelian, and hence, solvable. Therefore, $K$ is itself solvable. % Turn this into a separate result...
+
+    
+\end{proof}
+
 \subsection{Cartan's Criterion for Semi-Simplicity}
 
 In this subsection, we discuss and prove Cartan's Criterion for Semi-Simplicity, also known as Cartan's Second Criterion.
@@ -55,6 +85,18 @@ In this subsection, we discuss and prove Cartan's Criterion for Semi-Simplicity,
 \begin{boxtheorem}[Cartan's Second Criterion]\label{SP:Thm:CartanII}
     $L$ is semi-simple if and only if the Killing Form $\kappa$ is non-degenerate.
 \end{boxtheorem}
+\begin{proof}
+    \begin{description}
+        \item[$\parenth{\implies}$]
+        Assume that $L$ is semi-simple and that $L^\perp \neq \set{0}$, where we consider the orthogonal complement with respect to the Killing Form $\kappa_L$. We know, from \Cref{Ch2:Prop:KillingIdeal}, that $L^\perp \nsg L$, and therefore, that $\kappa_{L^\perp} = \kappa_L\vert_{L^\perp}$. However, by definition of $L^\perp$,
+        \begin{align*}
+            \kappa_{L^\perp} = \kappa_L\vert_{L^\perp} = 0
+        \end{align*}
+        Therefore, \Cref{SP:Thm:CartanI} (Cartan's First Criterion) tells us that $L$ is solvable. However, this tells us that $L$ cannot be semi-simple, a contradiction. Therefore, $\kappa$ cannot be degenerate.
+        
+        \item[$\parenth{\impliedby}$] \sorry % No need to use Cartan I, there is a direct proof. Check recording (might not exist!)/Erdmann-Wildon.
+    \end{description}
+\end{proof}
 
 \subsection{The Structure Theorem for Complex, Semi-Simple Lie Algebras}
 
@@ -69,4 +111,7 @@ We are now ready for the important Structure Theorem for Complex, semi-simple Li
         \item[$\parenth{\implies}$] 
     \end{description}
     Let $I \nsg L$ be a nonzero ideal. Pick $I$ to be minimal, in the sense that if any other ideal is properly contained in $I$, it must be zero.
+    \sorry % Stuff from iPad
+
+    % The idea is to use the stuff at the end of the first subsection about direct sums of nondegenerate bilinear forms
 \end{proof}

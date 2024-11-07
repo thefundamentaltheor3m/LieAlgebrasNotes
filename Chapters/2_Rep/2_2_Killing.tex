@@ -32,7 +32,21 @@ Recall that \Cref{Ch1:Lemma:adNilpotnetOfNilpotent} tells us precisely that the 
     Since $\ad$ is linear and $\brac{x, y} = 0$, we have that $\brac{\pad{x}, \pad{y}} = 0$, or, equivalently, that $\pad{x} \pad{y} = \pad{y} \pad{x}$.
 \end{proof}
 
+Finally, we end with a discussion on how the adjoint representation looks in terms of commutative diagrams.
 
+\begin{boxproposition}
+    Let $K$ be another Lie Algebra. Then,
+    \begin{cd}
+        L \+ K \arrow[r, "\ad_{L \+ K}"] \arrow[rd, "\ad_{L} \+ \ad_{K}"'] & \gl{L \+ K} \\
+        & \gl{L} \+ \gl{K} \arrow[u, hook]
+        \label{Ch2:cd:DirSumgl}
+    \end{cd}
+\end{boxproposition}
+\begin{proof}
+    \sorry
+\end{proof}
+
+In particular,~\eqref{Ch2:cd:DirSumgl} gives us the following relationship between the traces of the adjoints: \sorry
 
 \subsection{The Killing Form}
 
@@ -118,4 +132,9 @@ We can show that the results of \Cref{Ch2:Prop:KillingIdeal} fail for subalgebra
 
 Finally, we can say something about the Killing Form on the direct sum of two Lie Algebras.
 
-
+\begin{boxproposition}
+    The Killing Form of the direct sum of two Lie Algebras is the sum of their Killing Forms, applied coordinate-wise.
+\end{boxproposition}
+\begin{proof}
+    \sorry
+\end{proof}
