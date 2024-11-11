@@ -446,7 +446,7 @@ Furthermore, we make the following observation:
 
 Throughout this subsection, let $A$ be an arbitrary algebra with multiplication $\cdot$.
 
-\begin{boxdefinition}
+\begin{boxdefinition}\label{Ch1:Def:Derivation}
     We say that a linear map $D : A \to A$ is a \textbf{derivation} if it satisfies the Leibniz rule, ie, if
     \begin{align}
         D(x \cdot y) = x \cdot D(y) + D(x) \cdot y
@@ -460,7 +460,7 @@ Throughout this subsection, let $A$ be an arbitrary algebra with multiplication 
 
 Recall that since $A$ is a vector space, $\gl{A}$ is a Lie algebra with respect to the commutator bracket (cf. \Cref{Ch1:Def:gl_V}). It turns out there is a relationship between $\Der{A}$ and $\gl{A}$.
 
-\begin{boxproposition}
+\begin{boxproposition}\label{Ch1:Prop:DerLieSubalg}
     $\Der{A}$ is a Lie subalgebra of $\gl{A}$.
 \end{boxproposition}
 \begin{proof}
@@ -501,12 +501,18 @@ We have also encountered a slightly more sophisticated derivation. For the remai
 
 Abbreviating the set $\setst{\pad{x}}{x \in L}$ of all adjoint maps on $L$ to $\pad{L}$, we have the following chain of Lie subalgebras:
 
-\begin{boxlemma}
+\begin{boxlemma}\label{Ch1:Lemma:adSubalgDer}
     $\pad{L} \leq \Der{L} \leq \gl{L}$
 \end{boxlemma}
 \begin{proof}
     \sorry
 \end{proof}
+
+In fact, $\pad{L}$ is more than just a subalgebra of $\Der{L}$.
+
+\begin{boxlemma}
+    $\pad{L} \nsg \Der{L}$.
+\end{boxlemma}
 
 \subsection{Structure Constants}
 
