@@ -4,11 +4,11 @@ We already know what Jordan Decompositions look like in the context of the gener
 
 Throughout this section, we will assume that $L$ is semi-simple, and fix an arbitrary element $x \in L$. The main result that we will prove is the following.
 
-\begin{boxtheorem}
+\begin{boxtheorem}\label{Ch2:Thm:GenJordanDecomp}
     There is a unique decomposition
     \begin{align}
         x = d + n
-        \label{Ch2:Thm:GenJordanDecomp}
+        \label{Ch2:Eq:GenJordanDecomp}
     \end{align}
     where $d$ is diagonalisable and $n$ is nilpotent. In particular,
     \begin{enumerate}[label = \normalfont \arabic*., noitemsep]
@@ -20,7 +20,7 @@ Throughout this section, we will assume that $L$ is semi-simple, and fix an arbi
 
 We will prove existence and uniqueness separately. We will build on what we know about Jordan Decompositions from Linear Algebra.
 
-Consider the adjoint $\pad{x} \in \gl{L}$. We know that $\pad{x}$ admits a Jordan decomposition $D + N$, with $D$ diagonalisable and $N$ nilpotent. These $D$ and $N$ satisfy the properties we would expect to have of $\pad{d}$ and $\pad{n}$, where $d$ and $n$ are as in~\eqref{Ch2:Thm:GenJordanDecomp} (if such elements exist). In particular, since $\ad : L \to \gl{L}$ is linear, we would have
+Consider the adjoint $\pad{x} \in \gl{L}$. We know that $\pad{x}$ admits a Jordan decomposition $D + N$, with $D$ diagonalisable and $N$ nilpotent. These $D$ and $N$ satisfy the properties we would expect to have of $\pad{d}$ and $\pad{n}$, where $d$ and $n$ are as in~\eqref{Ch2:Eq:GenJordanDecomp} (if such elements exist). In particular, since $\ad : L \to \gl{L}$ is linear, we would have
 \begin{align*}
     \pad{x} = \pad{d + n} = \pad{d} + \pad{n}
 \end{align*}
@@ -64,5 +64,34 @@ This allows us to
 \end{proof}
 
 \subsection{Uniqueness}
+
+\subsection{Properties}
+
+Throughout this subsection, fix $\delta \in \Der{L}$. Denote its additive Jordan Decomposition as $\delta = \nu + \mu$. Write
+\begin{align*}
+    L = \bigoplus_{\alpha} L_{\alpha}  % Over what does alpha range?
+\end{align*}
+
+\begin{definition}
+    For some $\alpha \in \C$, define 
+    \begin{align*}
+        L_{\alpha} := \setst{v \in L}{\exists n \in \N \st \parenth{\delta - \alpha \cdot \id_L}^n v = 0}
+    \end{align*}
+\end{definition}
+
+\begin{lemma}\label{Ch2:Lemma:BracGenEigenspJordan}
+    For some $\alpha, \beta \in \C$, $\brac{L_{\alpha}, L_{\beta}} \subseteq L_{\alpha + \beta}$.
+\end{lemma}
+\begin{proof}
+    Fix $x \in L_{\alpha}$ and $y \in L_{\beta}$. 
+    \sorry
+\end{proof}
+
+\begin{lemma}
+    $\nu, \mu \in \Der{L}$.
+\end{lemma}
+\begin{proof}
+    Observe that $\nu\vert_{L_{\alpha}} = \alpha \cdot {\id}_{L_{\alpha}}$, ie, when restricted to $L_{\alpha}$, $\nu$ acts as $\alpha$ times the identity. Now, \sorry
+\end{proof}
 
 

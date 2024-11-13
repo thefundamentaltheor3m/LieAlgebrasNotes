@@ -1,0 +1,49 @@
+\section{Cartan Subalgebras}
+
+Throughout this section, let $L$ denote a semi-simple Lie algebra. We begin by defining and studying semi-simple elements of $L$.
+
+\subsection{Semi-Simple Elements}
+
+\begin{boxdefinition}[Semi-Simplicity of Elements]
+    An element $x \in L$ is \textbf{semi-simple} if it is equal to the diagonal part of its Jordan Decomposition, as in~\eqref{Ch2:Eq:GenJordanDecomp}.
+\end{boxdefinition}
+
+\begin{lemma}\label{Ch3:Lemma:ExistsNeZeroSemiSimple}
+    $L$ admits a non-zero semi-simple element.
+\end{lemma}
+\begin{proof}
+    Assume, for contradiction, that non non-zero element of $L$ is semi-simple. Then, by \Cref{Ch2:Thm:GenJordanDecomp}, for all $x \in L$, $\pad{x}$ is nilpotent. Engel's Theorem then tells us that $L$ is nilpotent, which is a contradiction because $L$ is semi-simple. % WHY?
+\end{proof}
+
+We can now define what a Cartan Subalgebra of $L$ is.
+
+\begin{boxdefinition}[Cartan Subalgebra]
+    A \textbf{Cartan subalgebra} of $L$ is a Lie subalgebra $H \leq L$ such that
+    \begin{enumerate}[label = \normalfont\arabic*., noitemsep]
+        \item Every element of $H$ is semi-simple.
+        \item $H$ is abelian.
+        \item $H$ is the maximal subalgebra of $L$ (with respect to inclusion) that satisfies the above two properties.
+    \end{enumerate}
+\end{boxdefinition}
+
+We will prove important properties of Cartan subalgebras in the next subsection.
+
+\subsection{Properties of Cartan Subalgebras}
+
+First of all, we need to make sure what we are doing is sensible.
+
+\begin{lemma}
+    $L$ admits a unique Cartan subalgebra.
+\end{lemma}
+\begin{proof}
+    The zero subalgebra satisfies the necessary properties. The unieuqeness follows from the  maximality condition.
+\end{proof}
+
+Now, we show that what we are studying is non-trivial.
+
+\begin{boxproposition}
+    Let $H$ be the Cartan subalgebra of $L$. Then, $H \neq 0$.
+\end{boxproposition}
+\begin{proof}
+    By \Cref{Ch3:Lemma:ExistsNeZeroSemiSimple}, $L$ admits a non-zero semi-simple element. Then, $\Span{x}$ is abelian. Furthermore, any element of it is semi-simple, as $\ad$ is linear. Therefore, 
+\end{proof}
