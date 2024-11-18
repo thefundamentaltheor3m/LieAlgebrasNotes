@@ -166,7 +166,20 @@ We are now ready to prove the coveted converse of \Cref{Ch3:Lemma:Eq_Centraliser
     \begin{enumerate}
         \item\underline{There exists $h \in H$ such that $C_L(h)$ is minimal with respect to inclusion.}
         
-        The idea is that we can express $C_H(h)$ as
+        The idea is that we can express $C_L(H)$ in the following manner:
+        \begin{align*}
+            C_L(H) = \bigcap_{h \in H} C_L(h)
+        \end{align*}
+        Therefore, for the right choice $h, h' \in H$, we have the inclusions
+        \begin{cd*}
+            & C_L(H) \arrow[d, "{\rotatebox[origin=c]{270}{$\subset$}}", phantom] & \\
+            & C_L(h) \cap C_L(h') \arrow[ld, "{\rotatebox[origin=c]{45}{$\supsetneq$}}", phantom] \arrow[rd, "{\rotatebox[origin=c]{315}{$\subsetneq$}}", phantom] & \\
+            C_L(h) \hspace{-1.5em} \arrow[rd, "{\rotatebox[origin=c]{135}{$\supset$}}", phantom] &[0.1em] &[0.1em] \hspace{-1.5em} C_L(h') \arrow[ld, "{\rotatebox[origin=c]{45}{$\supset$}}", phantom] \\
+            & L &
+        \end{cd*}
+        where what makes the choices `right' is that the inclusions of the intersection of their centralisers into their respective centralisers are \textit{proper}.
+
+        \sorry
 
         \item\underline{$C_L(h) = C_L(H)$.}
 
