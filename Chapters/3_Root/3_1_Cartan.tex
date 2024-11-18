@@ -50,9 +50,31 @@ Now, we show that what we are studying is non-trivial.
 
 \subsection{The Cartan Decomposition}
 
-Recall the definition of a centraliser. % Copy from CW 1.
+Recall the definition of a centraliser. % Copy from CW 1. Also include centraliser of element.
+
+\begin{boxdefinition}[Centraliser of a Lie Subalgebra]
+    For a Lie subalgebra $H \leq L$, we define the \textbf{centraliser} of $H$ in $L$ to be
+    \begin{align*}
+        C_L(H) := \setst{x \in L}{\forall y \in L, \ \brac{x, y} = 0}
+    \end{align*}
+\end{boxdefinition}
+
+We can also define the centraliser of an element.
+
+\begin{boxdefinition}[Centraliser of an Element]
+    For some $h \in L$, we define the centraliser of $h$ in $L$ to be
+    \begin{align*}
+        C_L(h) := \setst{x \in L}{\brac{x, h} = 0}
+    \end{align*}
+\end{boxdefinition}
+
 
 \begin{lemma}
+    For any $h \in L$, we have that $C_L(h) = C_L\!\parenth{\Span{h}}$.
+\end{lemma}
+
+
+\begin{lemma}\label{Ch3:Lemma:Eq_Centraliser_Implies_Cartan}
     Let $H$ be a Lie subalgebra of $L$ such that all of its elements are semi-simple. If $H = C_L(H)$, then $H$ is a Cartan subalgebra of $L$.
 \end{lemma}
 \begin{proof}
@@ -134,4 +156,20 @@ We can say something about weights.
     where the last inclusion follows from the first point in \Cref{Ch3:Lemma:BehaviourOfWeights}. We can do something similar with $\pad{x}^2$, $\pad{x}^3$, and so on. \sorry % Finish: apply \pad{x}^i to L_{previous}
 \end{proof}
 
+We are now ready to prove the coveted converse of \Cref{Ch3:Lemma:Eq_Centraliser_Implies_Cartan}.
 
+\begin{boxtheorem}
+    If $H \subseteq L$ is a Cartan subalgebra, then $H = C_L(H)$.
+\end{boxtheorem}
+\begin{proof}
+    Since $H$ is a Cartan subalgebra, we know that $H$ is abelian. In particular, that means that $H$ is contained in its centraliser. Therefore, it suffices to show that $H$ \emph{contains} its centraliser. We do this in four steps.
+    \begin{enumerate}
+        \item\underline{There exists $h \in H$ such that $C_L(h)$ is minimal with respect to inclusion.}
+
+        \item\underline{$C_L(h) = C_L(H)$.}
+
+        \item\underline{$C_L(h) = C_L(H)$ is nilpotent.}
+
+        \item\underline{$C_L(H)$ is contained in $H$ as a subalgebra.}
+    \end{enumerate}
+\end{proof}
