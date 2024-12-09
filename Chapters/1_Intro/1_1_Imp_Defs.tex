@@ -305,6 +305,19 @@ Note that $L'$ is, indeed, an ideal, by the third property proven in \Cref{Ch1:P
     Though $L'$ is an ideal, we will often refer to it as either the \textbf{derived subalgebra} or the \textbf{commutator subalgebra} of $L$. Indeed, \Cref{Ch1:Lemma:IdealSubalg} tells us that this is a reasonable, if not the most completely descriptive, thing to do.
 \end{boxconvention}
 
+We will end by giving a nice technique of showing that two subspaces of $L$ are ideals.
+
+\begin{boxproposition}
+    Let $I, J \leq L$ be such that $I + J = L$. If $\brac{I, I} \subseteq I$, $\brac{J, J} \subseteq J$, and $\brac{I, J} = \set{0}$, then both $I$ and $J$ are ideals of $L$.
+\end{boxproposition}
+\begin{proof}
+    The key is that $\liebrac$ is bilinear. In other words, we have
+    \begin{align*}
+        \brac{L, I} = \brac{I + J, I} = \brac{I, I} + \brac{J, I} \subseteq I + \set{0} = I
+    \end{align*}
+    and similarly for $J$. Therefore, $I, J \nsg L$.
+\end{proof}
+
 \subsection{Quotients}
 
 We now define the notion of a quotient (Lie) algebra. For the remainder of this subsection, let $L$ be a Lie algebra and $I$ an arbitrary ideal of $L$. Given that we already have a notion of $\quotient{L}{I}$---recall that $I$ is a subspace of $L$, meaning we can take the quotient in a linear algebraic sense---it seems only natural to attempt to define a Lie bracket on this vector space. It turns out that the definition of an ideal allows us to do this in a very natural way.
