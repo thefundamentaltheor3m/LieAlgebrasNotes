@@ -12,6 +12,27 @@ We begin by deducing properties of $L$ (and its Cartan decomposition) by finding
 
 % At this point I've basically given up on Live TeXing...
 
+We begin with a fundamental lemma.
+
+\begin{boxlemma}
+    For all $\alpha \in \Phi$, $-\alpha \in \Phi$ as well. In other words, the negative of a root is also a root.
+\end{boxlemma}
+\begin{proof}
+    This turns out to be a direct application of the second point of \Cref{Ch3:Lemma:BehaviourOfWeights}.
+    \sorry
+\end{proof}
+
+This suggests that there might be certain linear relationships between roots. We will soon discover exactly what those relationships are. In the meantime, we can show the following useful result.
+
+\begin{boxproposition}\label{Ch3:Prop:Exists_Subalg_Isom_to_sl2}
+    Fix $\alpha \in \Phi$ and some non-zero $x \in L_{\alpha}$. Then, there exists some non-zero $y \in L_{-\alpha}$ such that $\Span{x, y, \brac{x, y}}$ is a Lie subalgebra of $L$. In particular, this subalgebra is isomorphic to $\sl{2}$.
+\end{boxproposition}
+\begin{proof}
+    
+\end{proof}
+
+\subsection{Root Strings and Eigenvalues}
+
 Fix $\alpha, \beta \in \Phi$. Assume that $\alpha \neq \pm \beta$.
 
 \begin{boxdefinition}[Strings]
@@ -60,7 +81,12 @@ This allows us to show that $\Phi$ contains a basis of $H^*$, a fact reminiscent
 
 Seeing as $\Phi \subset H^*$, the Dual Space (with respect to $\kappa$) of the Cartan Subalgebra, we know that every element $\alpha \in \Phi$ is expressible as some map $\kof{t_{\alpha}, \cdot}$ for some \textbf{unique} $t_{\alpha} \in H$.
 \begin{boxconvention}
-    We will fix this $t_{\cdot}$ notation for the remainder of this chapter.
+    For any $\alpha \in \Phi$, we denote by
+    \begin{itemize}[noitemsep]
+        \item $t_{\alpha}$ the unique element of $H$ such that 
+        \item $h_{\alpha}$ the unique element of $H$ such that \sorry
+        \item $e_{\alpha}$ some nonzero element of $L_{\alpha}$ such that 
+    \end{itemize}
 \end{boxconvention}
 
 The fact mentioned above will prove useful for the following proposition.
@@ -81,6 +107,7 @@ Indeed, we can compute an explicit formula for $t_{\cdot}$.
     For all $\alpha \in \Phi$, we have that
     \begin{align*}
         t_{\alpha} = \frac{h_{\alpha}}{\kof{e_{\alpha}, e_{\alpha}}}
+        \qquad \text{and} \qquad 
+        h_{\alpha} = \frac{2t_{\alpha}}{\kof{t_{\alpha}, t_{\alpha}}}
     \end{align*}
-    where
 \end{boxproposition}
