@@ -59,7 +59,7 @@ We will come back to associative algebras soon enough. We will now define the ma
     We immediately notice that the first condition (over not just $\C$ but any field) implies the fact that
     \begin{align}
         \brac{x, y} = - \brac{y, x}
-        \label{SP:Eq:LieBracSymmNeg}
+        \label{SP:Eq:LieBracAntisymm}
     \end{align}
     One simply needs to apply bilinearity and the first condition to evaluate $\brac{x + y, x + y}$. This argument reverses nicely as well, but only over fields of characteristic $\neq 2$.
 \end{remark} 
@@ -109,7 +109,7 @@ We will now define subalgebras and homomorphisms of algebras, which will allow u
 As with objects in any category, we have subobjects and morphisms. We will define these over general algebras and apply them to get more examples of Lie algebras.
 
 \begin{boxdefinition}[Subalgebras]
-    Let $A$ be a vector space. A \textbf{subalgebra} of $A$ is a subspace $B \subseteq A$ such that $B$ is closed under the multiplication map of $A$. That is, for all $x, y \in B$, we have $x \cdot y \in B$.
+    Let $A$ be an algebra. A \textbf{subalgebra} of $A$ is a subspace $B \subseteq A$ such that $B$ is closed under the multiplication map of $A$. That is, for all $x, y \in B$, we have $x \cdot y \in B$.
 \end{boxdefinition}
 
 \begin{boxconvention}
@@ -117,7 +117,7 @@ As with objects in any category, we have subobjects and morphisms. We will defin
 \end{boxconvention}
 
 \begin{boxdefinition}[Homomorphisms]
-    Let $A$ and $B$ be algebras. A \textbf{homomorphism} $\phi: A \to B$ is a linear map that respects the multiplication maps of $A$ and $B$. That is, for all $x, y \in A$, we have
+    Let $A$ and $B$ be algebras. A \textbf{homomorphism} $\phi: A \to B$ is a \underline{linear} map that respects the multiplication maps of $A$ and $B$. That is, for all $x, y \in A$, we have
     \begin{align*}
         \phiof{x \cdot y} = \phiof{x} \cdot \phiof{y}
     \end{align*}
@@ -137,7 +137,7 @@ We have the following unsurprising result.
     \end{enumerate}
 \end{boxlemma}
 \begin{proof}
-    These are standard results, but we will prove them for completentess.
+    First, note that $\pim{\phi}$ and $\pker{\phi}$ are both linear subspaces. It therefore only remains to show that they are closed under the multiplication maps of $A$ and $B$.
     % AI-generated proof with minor human edits
     \begin{enumerate}
         \item Fix $x, y \in \pim{\phi}$. Then, there exist $a, b \in A$ such that $\phiof{a} = x$ and $\phiof{b} = y$. Since $\phi$ is a homomorphism, we have
@@ -160,7 +160,11 @@ This allows us to construct another matrix Lie algebra.
     \begin{align*}
         \Tr{\brac{A, B}} = \Tr{AB - BA} = \Tr{AB} - \Tr{BA} = 0 = \brac{\Tr{A}, \Tr{B}}
     \end{align*}
-    because the Lie algebra $\gl{1}$ is abelian (see \Cref{Ch1:Eg:gl1}). By \Cref{Ch1:Lemma:im_ker_subalg}, its kernel, the set of all $n \times n$ matrices of trace zero, is a Lie subalgebra of $\gl{n}$. We call this the \textbf{Special Linear Lie Algebra}, denoted $\sl{n}$.
+    because the Lie algebra $\gl{1}$ is abelian (see \Cref{Ch1:Eg:gl1}). By \Cref{Ch1:Lemma:im_ker_subalg}, its kernel, the set of all $n \times n$ matrices of trace zero, is a Lie subalgebra of $\gl{n}$. We call this the \textbf{Special Linear Lie Algebra}, denoted $\sl{n}$. More explicitly,
+    \begin{align*}
+        \sl{n} := \setst{A \in \gl{n}}{\Tr{A} = 0}
+    \end{align*}
+    and the fact that $\sl{n} \leq \gl{n}$ also makes it a Lie algebra in its own right.
 \end{boxexample}
 
 \begin{remark}
@@ -174,12 +178,12 @@ This allows us to construct another matrix Lie algebra.
 The very natural relationship between associative and Lie algebra structures given by \Cref{Ch1:Lemma:CommBracket} gives us an elegant criterion for proving that a subspace is a subalgebra of a Lie algebra whose Lie bracket is the commutator of an associative bilinear map.
 
 \begin{boxproposition}\label{Ch1:Prop:Subalg_Commbracket}
-    Let $\parenth{A, \cdot_A}$ be an associative algebra and let $\parenth{B, \cdot_B}$ be a subalgebra of $A$. Denoting by $\parenth{A, \liebrac_A}$ the Lie algebra whose Lie bracket is the commutator of the multiplication map of $A$ and by $\parenth{B, \liebrac_B}$ the Lie algebra whose Lie bracket is the commutator of the multiplication map of $B$, we have $B' \leq A'$. In other words, the following diagram commutes:
+    Let $\parenth{A, \cdot_A}$ be an associative algebra and let $\parenth{B, \cdot_B}$ be a subalgebra of $A$. Denoting by $\parenth{A, \liebrac_A}$ the Lie algebra whose Lie bracket is the commutator of the multiplication map of $A$ and by $\parenth{B, \liebrac_B}$ the Lie algebra whose Lie bracket is the commutator of the multiplication map of $B$, we have $\parenth{B, \liebrac_B} \leq \parenth{A, \liebrac_A}$. In other words, the following diagram commutes:
 
     \begin{cd}
         \parenth{A, \cdot_A}
         \arrow[r] &[6em]
-        \parenth{A, \liebrac_A} \\[1em]
+        \parenth{A, \liebrac_A} \\[2em]
         \parenth{B, \cdot_B}
         \arrow[r]
         \arrow[u, "\text{Associative Subalgebra}", hook] &[6em]
@@ -212,11 +216,11 @@ Throughout this subsection, we will denote by $L$ an arbitrary Lie algebra.
 \end{boxdefinition}
 
 \begin{boxconvention}
-    We will use the notation $\brac{I, L}$ to denote the subspace of $L$ spanned by all elements of the form $\brac{i, \ell}$ for $i \in I$ and $\ell \in L$.
+    We will use the notation $\brac{L, I}$ to denote the subspace of $L$ spanned by all elements of the form $\brac{\ell, i}$ for $\ell \in L$ and $i \in I$.
 \end{boxconvention}
 
 \begin{remark}
-    We could equivalently require that $\brac{I, L}\leq L$ in the definition of an ideal instead of requiring that $\brac{x, y} \in I$ for all $x \in L$ and $y \in I$. Similarly, we can observe that it doesn't matter whether we require $\brac{x, y} \in I$ or $\brac{y, x} \in I$ because of~\eqref{SP:Eq:LieBracSymmNeg} and bilinearity.
+    We could equivalently require that $\brac{I, L}\leq L$ in the definition of an ideal instead of requiring that $\brac{x, y} \in I$ for all $x \in L$ and $y \in I$. Similarly, we can observe that it doesn't matter whether we require $\brac{x, y} \in I$ or $\brac{y, x} \in I$ because of~\eqref{SP:Eq:LieBracAntisymm} and bilinearity.
 \end{remark}
 
 \begin{boxexample}[Trivial Ideals]
@@ -252,6 +256,8 @@ We come back to the theme of the Lie bracket being some sort of `commutator' whe
     \end{align*}
 \end{boxdefinition}
 
+Just as the centre of a group is a normal subgroup, so too is the centre of a Lie algebra an ideal.
+
 \begin{boxlemma}
     $\Zof{L}$ is an ideal of $L$.
 \end{boxlemma}
@@ -277,14 +283,30 @@ It turns out that ideals are well-behaved under several operations.
         \item $I + J \nsg L$
         \item $I \cap J \nsg L$
         \item $\brac{I, J} := \Span{\setst{\brac{i, j}}{i \in I, j \in J}} \nsg L$
-        \item If $I + J = J$, then $I \subseteq J$.
     \end{enumerate}
 \end{boxproposition}
 \begin{proof}
-    \sorry
+    \hfill
+    \begin{enumerate}
+        \item Fix $x \in I + J$. Then, there exist elements $i \in I$ and $j \in J$ such that $x = i + j$. Then, for all $y \in L$, we have
+        \begin{align*}
+            \brac{x, y} = \brac{i + j, y} = \brac{i, y} + \brac{j, y}
+        \end{align*}
+        Since $I \nsg L$, we have $\brac{i, y} \in I$, and since $J \nsg L$, we have $\brac{j, y} \in J$. Therefore, $\brac{x, y} = \brac{i, y} + \brac{j, y} \in I + J$.
+
+        \item Fix $x \in I \cap J$ and $y \in L$. Since $x \in I$ and $I \nsg L$, we have $\brac{x, y} \in I$. Similarly, since $x \in J$ and $J \nsg L$, we have $\brac{x, y} \in J$. Therefore, $\brac{x, y} \in I \cap J$.
+        
+        \item By bilinearity, the Lie bracket with some $y \in L$ of any (finite) linear combinations of elements of the form $\brac{i, j}$ (for $i \in I$ and $j \in J$) is a linear combination of elements of the form $\brac{\brac{i, j}, y}$. Therefore, it suffices to show that for all $i \in I$, $j \in J$, and $y \in L$, $\brac{\brac{i, j}, y} \in \brac{I, J}$.
+        
+        To that end, fix $i \in I$, $j \in J$ and $y \in L$. Then, applying \eqref{SP:Eq:LieBracAntisymm} followed by the Jacobi Identity \eqref{SP:eq:JacobiIdentity}, we have
+        \begin{align*}
+            \brac{\brac{i, j}, y} = -\brac{y, \brac{i, j}} = \brac{i, \brac{j, y}} + \brac{j, \brac{y, i}}
+        \end{align*}
+        Since $j \in J$ and $J \nsg L$, we have $\brac{j, y} \in L$, meaning that $\brac{i, \brac{j, y}} \in \brac{I, J}$. Similarly, since $i \in I$ and $I \nsg L$, we have $\brac{i, y} \in L$, meaning that $\brac{j, \brac{i, y}} = -\brac{\brac{i, y}, j} \in \brac{I, J}$. Therefore, $\brac{\brac{i, j}, y} = \brac{i, \brac{j, y}} + \brac{j, \brac{y, i}} \in \brac{I, J}$.
+    \end{enumerate}
 \end{proof}
 
-The abelian case is particularly nice.
+The abelian case is particularly simple.
 
 \begin{boxproposition}[Ideals of an Abelian Lie Algebra]\label{Ch1:Prop:SubspaceIdealOfAbelian}
     Let $L$ be abelian. Then, every sub-vector space of $L$ is an ideal of $L$.
@@ -308,14 +330,14 @@ Note that $L'$ is, indeed, an ideal, by the third property proven in \Cref{Ch1:P
 We will end by giving a nice technique of showing that two subspaces of $L$ are ideals.
 
 \begin{boxproposition}
-    Let $I, J \leq L$ be such that $I + J = L$. If $\brac{I, I} \subseteq I$, $\brac{J, J} \subseteq J$, and $\brac{I, J} = \set{0}$, then both $I$ and $J$ are ideals of $L$.
+    Let $I$ and $J$ be subalgebras of $L$ be such that $I + J = L$. If $\brac{I, I} \subseteq I$, $\brac{J, J} \subseteq J$, and $\brac{I, J} = \set{0}$, then both $I$ and $J$ are ideals of $L$.
 \end{boxproposition}
 \begin{proof}
     The key is that $\liebrac$ is bilinear. In other words, we have
     \begin{align*}
         \brac{L, I} = \brac{I + J, I} = \brac{I, I} + \brac{J, I} \subseteq I + \set{0} = I
     \end{align*}
-    and similarly for $J$. Therefore, $I, J \nsg L$.
+    Therefore, $I$ is an ideal of $L$. By an identical computation, we can show that $\brac{L, J} = J$ as well, allowing us to conclude that $J$, too, is an ideal of $L$.
 \end{proof}
 
 \subsection{Quotients}
@@ -389,7 +411,7 @@ Our favourite isomorphism theorems do, indeed, hold in the category of Lie algeb
 
 We also have a correspondence between ideals of $L$ and ideals of $\quotient{L}{I}$.
 
-\begin{boxtheorem}[The Correspondence Theorme]\label{SP:Thm:Correspondence}
+\begin{boxtheorem}[The Correspondence Theorem]\label{SP:Thm:Correspondence}
     Let $I \nsg L$. Then, there is a one-to-one correspondence between the ideals of $L$ containing $I$ and the ideals of $\quotient{L}{I}$. Ie, there is a bijection
     \begin{align}
         \setst{J \nsg L}{J \supseteq I}
@@ -398,9 +420,6 @@ We also have a correspondence between ideals of $L$ and ideals of $\quotient{L}{
     \end{align}
     \label{SP:Eq:Correspondence}
 \end{boxtheorem}
-\begin{proof}
-    
-\end{proof}
 
 Note that each of the sets in \eqref{SP:Eq:Correspondence} is partially ordered by inclusion.
 
@@ -440,7 +459,7 @@ For the remainder of this subsection, let $L$ denote an arbitrary Lie algebra. I
         &= \pad{x}\!\parenth{\pad{y}\!(z)} - \pad{y}\!\parenth{\pad{x}\!(z)} & \\
         &= \pad{x}\!\parenth{\brac{y, z}} - \pad{y}\!\parenth{\brac{x, z}} & \\
         &= \brac{x, \brac{y, z}} - \brac{y, \brac{x, z}} & \\
-        &= \brac{x, \brac{y, z}} + \brac{y, \brac{z, x}} & \text{(by \eqref{SP:Eq:LieBracSymmNeg})} \\
+        &= \brac{x, \brac{y, z}} + \brac{y, \brac{z, x}} & \text{(by \eqref{SP:Eq:LieBracAntisymm})} \\
         &= - \brac{z, \brac{x, y}} & \text{(by the Jacobi Identity)} \\
         &= \brac{\brac{x, y}, z} \\
         &= \pad{\brac{x, y}}\!(z)
