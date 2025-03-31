@@ -19,9 +19,9 @@ We begin with a simple observation about abelian Lie algebras.
 
 The classification of Lie algebras in $1$ dimension is then straightforward. We will begin by a rather strong but straightforward result on one-dimensional subspaces of Lie algebras.
 
-\begin{proposition}\label{Ch1:Prop:1D_Lie_Subalgebras}
+\begin{boxproposition}\label{Ch1:Prop:1D_Lie_Subalgebras}
     Let $L$ be a Lie algebra. Any $1$-dimensional subspace of $L$ is an abelian Lie subalgebra.
-\end{proposition}
+\end{boxproposition}
 \begin{proof}
     Let $K$ be a sub-vector space of dimension $1$. We know any $\C$-basis of $K$ consists of a single, nonzero element. Consider such a basis element $x$. For any $y_1, y_2 \in L$, there exist $\lambda_1, \lambda_2 \in \C$ such that $y_1 = \lambda_1 x$ and $y_2 = \lambda_2 x$. Then,
     \begin{align*}
@@ -73,9 +73,9 @@ The reason we are interested in the above example will become clear, and we will
 
 We will begin by describing the derived subalgebra $L'$ (cf. \Cref{Ch1:Def:DerivedSubalg}) of $L$.
 
-\begin{lemma}
+\begin{boxlemma}
     For any $\C$-basis $\set{u, v}$ of $L$, we have that $L' = \Span{\brac{u, v}}$.
-\end{lemma}
+\end{boxlemma}
 \begin{proof}
     Let $\set{u, v}$ be a basis of $L$. Define $x := \brac{u, v}$. Since $L$ is non-abelian, $x \neq 0$, making $X := \Span{x}$ a $1$-dimensional subspace of $L$. Seeing as $L' = \brac{L, L} = \Span{\setst{\brac{x, y}}{x, y \in L}}$, it is clear that $L' \supseteq X$. It remains to show that $L' \subseteq X$.
 

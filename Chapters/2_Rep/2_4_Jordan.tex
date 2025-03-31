@@ -34,9 +34,9 @@ It suffices to show that $\pad{d} = D$ and $\pad{n} = N$. Before we can do this,
 
 We have already seen, in \Cref{Ch1:Lemma:adSubalgDer}, that $\pad{L} \leq \Der{L}$. It turns out that we can show something even stronger in the case of semi-simple Lie algebras.
 
-\begin{lemma}
+\begin{boxlemma}
     $\pad{L} \nsg \Der{L}$.
-\end{lemma}
+\end{boxlemma}
 \begin{proof}
     
     \sorry
@@ -44,13 +44,13 @@ We have already seen, in \Cref{Ch1:Lemma:adSubalgDer}, that $\pad{L} \leq \Der{L
 
 We have a similar (and less nontrivial) result about the relationship between $\pad{L}$ and $L$.
 
-\begin{lemma}
+\begin{boxlemma}
     $\pad{L} \nsg L$.
-\end{lemma}
+\end{boxlemma}
 
-\begin{lemma}
+\begin{boxlemma}
     $\pad{L}^{\perp} = \set{0}$, where we take the orthogonal complement with respect to the Killing Form $\kappa_{L}$.
-\end{lemma}
+\end{boxlemma}
 
 The fact that $\pad{L}$ is an ideal of $L$ 
 
@@ -72,24 +72,24 @@ Throughout this subsection, fix $\delta \in \Der{L}$. Denote its additive Jordan
     L = \bigoplus_{\alpha} L_{\alpha}  % Over what does alpha range?
 \end{align*}
 
-\begin{definition}
+\begin{boxdefinition}
     For some $\alpha \in \C$, define 
     \begin{align*}
         L_{\alpha} := \setst{v \in L}{\exists n \in \N \st \parenth{\delta - \alpha \cdot \id_L}^n v = 0}
     \end{align*}
-\end{definition}
+\end{boxdefinition}
 
-\begin{lemma}\label{Ch2:Lemma:BracGenEigenspJordan}
+\begin{boxlemma}\label{Ch2:Lemma:BracGenEigenspJordan}
     For some $\alpha, \beta \in \C$, $\brac{L_{\alpha}, L_{\beta}} \subseteq L_{\alpha + \beta}$.
-\end{lemma}
+\end{boxlemma}
 \begin{proof}
     Fix $x \in L_{\alpha}$ and $y \in L_{\beta}$. 
     \sorry
 \end{proof}
 
-\begin{lemma}
+\begin{boxlemma}
     $\nu, \mu \in \Der{L}$.
-\end{lemma}
+\end{boxlemma}
 \begin{proof}
     Observe that $\nu\vert_{L_{\alpha}} = \alpha \cdot {\id}_{L_{\alpha}}$, ie, when restricted to $L_{\alpha}$, $\nu$ acts as $\alpha$ times the identity. Now, \sorry
 \end{proof}

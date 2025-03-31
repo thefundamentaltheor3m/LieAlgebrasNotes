@@ -34,9 +34,9 @@ We now begin discussing some nontrivial objects in the theory of Lie algebras. T
 
 Indeed, there is the following relationship between solvability and nilpotency.
 
-\begin{lemma}\label{Ch1:Lemma:DerivedSeriesContainedInLowerCentralSeries}
+\begin{boxlemma}\label{Ch1:Lemma:DerivedSeriesContainedInLowerCentralSeries}
     For all $i \in \N$, $L^i \supseteq L^{(i)}$.
-\end{lemma}
+\end{boxlemma}
 \begin{proof}
     We argue by induction on $i$. The base case is trivial, because $L^0 = L = L^{(0)}$. Now, fix $i \in \N$ and assume that $L^i \supseteq L^{(i)}$. Then,
     \begin{align*}
@@ -58,9 +58,9 @@ Indeed, there is the following relationship between solvability and nilpotency.
 
 The converse is not true. We need to develop a bit of theory to see this.
 
-\begin{lemma}\label{Ch1:Lemma:NilpotentCentreNonzero}
+\begin{boxlemma}\label{Ch1:Lemma:NilpotentCentreNonzero}
     If $L$ is nilpotent, its centre is nonzero.
-\end{lemma}
+\end{boxlemma}
 \begin{proof}
     Let $n \in \N$ be such that
     \begin{align*}
@@ -73,9 +73,9 @@ The converse is not true. We need to develop a bit of theory to see this.
 
 Throughout this subsection, let $I \nsg L$ and $K \leq L$. Recall that $I$ is a Lie subalgebra of $L$ (cf. \Cref{Ch1:Lemma:IdealSubalg}), meaning we can impose solvability and nilpotency conditions on $I$ as well.
 
-\begin{definition}[Solvability of Subalgebras]
+\begin{boxdefinition}[Solvability of Subalgebras]
     We say a subalgebra of $L$ is \textbf{solvable} if it is solvable as a Lie algebra in its own right.
-\end{definition}
+\end{boxdefinition}
 
 \begin{boxproposition}[Solvability Conditions]\label{Ch1:Prop:SolvabilityConditions}
     \hfill
@@ -135,9 +135,9 @@ Throughout this subsection, let $I \nsg L$ and $K \leq L$. Recall that $I$ is a 
 
 We have similar results for nilpotency.
 
-\begin{definition}[Nilpotency of Subalgebras]
+\begin{boxdefinition}[Nilpotency of Subalgebras]
     We say a subalgebra of $L$ is \textbf{nilpotent} if it is solvable as a Lie algebra in its own right.
-\end{definition}
+\end{boxdefinition}
 
 \begin{boxproposition}[Nilpotency Conditions]
     \hfill
@@ -155,9 +155,9 @@ We will not prove these results here, as they are very similar to the correspond
 
 We will end the discussion on solvability and nilpotency by saying a bit about the derived subalgebra. We first make a general observation.
 
-\begin{lemma}\label{Ch1:Lemma:AllDerivsOfDerivEqTop}
+\begin{boxlemma}\label{Ch1:Lemma:AllDerivsOfDerivEqTop}
     If $L = L'$, then for all $i \in \N$, $L^{(i)} = L^{(1)} = L' = L$.
-\end{lemma}
+\end{boxlemma}
 \begin{proof}
     We argue by induction on $i$. The base case is trivial, because $L^{(0)} = L$. Now, fix $i \in \N$ and assume that $L^{(i)} = L$. Then,
     \begin{align*}
@@ -193,9 +193,9 @@ Throughout this subsection, we will assume that $L$ is finite-dimensional.
 
 We begin with a basic result about the sums of ideals.
 
-\begin{lemma}\label{Ch1:Lemma:SumIdealSolvable}
+\begin{boxlemma}\label{Ch1:Lemma:SumIdealSolvable}
     Let $I, J \nsg L$. If $I$ and $J$ are solvable, then so is $I + J \nsg L$.
-\end{lemma}
+\end{boxlemma}
 \begin{proof}
     \sorry
     % Apply 2nd iso thm
