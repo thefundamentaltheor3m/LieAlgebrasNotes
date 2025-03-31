@@ -1,0 +1,58 @@
+\babel@toc {english}{}\relax 
+\contentsline {chapter}{\numberline {1}An Introduction to the Theory of Lie Algebras}{4}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Important Definitions and First Examples}{4}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}Algebras}{4}{subsection.1.1.1}%
+\contentsline {subsection}{\numberline {1.1.2}Subalgebras and Homomorphisms}{7}{subsection.1.1.2}%
+\contentsline {subsection}{\numberline {1.1.3}Ideals}{10}{subsection.1.1.3}%
+\contentsline {subsection}{\numberline {1.1.4}Quotients}{12}{subsection.1.1.4}%
+\contentsline {subsection}{\numberline {1.1.5}Isomorphism Theorems}{14}{subsection.1.1.5}%
+\contentsline {subsection}{\numberline {1.1.6}Adjoints}{15}{subsection.1.1.6}%
+\contentsline {subsection}{\numberline {1.1.7}Derivations}{16}{subsection.1.1.7}%
+\contentsline {subsection}{\numberline {1.1.8}Structure Constants}{18}{subsection.1.1.8}%
+\contentsline {subsection}{\numberline {1.1.9}Direct Sums}{18}{subsection.1.1.9}%
+\contentsline {section}{\numberline {1.2}Lie Algebras of Dimension $\leq 3$}{19}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Abelian Lie Algebras and Lie Algebras of Dimension $1$}{19}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}Lie Algebras of Dimension $2$}{20}{subsection.1.2.2}%
+\contentsline {subsection}{\numberline {1.2.3}Lie Algebras of Dimension $3$}{22}{subsection.1.2.3}%
+\contentsline {section}{\numberline {1.3}Solvability and Nilpotency}{22}{section.1.3}%
+\contentsline {subsection}{\numberline {1.3.1}Descending Series of Ideals}{22}{subsection.1.3.1}%
+\contentsline {subsection}{\numberline {1.3.2}Ideals, Quotients and Subalgebras}{24}{subsection.1.3.2}%
+\contentsline {subsection}{\numberline {1.3.3}The Radical Ideal}{27}{subsection.1.3.3}%
+\contentsline {subsection}{\numberline {1.3.4}Ascending Series of Ideals}{28}{subsection.1.3.4}%
+\contentsline {section}{\numberline {1.4}Subalgebras of $\mathfrak {gl}\!\left ( n \right )$}{30}{section.1.4}%
+\contentsline {subsection}{\numberline {1.4.1}Induced Actions on Quotients by Invariant Subspaces}{30}{subsection.1.4.1}%
+\contentsline {subsection}{\numberline {1.4.2}Linear Algebraic and Lie Algebraic Nilpotency}{30}{subsection.1.4.2}%
+\contentsline {subsection}{\numberline {1.4.3}Weights of Lie Algebras}{35}{subsection.1.4.3}%
+\contentsline {subsection}{\numberline {1.4.4}Lie's Theorem}{37}{subsection.1.4.4}%
+\contentsline {chapter}{\numberline {2}Representations of Lie Algebras}{39}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Important Definitions and First Examples}{39}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Representations and Modules}{39}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Homomorphisms, Submodules and Quotient Modules}{40}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.3}Simple or Irreducibile $L$-Modules}{40}{subsection.2.1.3}%
+\contentsline {subsection}{\numberline {2.1.4}Semi-Simple $L$-Modules}{41}{subsection.2.1.4}%
+\contentsline {section}{\numberline {2.2}The Adjoint Representation and the Killing Form}{42}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Properties of the Adjoint Representation}{42}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}The Killing Form}{44}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}The Killing Form on Ideals and Subalgebras}{45}{subsection.2.2.3}%
+\contentsline {section}{\numberline {2.3}Cartan's Criteria and the Structure Theorem}{46}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Preliminaries from Linear Algebra}{46}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Cartan's Criterion for Solvability}{47}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.3}Cartan's Criterion for Semi-Simplicity}{48}{subsection.2.3.3}%
+\contentsline {subsection}{\numberline {2.3.4}The Structure Theorem for Complex, Semi-Simple Lie Algebras}{48}{subsection.2.3.4}%
+\contentsline {section}{\numberline {2.4}Generalising the Additive Jordan Decomposition to Semi-Simple Lie Algebras}{49}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}Existence}{50}{subsection.2.4.1}%
+\contentsline {subsection}{\numberline {2.4.2}Uniqueness}{51}{subsection.2.4.2}%
+\contentsline {subsection}{\numberline {2.4.3}Properties}{51}{subsection.2.4.3}%
+\contentsline {section}{\numberline {2.5}The Representation Theory of $\mathfrak {sl}\!\left ( 2 \right )$}{51}{section.2.5}%
+\contentsline {subsection}{\numberline {2.5.1}Generators and Relations}{51}{subsection.2.5.1}%
+\contentsline {subsection}{\numberline {2.5.2}Representations in Terms of Homogeneous Polynomials}{52}{subsection.2.5.2}%
+\contentsline {subsection}{\numberline {2.5.3}Classifying All Representations of $\mathfrak {sl}\!\left ( 2 \right )$}{53}{subsection.2.5.3}%
+\contentsline {chapter}{\numberline {3}Root Systems}{54}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Cartan Subalgebras}{54}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Semi-Simple Elements}{54}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Properties of Cartan Subalgebras}{55}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.3}Centralisers and the Cartan Decomposition}{55}{subsection.3.1.3}%
+\contentsline {section}{\numberline {3.2}Understanding Roots}{59}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Subalgebras of $L$ Isomorphic to $\mathfrak {sl}\!\left ( 2 \right )$}{59}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Consequences of the Cartan Decomposition}{60}{subsection.3.2.2}%
+\contentsline {chapter}{Bibliography}{62}{theorem.3.2.7}%
