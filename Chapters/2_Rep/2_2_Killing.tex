@@ -21,9 +21,9 @@ We begin with diagonalisability.
 
 Recall that \Cref{Ch1:Lemma:adNilpotnetOfNilpotent} tells us precisely that the adjoint representation respects nilpotency. Finally, we can use the fact that the adjoint representation is a Lie algebra homomorphsim to show that it respects commutativity.
 
-\begin{lemma}
+\begin{boxlemma}
     If $x, y \in \gl{n}$ are such that $xy = yx$, then $\pad{x} \pad{y} = \pad{y} \pad{x}$.
-\end{lemma}
+\end{boxlemma}
 \begin{proof}
     Observe that $xy = yx \iff \brac{x, y} = 0$. By \Cref{Ch1:Prop:AdjointLieAlgHom}, we have that
     \begin{align*}
@@ -86,13 +86,13 @@ where $\set{e_1, \ldots, e_n}$ is a basis of $L$ and $n$ is its $\C$-dimension. 
 
 We will now prove some identities about the killing form. We will begin by stating a basic identity involving the trace.
 
-\begin{lemma}\label{Ch2:Lemma:TraceAssoc}
+\begin{boxlemma}\label{Ch2:Lemma:TraceAssoc}
     For all $A, B, C \in \gl{L}$, we have that
     \begin{align}
         \Tr{\brac{A, B}, C} = \Tr{A, \brac{B, C}}
         \label{Ch2:Eq:TraceAssoc}
     \end{align}
-\end{lemma}
+\end{boxlemma}
 \begin{proof}
     The proof is a simple consequence of two facts: first, that matrix multiplication is associative, and second, that the trace of a product of two matrices is invariant under swapping them. We will leave the details to the reader.
 \end{proof}

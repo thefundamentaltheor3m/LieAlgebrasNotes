@@ -6,7 +6,7 @@ In this section, we will see the usefulness of the Killing Form. Let $L$ be a Li
 
 In this subsection, we will prove some important results from Linear Algebra that will prove useful going forward.
 
-\begin{lemma}\label{Ch2:Lemma:PolyConjDiag}
+\begin{boxlemma}\label{Ch2:Lemma:PolyConjDiag}
     Let $V$ be a finite-dimensional $\C$-vector space, and let $x \in \gl{V}$ be a linear map with Jordan Decomposition $x = d + n$, where $d$ is diagonal and $n$ is nilpotent. Write
     \begin{align*}
         d = \begin{bmatrix}
@@ -25,7 +25,7 @@ In this subsection, we will prove some important results from Linear Algebra tha
         \end{bmatrix}
     \end{align*}
     to be the diagonal matrix whose entries are the complex conjugates of the eigenvalues of $x$. If the $\lambda_i$-eigenspace $\Vof{d}_{\lambda_i}$ of $d$ is equal to the $\overline{\lambda_i}$-eigenspace $\Vof{\overline{d}}_{\overline{\lambda}_i}$ of $\overline{d}$ for all $i$, then there exists a polynomial $p \in \C[X]$ such that $p(n) = \overline{d}$.
-\end{lemma}
+\end{boxlemma}
 \begin{proof}
     
     \sorry
@@ -33,12 +33,12 @@ In this subsection, we will prove some important results from Linear Algebra tha
 
 We will also remind the reader of the definition of non-degeneracy for bilinear forms.
 
-\begin{definition}[Degeneracy of a Bilinear Form]
+\begin{boxdefinition}[Degeneracy of a Bilinear Form]
     Let $\parenth{\cdot, \cdot}$ be a bilinear form. We say that $\parenth{\cdot, \cdot}$ is \textbf{degenerate} if there exists some $x \neq 0$ such that $\parenth{x, y} = 0$ for all $y$.
-\end{definition}
-\begin{definition}[Non-Degeneracy of a Bilinear Form]
+\end{boxdefinition}
+\begin{boxdefinition}[Non-Degeneracy of a Bilinear Form]
     We say the bilinear form $\parenth{\cdot, \cdot}$ is \textbf{non-degenerate} if it is not degenerate, ie, if for all $x \neq 0$, there exists a $y$ such that $\parenth{x, y} \neq 0$.
-\end{definition}
+\end{boxdefinition}
 
 Finally, we will note the following result on direct sums and non-degeneracy.
 
@@ -69,9 +69,9 @@ One direction is easily proven.
 
 The converse is a bit more involved, and requires an intermediate proposition.
 
-\begin{proposition}
+\begin{boxproposition}
     Let $K \leq \gl{n}$ be a Lie subalgebra such that the trace form $\parenth{A, B} \mapsto \Tr{AB} : K \times K \to \C$ is identically zero on $K$. Then, $K$ is solvable.
-\end{proposition}
+\end{boxproposition}
 \begin{proof}
     We show that $K'$ is nilpotent. This would imply that $K'$ is solvable. Furthermore, we know that $\quotient{K}{K'}$ is abelian, and hence, solvable. Therefore, we would be able to conclude that $K$ is itself solvable. % Turn this into a separate result...
 

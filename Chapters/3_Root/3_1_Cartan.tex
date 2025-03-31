@@ -8,9 +8,9 @@ Throughout this section, let $L$ denote a semi-simple Lie algebra. We begin by d
     An element $x \in L$ is \textbf{semi-simple} if it is equal to the diagonal part of its Jordan Decomposition, as in~\eqref{Ch2:Eq:GenJordanDecomp}.
 \end{boxdefinition}
 
-\begin{lemma}\label{Ch3:Lemma:ExistsNeZeroSemiSimple}
+\begin{boxlemma}\label{Ch3:Lemma:ExistsNeZeroSemiSimple}
     $L$ admits a non-zero semi-simple element.
-\end{lemma}
+\end{boxlemma}
 \begin{proof}
     Assume, for contradiction, that non non-zero element of $L$ is semi-simple. Then, by \Cref{Ch2:Thm:GenJordanDecomp}, for all $x \in L$, $\pad{x}$ is nilpotent. Engel's Theorem then tells us that $L$ is nilpotent, which is a contradiction because $L$ is semi-simple. % WHY?
 \end{proof}
@@ -32,9 +32,9 @@ We will prove important properties of Cartan subalgebras in the next subsection.
 
 First of all, we need to make sure what we are doing is sensible.
 
-\begin{lemma}
+\begin{boxlemma}
     $L$ admits a Cartan subalgebra.
-\end{lemma}
+\end{boxlemma}
 \begin{proof}
     The zero subalgebra satisfies the necessary properties. % The unieuqeness follows from the  maximality condition.
 \end{proof}
@@ -69,14 +69,14 @@ We can also define the centraliser of an element.
 \end{boxdefinition}
 
 
-\begin{lemma}
+\begin{boxlemma}
     For any $h \in L$, we have that $C_L(h) = C_L\!\parenth{\Span{h}}$.
-\end{lemma}
+\end{boxlemma}
 
 
-\begin{lemma}\label{Ch3:Lemma:Eq_Centraliser_Implies_Cartan}
+\begin{boxlemma}\label{Ch3:Lemma:Eq_Centraliser_Implies_Cartan}
     Let $H$ be a Lie subalgebra of $L$ such that all of its elements are semi-simple. If $H = C_L(H)$, then $H$ is a Cartan subalgebra of $L$.
-\end{lemma}
+\end{boxlemma}
 \begin{proof}
     We know that elements of $C_L(H)$ commute with all elements of $H$. Since $H = C_L(H)$, it follows that $H$ is abelian. We also have the assumption that all elements of $H$ are semi-simple. Therefore, the only thing we need to show is maximality.
     
@@ -85,9 +85,9 @@ We can also define the centraliser of an element.
 
 What's interesting is that the converse is also true: any Cartan subalgebra is equal to its centraliser. Proving this, though, is significantly more difficult. It motivates us to develop a lot of machinery, which is where we will first encounter the notion of the Cartan Decomposition and the roots of a Lie algebra.
 
-\begin{lemma}
+\begin{boxlemma}
     Commuting diagonalisable linear maps from any vector space to itself are simultaneously diagonalisable.
-\end{lemma}
+\end{boxlemma}
 \begin{proof}
     This is an easy generalisation of the two-dimensional case. \sorry % No need to prove tbh
 \end{proof}

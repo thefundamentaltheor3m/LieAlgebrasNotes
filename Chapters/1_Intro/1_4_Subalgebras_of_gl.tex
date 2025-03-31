@@ -7,19 +7,19 @@ We now turn our attention to the structure of subalgebras of $\gl{n}$ for some f
 
 We will begin by recalling the linear algebraic theory of invariant subspaces and adapt that theory to the context of Lie algebras. Throughout this subsection, we will fix a subset $L \subseteq \gl{n}$ and a subspace $U \leq \C^n$.
 
-\begin{definition}[Invariance]
+\begin{boxdefinition}[Invariance]
     We say that $U$ is \textbf{$L$-invariant} if for all $T \in L$ and $v \in U$, we have $\Tv \in U$.
-\end{definition}
+\end{boxdefinition}
 
 The action of $L$ on $\C^n$ induces a natural action on the quotient space of $\C^n$ by $U$.
 
-\begin{definition}[Induced Action]
+\begin{boxdefinition}[Induced Action]
     To each $T \in L$, we can associate the linear map $\Tbar : \quotient{\C^n}{U} \to \quotient{\C^n}{U}$ defined by
     \begin{align}
         \Tbar(v + U) = \Tv + U
     \end{align}
     for all $v + U \in \quotient{\C^n}{U}$. We will refer to the map $T \mapsto \Tbar$ as the \textbf{induced action} of $L$ on $\quotient{\C^n}{U}$.
-\end{definition}
+\end{boxdefinition}
 
 Indeed, when $L$ is a Lie subalgebra of $\gl{n}$, we can go one step further.
 
@@ -47,9 +47,9 @@ We can extend this to sub-vector spaces.
 
 We can say something about the adjoint of a nilpotent element.
 
-\begin{lemma}\label{Ch1:Lemma:adNilpotnetOfNilpotent}
+\begin{boxlemma}\label{Ch1:Lemma:adNilpotnetOfNilpotent}
     Let $x \in \gl{n}$ be nilpotent. Then, $\pad{x} \in \gl{\gl{n}}$ is nilpotent as well.
-\end{lemma}
+\end{boxlemma}
 \begin{proof}
     We need to show that there exists an $m \in \N$ such that the map we get by successively composing the adjoint map $\pad{x}$ $m$ times is identically zero.
     
@@ -100,9 +100,9 @@ As an intersection of sub-vector spaces, $U_n$ is a subspace of $\C^n$. Furtherm
 
 We are now ready to reduce the proof of Engel's Theorem to showing that all the elements of $T$ have a common eigenvector with eigenvalue $0$---or, equivalently, to showing that $U_n$ is nonzero.
 
-\begin{lemma}
+\begin{boxlemma}
     If $U_n$ contains a nonzero element, then there exists a basis of $\C^n$ with respect to which every element of $N$ is upper-triangular.
-\end{lemma}
+\end{boxlemma}
 \begin{proof}
     We argue by induction on $n$. When $n = 1$, the result is trivial: every element of $N$ (and of $\gl{n} = \gl{1}$) is upper-triangular, so the fact that $U_n = 0$ is not a problem. Now, suppose that there exists a nonzero element $v \in U_n$, ie, such that $\Tv = 0$ for all $T \in N$. Let $V = \quotient{\C^n}{\Span{v}}$. Since $\Span{v} \leq U_n$ and $U_n$ is $N$-invariant, we know that $\Span{v}$ is $N$-invariant as well, allowing us to develop the machinery developed in \Cref{Ch1:Subsec:QuotientByInvariantSubspaces} that tells us about the Lie algebraic properties of $\gl{V}$.
     
@@ -135,9 +135,9 @@ using \Cref{Ch1:Prop:ExistsIdealCodim1}. We can then take distinguished elements
 
 We will now show that $U_n$ is, indeed, nonzero.
 
-\begin{lemma}
+\begin{boxlemma}
     There exists a nonzero vector $v \in U_n$.
-\end{lemma}
+\end{boxlemma}
 \begin{proof}
     We need to show that $\Tv = 0$ for all $T \in N$. We argue by induction on $\pdim{N}$. The base case $\pdim{N} = 1$ is clear: $N$ must be the span of a single, nilpotent element, which necessarily has a (nonzero) eigenvector with eigenvalue $0$. So, assume $N$ is such that for all Lie subalgebras of $\gl{n}$ of dimension less than $\pdim{N}$, there exists a nonzero vector in the simultaneous kernel $U_n$ of all elements of $N$.
     
@@ -178,9 +178,9 @@ Throughout this subsection, let $V$ be a finite-dimensional $\C$-vector space, $
 
 The weight space gives us useful information about $L$ and $\lambda$.
 
-\begin{lemma}
+\begin{boxlemma}
     If $V_{\lambda}$ is nonzero, then $\lambda$ is a linear map.
-\end{lemma}
+\end{boxlemma}
 \begin{proof}
     Suppose that $V_{\lambda} \neq 0$. Fix $S, T \in L$. We know there exists a nonzero vector $v \in V$ such that $\Sof{v} = \lambda(S) \cdot v$ and $\Tv = \lambda(T) \cdot v$. In particular, we have that
     \begin{align*}
@@ -189,9 +189,9 @@ The weight space gives us useful information about $L$ and $\lambda$.
     Given that $\lambda(S + T)$ and $\lambda(S) + \lambda(T)$ are both scalars, we must have that $\lambda(S + T) = \lambda(S) + \lambda(T)$.
 \end{proof}
 
-\begin{lemma}
+\begin{boxlemma}
     $V_\lambda$ is a sub-vector space of $V$.
-\end{lemma}
+\end{boxlemma}
 \begin{proof}
     \sorry
 \end{proof}
@@ -294,9 +294,9 @@ We can apply the above to compute the weights of the upper-triangular Lie subalg
 
 Finally, we underscore the importance of weight spaces by mentioning that they can be used to prove a seemingly unrelated fact about matrices.
 
-\begin{lemma}\label{Ch1:Lemma:SimulDiagOfCommuting}
+\begin{boxlemma}\label{Ch1:Lemma:SimulDiagOfCommuting}
     Let $A, B \in \gl{n}$ be diagonalisable. If $A$ and $B$ commute, then there exists a basis with respect to which both $A$ and $B$ are diagonalisable.
-\end{lemma}
+\end{boxlemma}
 \begin{proof}
     Consider the subspace $L := \Span{A, B} \leq \gl{n}$. Observe that since $A$ and $B$ commute, $\brac{A, B} = 0$. Therefore, $L$ is an abelian Lie subalgebra of $\gl{n}$. The idea is that the weight space of 
 \end{proof}
