@@ -175,6 +175,28 @@ This allows us to construct another matrix Lie algebra.
     because of the unique property of the trace that $\Tr{AB} = \Tr{BA}$ for any $A, B \in \gl{n}$.
 \end{remark}
 
+Often, when working with finite-dimensional algebras, we work with bases. As one might expect, if we can show the algebra homomorphism property for a basis, we can show it in general.
+
+\begin{boxlemma}\label{Ch1:Lemma:Basis_Hom_Alg_Hom}
+    Let $A$ and $B$ be algebras. Let $\set{e_1, \ldots, e_n}$ be a basis of $A$. If $\phi : A \to B$ is a linear map such that $\phiof{e_i \cdot e_j} = \phiof{e_i} \cdot \phiof{e_j}$ for all $1 \leq i, j \leq n$, then $\phi$ is an algebra homomorphism.
+\end{boxlemma}
+\begin{proof}
+    The result follows from bilinearity. Assume that $\phi$ is a linear map that preserves multiplication between basis elements. Then, for all $x, y \in A$, if we write
+    \begin{align*}
+        x = \sum_{k=1}^{n} \lambda_k e_k \qquad \text{ and } \qquad y = \sum_{k=1}^{n} \mu_k e_k
+    \end{align*}
+    for some $\lambda_k, \mu_k \in \C$, we have
+    \begin{align*}
+        \phiof{x \cdot y}
+        &= \phiof{\parenth{\sum_{k=1}^{n} \lambda_k e_k} \cdot \parenth{\sum_{k=1}^{n} \mu_k e_k}} \\
+        &= \sum_{i=1}^{n} \sum_{j=1}^{n} \lambda_i \mu_j \phiof{e_i \cdot e_j} \\
+        &= \sum_{i=1}^{n} \sum_{j=1}^{n} \lambda_i \mu_j \parenth{\phiof{e_i} \cdot \phiof{e_j}} \\
+        &= \parenth{\sum_{i=1}^{n} \lambda_i \phiof{e_i}} \cdot \parenth{\sum_{j=1}^{n} \mu_j \phiof{e_j}} \\
+        &= \phiof{x} \cdot \phiof{y}
+    \end{align*}
+    by bilinearity of $\cdot$ and linearity of $\phi$, giving us the desired result.
+\end{proof}
+
 The very natural relationship between associative and Lie algebra structures given by \Cref{Ch1:Lemma:CommBracket} gives us an elegant criterion for proving that a subspace is a subalgebra of a Lie algebra whose Lie bracket is the commutator of an associative bilinear map.
 
 \begin{boxproposition}\label{Ch1:Prop:Subalg_Commbracket}
@@ -206,6 +228,33 @@ This allows us to construct more examples still.
 \begin{boxexample}[The Upper-Triangular Lie Algebra]
     For $n \in \N$, we define the \textbf{Upper-Triangular Lie Algebra} to be the set of all $n \times n$ upper-triangular matrices (with respect to some predetermined basis), denoted $\t{n}$. Given that the product of upper-triangular matrices is upper-triangular, $\t{n}$ forms an associative subalgebra of $\MnC$, and therefore, a Lie subalgebra of $\gl{n}$.
 \end{boxexample}
+
+\subsection{Isomorphisms}
+
+We would like to define an isomorphism of algebras to be an algebra homomorphism that is invertible, whose inverse is also an algebra homomorphism. It turns out, we can capture this information with a slightly simpler definition.
+
+\begin{boxlemma}\label{Ch1:Lemma:Inv_of_Bij_Hom_Alg_Hom}
+    Let $A$ and $B$ be algebras and $\phi : A \to B$ a bijection. If, in addition, $\phi$ is an algebra homomorphism, then so is $\phi\inv$.
+\end{boxlemma}
+\begin{proof}
+    Assume $\phi$ is an algebra homomorphism. Since $\phi$ is linear, we know, from linear algebra, that $\phi\inv$ is linear as well. Therefore, all we need to show is that $\phi\inv$ respects the multiplication maps of $A$ and $B$. To that end, fix $y_1, y_2 \in B$. We need to show that
+    \begin{align*}
+        \phi\inv\of{y_1 \cdot y_2} = \phi\inv\of{y_1} \cdot \phi\inv\of{y_2}
+    \end{align*}
+    Since $\phi$ is a bijection, we know there are unique $x_1, x_2 \in A$ such that $\phiof{x_1} = y_1$ and $\phiof{x_2} = y_2$. Indeed, $x_1 = \phi\inv\of{y_1}$ and $x_2 = \phi\inv\of{y_2}$. Then,
+    \begin{align*}
+        \phi\inv\of{y_1 \cdot y_2} = \phi\inv\of{\phiof{x_1} \cdot \phiof{x_2}} = \phi\inv\of{\phiof{x_1 \cdot x_2}} = x_1 \cdot x_2 = \phi\inv\of{y_1} \cdot \phi\inv\of{y_2}
+    \end{align*}
+    as required, proving that $\phi\inv$ is a Lie algebra homomorphism too.
+\end{proof}
+
+It is therefore not necessary to require the inverse of an algebra homomorphism to be an algebra homomorphism in order for it to be an isomorphism, though this is a fact we get for free from \Cref{Ch1:Lemma:Inv_of_Bij_Hom_Alg_Hom}.
+
+\begin{boxdefinition}[Isomorphism of Algebras]
+    Let $A$ and $B$ be algebras. An \textbf{algebra isomorphism} $\phi : A \iso B$ is a bijective algebra homomorphism.
+\end{boxdefinition}
+
+Over the course of this module, we will see any number of pairs of isomorphic Lie algebras. We do not offer any examples here because there will be more than enough as we go along. We will instead move onto more important---and less trivial---concepts.
 
 \subsection{Ideals}
 
@@ -430,20 +479,22 @@ Throughout this subsection, $V$ will refer to a finite-dimensional vector space.
 We begin with a general Lie algebra construction.
 
 \begin{boxdefinition}[General Linear Lie Algebra over an Arbitrary Vector Space]\label{Ch1:Def:gl_V}
-    We define the \textbf{General Linear Lie Algebra over $V$} to be the set of all linear maps from $V$ to $V$, viewed as a Lie algebra under the commutator bracket. We denote it $\gl{V}$.
+    We define the \textbf{General Linear Lie Algebra over $V$} to be the set of all linear maps from $V$ to $V$, viewed as a Lie algebra under the commutator bracket on the associative algebra structure given by composition of linear maps (cf. \Cref{Ch1:Lemma:CommBracket}). We denote it $\gl{V}$.
 \end{boxdefinition}
 
 That this is, indeed, a Lie algebra should come as no surprise. Given that this construction is well-defined over \textit{any} vector space, we can, in particular, apply it to Lie algebras.
 
 For the remainder of this subsection, let $L$ denote an arbitrary Lie algebra. It turns out that we can define a rather nice map that relates $L$ with $\gl{L}$: the adjoint.
 
-\begin{boxdefinition}[Adjoint Map]
+\begin{boxdefinition}[Adjoint Map]\label{Ch1:Def:AdjointMap}
     To every $x \in L$, we can associate the linear map
     \begin{align*}
         \pad{x} : L \to L : y \mapsto \brac{x, y}
     \end{align*}
     We call this map the \textbf{adjoint map} associated to $x$.
 \end{boxdefinition}
+
+The fact that the Lie bracket is bilinear tells us that for all $x \in L$, $\pad{x}$ is indeed a linear map. That is, $\pad{x} \in \gl{L}$. We can therefore view $\ad$ as a map from $L$ to $\gl{L}$ which sends any $x \in L$ to the linear map $\pad{x} \in \gl{L}$ defined in \Cref{Ch1:Def:AdjointMap}. Now, observe that both $L$ and $\gl{L}$ are Lie algebras. It turns out that the adjoint map is compatible this fact.
 
 \begin{boxproposition}\label{Ch1:Prop:AdjointLieAlgHom}
     The adjoint map $\ad : L \to \gl{L}$ is a Lie algebra homomorphism.
@@ -464,14 +515,30 @@ For the remainder of this subsection, let $L$ denote an arbitrary Lie algebra. I
         &= \brac{\brac{x, y}, z} \\
         &= \pad{\brac{x, y}}\!(z)
     \end{align*}
+    showing that the Lie bracket in $\gl{L}$ of the adjoints is indeed the adjoint of the Lie bracket in $L$ and allowing us to conclude that $\ad$ is a homomorphism of Lie algebras.
 \end{proof}
 
-Furthermore, we make the following observation:
+We also highlight the following fact.
 \begin{boxlemma}
     $\pker{\ad} = \Zof{L}$
 \end{boxlemma}
 \begin{proof}
-    This is immediate. We only state the result to highlight it.
+    This is immediate from unfolding definitions.
+\end{proof}
+
+Finally, we discuss a rather interesting fact about the image of the adjoint map.
+
+\begin{boxconvention}
+    Denote by $\pad{L}$ the set $\pim{\ad} = \setst{\pad{x}}{x \in L}$.
+\end{boxconvention}
+
+We then have the following rather straightforward fact.
+
+\begin{boxlemma}
+    The set $\pad{L}$ is a Lie subalgebra of $\gl{L}$.
+\end{boxlemma}
+\begin{proof}
+    This is immediate from \Cref{Ch1:Lemma:im_ker_subalg}.
 \end{proof}
 
 \subsection{Derivations}
@@ -489,6 +556,12 @@ Throughout this subsection, let $A$ be an arbitrary algebra with multiplication 
 \begin{boxconvention}
     We will denote the set of all derivations of an algebra $A$ by $\Der{A}$.
 \end{boxconvention}
+
+Most readers will have encountered derivations before. We give below a classic example (over $\R$, for the first time so far) that the reader is sure to recognise.
+
+\begin{boxexample}
+    The space $C^{\infty}(\R)$ of smooth $\R \to \R$ functions is an $\R$-algebra under pointwise addition and multiplication. The differentiation map $D : C^{\infty}(\R) \to C^{\infty}(\R) : f \mapsto f'$ is easily seen to be a derivation.
+\end{boxexample}
 
 Recall that since $A$ is a vector space, $\gl{A}$ is a Lie algebra with respect to the commutator bracket (cf. \Cref{Ch1:Def:gl_V}). It turns out there is a relationship between $\Der{A}$ and $\gl{A}$.
 
@@ -508,15 +581,9 @@ Recall that since $A$ is a vector space, $\gl{A}$ is a Lie algebra with respect 
     which can be simplified, if tediously, to the desired form.
 \end{proof}
 
-Most readers will have encountered derivations before. We give below a classic example (over $\R$, for the first time so far) that the reader is sure to recognise.
+Differentiation of smooth functions is not the only example of a derivation. In fact, in the context of Lie algebras, we have the following rather interesting fact.
 
-\begin{boxexample}
-    The space $C^{\infty}(\R)$ of smooth $\R \to \R$ functions is an $\R$-algebra under pointwise addition and multiplication. The differentiation map $D : C^{\infty}(\R) \to C^{\infty}(\R) : f \mapsto f'$ is easily seen to be a derivation.
-\end{boxexample}
-
-We have also encountered a slightly more sophisticated derivation. For the remainder of this subsection, let $L$ be an arbitrary Lie algebra.
-
-\begin{boxproposition}
+\begin{boxproposition}\label{Ch1:Prop:ad_mem_Der}
     For all $x \in L$, the adjoint map $\pad{x} : L \to L : y \mapsto \brac{x, y}$ associated with $x$ is a derivation.
 \end{boxproposition}
 \begin{proof}
@@ -531,32 +598,160 @@ We have also encountered a slightly more sophisticated derivation. For the remai
     as required.
 \end{proof}
 
-Abbreviating the set $\setst{\pad{x}}{x \in L}$ of all adjoint maps on $L$ to $\pad{L}$, we have the following chain of Lie subalgebras:
+We therefore have the following chain of Lie algebra inclusions.
 
 \begin{boxlemma}\label{Ch1:Lemma:adSubalgDer}
-    $\pad{L} \leq \Der{L} \leq \gl{L}$
+    $\pad{L} \leq \Der{L} \leq \gl{L}$.
 \end{boxlemma}
 \begin{proof}
-    \sorry
+    We only need to show that $\pad{L} \leq \Der{L}$, because we have already shown that $\Der{L} \leq \gl{L}$ in \Cref{Ch1:Prop:DerLieSubalg}. By \Cref{Ch1:Prop:ad_mem_Der}, we know $\pad{L} \subseteq \Der{L}$. We know that $\pad{L}$ is a linear subspace of $\Der{L}$ because it is a linear subspace of $\gl{L}$ that is contained in $\Der{L}$. For the same reason, it is also a Lie subalgebra of $\Der{L}$, because we know that the commutator of two adjoints is the adjoint of some Lie bracket in $L$ (cf. \Cref{Ch1:Prop:AdjointLieAlgHom}). In particular, it is contained in $\Der{L}$ because it is the adjoint of some element of $L$ (by \Cref{Ch1:Prop:ad_mem_Der}). Therefore, $\pad{L}$ is a Lie subalgebra of $\Der{L}$.
 \end{proof}
 
-In fact, $\pad{L}$ is more than just a subalgebra of $\Der{L}$.
+\Cref{Ch1:Lemma:adSubalgDer} is hardly surprising, given the facts we have already proven. What is a lot less obvious, though, is that $\pad{L}$ is more than just a subalgebra of $\Der{L}$: it is an ideal.
 
 \begin{boxlemma}
-    $\pad{L} \nsg \Der{L}$.
+    $\pad{L}$ is an ideal of $\Der{L}$ in $\gl{L}$.
 \end{boxlemma}
+\begin{proof}
+    Fix $D \in \Der{L}$ and $\pad{\ell} \in \pad{L}$ for some $\ell \in L$. We need to show that the commutator bracket
+    \begin{align*}
+        \brac{D, \pad{\ell}} = D \circ \pad{\ell} - \pad{\ell} \circ D
+    \end{align*}
+    is a derivation. To that end, fix $x, y \in L$. We need to show that
+    \begin{align}
+        \brac{D, \pad{\ell}}\of{\brac{x, y}} = \brac{x, \brac{D, \pad{\ell}}\of{y}} + \brac{\brac{D, \pad{\ell}}\of{x}, y}
+        \label{Ch1:Eq:ad_ideal_der}
+    \end{align}
+    Indeed, we have that
+    \begin{align}
+        \brac{D, \pad{\ell}}\of{\brac{x, y}}
+        &= \parenth{D \circ \pad{\ell} - \pad{\ell} \circ D}\of{\brac{x, y}} \nonumber \\
+        &= D\of{\pad{\ell}\of{\brac{x, y}}} - \pad{\ell}\of{D\of{\brac{x, y}}} \nonumber \\
+        % &= D\of{\brac{\ell, \brac{x, y}}} - \pad{\ell}\of{\brac{x, D\of{y}} + \brac{D\of{x}, y}} \nonumber \\
+        &= D\of{\brac{\ell, \brac{x, y}}} - \brac{\ell, D\of{\brac{x, y}}} \nonumber \\
+        &= \brac{\ell, D\of{\brac{x, y}}} + \brac{D\of{\ell}, \brac{x, y}} - \brac{\ell, D\of{\brac{x, y}}} \nonumber \\
+        &= \brac{D\of{\ell}, \brac{x, y}} \label{Ch1:Eq:ad_ideal_der_LHS}
+    \end{align}
+    Similarly, bearing in mind that $\brac{D, \pad{\ell}}$ is the commutator in $\gl{L}$, we have
+    \begin{align}
+        \brac{x, \brac{D, \pad{\ell}}\of{y}} + \brac{\brac{D, \pad{\ell}}\of{x}, y}
+        =& \brac{x, D\of{\pad{\ell}\of{y}} - \pad{\ell}\of{D\of{y}}} \nonumber \\
+        &+ \brac{D\of{\pad{\ell}\of{x}} - \pad{\ell}\of{D\of{x}}, y} \nonumber \\
+        =& \brac{x, D\of{\brac{\ell, y}}} - \brac{x, \brac{\ell, D\of{y}}} \nonumber \\
+        &+ \brac{D\of{\brac{\ell, x}}, y} - \brac{\brac{\ell, D\of{x}}, y} \nonumber \\
+        =& \brac{x, \brac{\ell, D(y)}} + \brac{x, \brac{D\of{\ell}, y}} - \brac{x, \brac{\ell, D\of{y}}} \nonumber \\
+        &+ \brac{\brac{\ell, D(x)}, y} + \brac{\brac{D\of{\ell}, x}, y} - \brac{\brac{\ell, D\of{x}}, y} \nonumber \\
+        =& \brac{x, \brac{D\of{\ell}, y}} + \brac{\brac{D\of{\ell}, x}, y} \nonumber \\
+        =& -\brac{x, \brac{y, D\of{\ell}}} - \brac{y, \brac{D\of{\ell}, x}} \label{Ch1:Eq:ad_ideal_der_RHS}
+    \end{align}
+    where the last equality follows from antisymmetry \eqref{SP:Eq:LieBracAntisymm}. The Jacobi Identity \eqref{SP:eq:JacobiIdentity} then allows us to put \eqref{Ch1:Eq:ad_ideal_der_LHS} and \eqref{Ch1:Eq:ad_ideal_der_RHS} together and conclude that \eqref{Ch1:Eq:ad_ideal_der} holds, as required. Therefore, the commutator of a derivation and an adjoint is indeed a derivation, proving that $\pad{L}$ is indeed an ideal of $\Der{L}$ with respect to the Lie algebra structure it inherits from $\gl{L}$.
+\end{proof}
 
 \subsection{Structure Constants}
 
-Fix $n \in \N$, and let $L$ be an $n$-dimensional Lie algebra. Consider the $\C$-basis $\B = \set{e_1, \ldots, e_n}$ of $L$. Given the fundamentally linear algebraic nature of Lie algebras, it is natural to study what happens when we apply the Lie bracket to elements of $\B$.
+Fix $n \in \N$, and let $L$ be an $n$-dimensional Lie algebra. Consider some $\C$-basis $\B = \set{e_1, \ldots, e_n}$ of $L$. Given the fundamentally linear algebraic nature of Lie algebras, it is natural to study what happens when we apply the Lie bracket to elements of $\B$.
 
-\begin{boxdefinition}[Structure Constants]
+\begin{boxdefinition}[Structure Constants]\label{Ch1:Def:StructureConstants}
     Fix $i, j \in \set{1, \ldots, n}$. We know that there exist unique constants $s_{ij1}, s_{ij2}, \ldots, s_{ijn}$ such that
     \begin{align*}
         \brac{e_i, e_j} = \sum_{k = 1}^{n} s_{ijk} e_k
     \end{align*}
     We call the scalars $\set{s_{ijk}}_{1 \leq i, j, k \leq n}$ the \textbf{structure constants} of $L$ with respect to $\B$.
 \end{boxdefinition}
+
+In other words, the structure constant $s_{ijk}$ of $L$ with respect to $\B$ is the $k$th coordinate (with respect to $\B$) of the Lie bracket of the $i$th and $j$th elements of $\B$.
+
+As one might expect from their name, the structure constants of a Lie algebra define it uniquely up to isomorphism.
+
+\begin{boxtheorem}[The Meaning of Structure Constants]\label{Ch1:Thm:StructureConstantsMeaning}
+    Let $L_1$ and $L_2$ be $n$-dimensional Lie algebras over $\C$. Then,
+    $L_1 \cong L_2$ if and only if there exist $\C$-bases $\B_1$ and $\B_2$ of $L_1$ and $L_2$ respectively such that the structure constants of $L_1$ with respect to $\B_1$ are equal to those of $L_2$ with respect to $\B_2$.
+\end{boxtheorem}
+\begin{proof}
+    First, note that the fact that $L_1$ and $L_2$ have the same dimension does \underline{not}, in general, make them isomorphic as Lie algebras. They are certainly isomorphic as $\C$-vector spaces, but this is not enough. For example, as we shall see later on (\Cref{Ch1:Subsec:LieAlgDim2}), there are two non-isomorphic Lie algebras of dimension $2$ over $\C$. With this in mind, we proceed with the proof.
+    \begin{description}
+        \item[$\parenth{\implies}$] Assume that $L_1 \cong L_2$ via some isomorphism $\phi : L_1 \to L_2$. Let $\B_1 = \set{e_1, \ldots, e_n}$ be any basis of $L_1$. We know that the set
+        \begin{align*}
+            \B_2 = \setst{f_i = \phiof{e_i}}{1 \leq i \leq n}
+        \end{align*}
+        is a basis of $L_2$. What's more, for all $1 \leq i, j \leq n$, since $\phi$ is an isomorphism of Lie algebras,
+        \begin{align*}
+            \phiof{\brac{e_i, e_j}} = \brac{\phiof{e_i}, \phiof{e_j}} = \brac{f_i, f_j}
+        \end{align*}
+        Therefore, denoting by $\set{s_{ijk}}_{1 \leq i, j, k \leq n}$ the structure constants of $L_1$ with respect to $\B_1$,
+        \begin{align*}
+            \brac{f_i, f_j} = \phiof{\brac{e_i, e_j}} = \phiof{\sum_{k=1}^{n} s_{ijk} e_k} = \sum_{k=1}^{n} s_{ijk} \phiof{e_k} = \sum_{k=1}^{n} s_{ijk} f_k
+        \end{align*}
+        By uniqueness of structure constants (ie, of coordinates), it must be that the structure constants of $L_2$ with respect to $\B_2$ are also $\set{s_{ijk}}_{1 \leq i, j, k \leq n}$.
+
+        \item[$\parenth{\impliedby}$] Assume that there exist bases $\B_1 = \set{e_1, \ldots, e_n}$ and $\B_2 = \set{f_1, \ldots, f_n}$ of $L_1$ and $L_2$ respectively such tha the structure constants of $L_1$ with respect to $B_1$ are equal to those of $L_2$ with respect to $\B_2$. Denote these by $\set{s_{ijk}}_{1 \leq i, j, k \leq n}$. Define the linear isomorphism $\phi : L_1 \iso L_2$ that maps $e_k$ to $f_k$ for all $1 \leq k \leq n$. We show that $\phi$ is, in fact, a Lie algebra isomorphism. 
+        
+        We only need to show that $\phi$ is a Lie algebra homomorphism, ie, that it preserves Lie brackets. Since $L_1$ and $L_2$ have the same structure constants with respect to $\B_1$ and $\B_2$ respectively, we can see that for all $1 \leq i, j \leq n$,
+        \begin{align*}
+            \phiof{\brac{e_i, e_j}} = \phiof{\sum_{k=1}^{n} s_{ijk} e_k} = \sum_{k=1}^{n} s_{ijk} \phiof{e_k} = \sum_{k=1}^{n} s_{ijk} f_k = \brac{f_i, f_j} = \brac{\phiof{e_i}, \phiof{e_j}}
+        \end{align*}
+        \Cref{Ch1:Lemma:Basis_Hom_Alg_Hom} then allows us to conclude that $\phi$ preserves the Lie bracket for \textit{all} elements, not just basis elements. This makes it a Lie algebra homomorphism in addition to being a linear isomorphism, making it a Lie algebra isomorphism as desired.
+    \end{description}
+    \vspace{-1em}
+\end{proof}
+
+In a sense, structure constants give us a way of describing Lie algebraic phenomena numerically in the same way that coordinates give us a way of describing linear algebraic phenomena numerically. Indeed, both notions are basis-dependent. In fact, from the very definition of a Lie algebra, we can glean some information as to the behaviour of structure constants.
+
+For the remainder of this subsection, just as we did at the beginning of this subsection, fix a Lie algebra $L$, a basis $\B = \set{e_1, \ldots, e_n}$, and structure constants $\set{s_{ijk}}_{1 \leq i, j, k \leq n}$ of $L$ with respect to $\B$.
+
+\begin{boxlemma}\label{Ch1:Lemma:StructureConstantsBhv}
+    For all $1 \leq i, j, k \leq n$,
+    \begin{enumerate}
+        \item $s_{iik} = 0$.
+        \item $s_{ijk} = -s_{jik}$.
+    \end{enumerate}
+\end{boxlemma}
+\begin{proof}
+    We prove the first point using the fact that the Lie bracket of any element with itself is $0$. The proof of the second point is nearly identical, except it uses antisymmetry \eqref{SP:Eq:LieBracAntisymm} instead.
+    
+    Fix $1 \leq i, k \leq n$. From the definition of the Lie bracket, we know that $\brac{e_i, e_i} = 0$. Therefore, since $s_{iik}$ is the $k$th coordinate of $\brac{e_i, e_i}$ with respect to $\B$, $s_{iik}$ must be $0$.
+
+    The proof of the second point is analogous.
+\end{proof}
+
+We can also describe the Jacobi Identity using structure constants, but this is significantly more cumbersome. Therefore, we do not do it here.
+
+\begin{boxexample}[Computing Structure Constants in $\R^3$]
+    The Euclidean space $\R^3$ can be viewed as a Lie algebra under the cross product: it is straightforward to show that the axioms of a Lie algebra are, indeed, satisfied. We can therefore compute the structure constants $\set{s_{ijk}}_{1 \leq i, j, k \leq 3}$ of $\R^3$ under the cross product with respect to the standard basis $\set{e_1 = \parenth{1, 0, 0}, e_2 = \parenth{0, 1, 0}, e_3 = \parenth{0, 0, 1}}$. \\ % \hfill \newline
+
+    There are $27$ structure constants in total, but we can use \Cref{Ch1:Lemma:StructureConstantsBhv} to simplify things. Immediately, we can see that $9$ of them are zero:
+    \begin{align*}
+        s_{111} = s_{112} = s_{113} = s_{221} = s_{222} = s_{223} = s_{331} = s_{332} = s_{333} = 0
+    \end{align*}
+    Furthremore, of the remaining $18$, $9$ are the negatives of the other $9$. Therefore, we only really need to compute $9$ structure constants to know the remaining $27$. Since each structure constant is a coordinate of a vector, we only need to compute $3$ vectors, namely, the cross products of the basis vectors with each other. \\
+
+    Observe that
+    \begin{align*}
+        e_1 \times e_2 = e_3 \qquad e_2 \times e_3 = e_1 \qquad e_3 \times e_1 = e_2
+    \end{align*}
+    This tells us that
+    \begin{align*}
+        % \begin{matrix}
+            s_{121} &= 0 && s_{122} = 0 && s_{123} = 1 \\
+            s_{231} &= 1 && s_{232} = 0 && s_{233} = 0 \\
+            s_{311} &= 0 && s_{312} = 1 && s_{313} = 0
+        % \end{matrix}
+    \end{align*}
+    Combining this with \Cref{Ch1:Lemma:StructureConstantsBhv}, we can see that the structure constants of $\R^3$ with respect to the standard basis are
+    \begin{align*}
+        % \begin{matrix}
+            s_{111} &= 0 && s_{112} = 0 && s_{113} = 0 \\
+            s_{121} &= 0 && s_{122} = 0 && s_{123} = 1 \\
+            s_{131} &= 0 && s_{132} = -1 && s_{133} = 0 \\
+            s_{211} &= 0 && s_{212} = 0 && s_{213} = -1 \\
+            s_{221} &= 0 && s_{222} = 0 && s_{223} = 0 \\
+            s_{231} &= 1 && s_{232} = 0 && s_{233} = 0 \\
+            s_{311} &= 0 && s_{312} = 1 && s_{313} = 0 \\
+            s_{321} &= -1 && s_{322} = 0 && s_{323} = 0 \\
+            s_{331} &= 0 && s_{332} = 0 && s_{333} = 0
+        % \end{matrix}
+    \end{align*}
+\end{boxexample}
 
 %% TODO: Describe how structure constants give isomorphisms
 % Also talk about how they relate to matrices and how we can describe identities in them like Jacobi and skew-symmetry
@@ -573,8 +768,18 @@ In this subsection, we briefly describe the theory of the direct sum of two Lie 
     \end{align}
     for all $x_1, y_1 \in L_1$ and $x_2, y_2 \in L_2$. Then, $\liebrac$ is a Lie bracket on $L_1 \+ L_2$.
 \end{boxproposition}
-\begin{proof}
-    \sorry
+\begin{proof} % Courtesy Copilot
+    First, note that the Lie bracket $\liebrac$ is bilinear because it is bilinear on each component. Now, fix $x_1, y_1 \in L_1$ and $x_2, y_2 \in L_2$. Then, we have
+    \begin{align*}
+        \brac{x_1 \+ x_2, x_1 \+ x_2} &= \brac{x_1, x_1} \+ \brac{x_2, x_2} = 0 \+ 0 = 0
+    \end{align*}
+    proving that $\liebrac$ satisfies the first property of a Lie bracket. Finally, for all $z_1 \in L_1$ and $z_2 \in L_2$, observe that
+    \begin{align*}
+        \brac{x_1 \+ x_2, \brac{y_1 \+ y_2, z_1 \+ z_2}}
+        &= \brac{x_1 \+ x_2, \brac{y_1, z_1} \+ \brac{y_2, z_2}} \\
+        &= \brac{x_1, \brac{y_1, z_1}} \+ \brac{x_2, \brac{y_2, z_2}}
+    \end{align*}
+    and similarly for the other terms in the Jacobi identity. Since the Jacobi identity holds in $L_1$ and $L_2$, it must hold in $L_1 \+ L_2$. Therefore, $\liebrac$ is a Lie bracket on $L_1 \+ L_2$.
 \end{proof}
 
 \begin{boxdefinition}[Direct Sum]\label{Ch1:Def:DirectSum}
@@ -582,3 +787,5 @@ In this subsection, we briefly describe the theory of the direct sum of two Lie 
 \end{boxdefinition}
 
 We can repeat this definition successively to define the direct sum of any finite number of Lie algebras. We will not explore this idea in any more detail and will take it for granted.
+
+After all of this important theory, we are finally ready to study concrete Lie algebras and their properties. Given that the objective of this module is to classify all semi-simple Lie algebras over $\C$, a natural place to begin is classifying \textit{all} Lie algebras of small dimension. We will do this in the next section.
