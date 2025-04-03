@@ -106,4 +106,99 @@ We can now turn our attention to the classification of Lie algebras in dimension
 
 \subsection{Lie Algebras of Dimension $3$}
 
+We already know the isomorphism class of all abelian Lie algebras of dimension $3$ from \Cref{Ch1:Prop:Abelian_Lie_Algebras_Iso}. The question remains, how many non-abelian Lie algebras of dimension $3$ are there?
+
+We begin with a simple observation. Let $L$ be a Lie algebra of dimension $3$. Assume that $L$ is non-abelian. Then, we know that $\Zof{L} \neq L$ and that $L' = \brac{L, L} \neq 0$. We can then conclude that $\pdim{\Zof{L}} \in \set{0, 1, 2}$ and $\pdim{L'} \in \set{1, 2, 3}$. The strategy we use to determine the isomorphism class of $L$ will be to consider all possible dimensions of $L'$ and use our understanding of $\Zof{L}$ to distinguish between isomorphism classes given a dimension of $L'$.
+
+\subsubsection{\underline{The Case where $\pdim{L'} = 1$.}}
+
+We have two possibilities: either $L' \subseteq \Zof{L}$ or $L' \not\subseteq \Zof{L}$. We will consider both cases separately.
+
+\begin{boxexample}[The Heisenberg Lie Algebra of Dimension $3$]\label{Ch1:Eg:Heisenberg_Lie_Algebra}
+    Define the \textbf{Heisenberg Lie Algebra} $\u{n}$ (for $n \in \N$) to be all matrices of the form
+    \begin{align*}
+        \begin{bmatrix}
+            0 & & * \\
+            \vdots & \ddots & \\
+            0 & \cdots & 0
+        \end{bmatrix}
+    \end{align*}
+    That is, $\u{n}$ is the set of all upper-triangular matrices in $\gl{n}$ with zeroes on the diagonal. One can apply \Cref{Ch1:Prop:Subalg_Commbracket} to show that $\u{n}$ is a Lie subalgebra of $\gl{n}$ because it is an associative subalgebra of $\gl{n}$, which one can show by showing it is an associative subalgebra of $\t{n}$ (the diagonal of a product of upper-triangular matrices is the componentwise product of the diagonals, so when the diagonals are zero, so is that of the product). \\
+
+    In the specific case of $n = 3$, if $L = \u{3}$, then we can show that $\pdim{L'} = 1$ and $L' \subseteq \Zof{L}$. \\
+    
+    To show that $\pdim{L'} = 1$, we can compute the commutator of two matrices in $\u{3}$. Define
+    \begin{align*}
+        X = \begin{bmatrix}
+            0 & a & b \\
+            0 & 0 & c \\
+            0 & 0 & 0
+        \end{bmatrix}, \quad Y = \begin{bmatrix}
+            0 & d & e \\
+            0 & 0 & f \\
+            0 & 0 & 0
+        \end{bmatrix}
+    \end{align*}
+    Clearly, $X, Y \in \u{3}$. Then, computing their commutator,
+    \begin{align*}
+        \brac{X, Y} &= \begin{bmatrix}
+            0 & a & b \\
+            0 & 0 & c \\
+            0 & 0 & 0
+        \end{bmatrix} \begin{bmatrix}
+            0 & d & e \\
+            0 & 0 & f \\
+            0 & 0 & 0
+        \end{bmatrix} - \begin{bmatrix}
+            0 & d & e \\
+            0 & 0 & f \\
+            0 & 0 & 0
+        \end{bmatrix} \begin{bmatrix}
+            0 & a & b \\
+            0 & 0 & c \\
+            0 & 0 & 0
+        \end{bmatrix} \\
+        &= \begin{bmatrix}
+            0 & 0 & af \\
+            0 & 0 & 0 \\
+            0 & 0 & 0
+        \end{bmatrix} - \begin{bmatrix}
+            0 & 0 & dc \\
+            0 & 0 & 0 \\
+            0 & 0 & 0
+        \end{bmatrix} \\
+        &= \begin{bmatrix}
+            0 & 0 & af - dc \\
+            0 & 0 & 0 \\
+            0 & 0 & 0
+        \end{bmatrix}
+    \end{align*}
+    The span of every such commutator is easily seen to be the one-dimensional subspace spanned by the matrix $E_{13}$ with a one in the $13$-position and zeroes everywhere else (in particular, $E_{13}$ is the commutator of two matrices). Therefore, $\pdim{L'} = 1$. \\
+
+    Since we have computed $L'$ explicitly, to show that $L' \subseteq \Zof{L}$, we only need to show that $E_{13}$ commutes with every element of $L$. Indeed, for an arbitrary matrix $X \in \u{3}$ as defined above, we have
+    \begin{align*}
+        \brac{X, E_{13}} = \begin{bmatrix}
+            0 & a & b \\
+            0 & 0 & c \\
+            0 & 0 & 0
+        \end{bmatrix} \begin{bmatrix}
+            0 & 0 & 1 \\
+            0 & 0 & 0 \\
+            0 & 0 & 0
+        \end{bmatrix} - \begin{bmatrix}
+            0 & 0 & 1 \\
+            0 & 0 & 0 \\
+            0 & 0 & 0
+        \end{bmatrix} \begin{bmatrix}
+            0 & a & b \\
+            0 & 0 & c \\
+            0 & 0 & 0
+        \end{bmatrix}
+        = 0 - 0 = 0
+    \end{align*}
+    proving that $L' \subseteq \Zof{L}$.
+\end{boxexample}
+
+
+
 \sorry
