@@ -4,6 +4,8 @@ We now begin discussing some nontrivial objects in the theory of Lie algebras. T
 
 \subsection{Descending Series of Ideals}
 
+We begin by defining the so-called \textbf{derived series} that consists of repeated derivations, that is, repeated performing of the $'$ operation on a Lie algebra (that is, repeatedly computing the derived subalgebra).
+
 \begin{boxdefinition}[Derived Series]
     The \textbf{derived series} of $L$ is the descending series of ideals
     \begin{align*}
@@ -12,9 +14,49 @@ We now begin discussing some nontrivial objects in the theory of Lie algebras. T
     where $L^{(i)} := \brac{L^{(i - 1)}, L^{(i-1)}}$ for $i \geq 1$. % \leq n$.
 \end{boxdefinition}
 
+Each $L^{(i)}$ is nothing but the derived subalgebra of $L^{(i - 1)}$.
+
+We have a special term for Lie algebras for which the derived series stabilises at $0$.
+
 \begin{boxdefinition}[Solvability]
     $L$ is said to be \textbf{solvable} if there exists an $n \in \N$ such that $L^{(n)} = 0$.
 \end{boxdefinition}
+
+We have already encountered a trivial family of solvable Lie algebras.
+
+\begin{boxexample}
+    Every abelian Lie algebra $L$ is solvable. Its derived series is simply
+    \begin{align*}
+        L = L^{(0)} \supseteq L^{(1)} = \brac{L, L} = 0
+    \end{align*}
+\end{boxexample}
+
+There is also a less trivial example.
+
+\begin{boxexample}\label{Ch1:Eg:2D_NonAbelian_Lie_Algebra_solvable}
+    $\r_2$ (cf. \Cref{Ch1:Eg:2D_NonAbelian_Lie_Algebra}) is solvable. Its derived series is
+    \begin{align*}
+        \r_2 &= \r_2^{(0)} = \Span{
+            \begin{bmatrix}
+                1 & 0 \\ 0 & 1
+            \end{bmatrix},
+            \begin{bmatrix}
+                0 & 1 \\ 0 & 0
+            \end{bmatrix}
+        } \\
+        &\supsetneq \r_2^{(1)} = \brac{\r_2, \r_2} = \Span{
+            \begin{bmatrix}
+                0 & 1 \\ 0 & 0
+            \end{bmatrix}
+        } \\
+        &\supsetneq \r_2^{(2)} = \brac{\r_2^{(1)}, \r_2^{(1)}} = 0
+    \end{align*}
+    because $\r_2^{(1)}$, being one-dimensional, is abelian.
+\end{boxexample}
+
+Given that we understand all Lie algebras of dimension $2$, we can make such seemingly sweeping statements as ``All Lie algebras of dimension $2$ are solvable.''
+
+Next, we define the \textbf{lower central series} of a Lie algebra. This is a series of ideals that is similar to the derived series, but instead of repeatedly taking the derived subalgebra, we repeatedly take the commutator with the parent Lie algebra.
 
 \begin{boxdefinition}[Lower Central Series]
     The \textbf{lower central series} of $L$ is the descending series of ideals
@@ -24,15 +66,32 @@ We now begin discussing some nontrivial objects in the theory of Lie algebras. T
     where $L^{i} := \brac{L, L^{i-1}}$ for $i \geq 1$. % \leq n$.
 \end{boxdefinition}
 
+The use of parentheses when describing the derived series is deliberate: notice that we have dropped the parentheses in the above definition.
+
 \begin{boxconvention}
     Elements of the derived series are denoted $L^{(i)}$, with parenthesised superscript indices, whereas elements of the lower central series are denoted $L^{i}$, with no parentheses around the indices.
 \end{boxconvention}
+
+We give a special term to Lie algebras where this process of repeatedly taking the commutator with the parent Lie algebra stabilises at $0$.
 
 \begin{boxdefinition}[Nilpotency]
     $L$ is said to be \textbf{nilpotent} if there exists an $n \in \N$ such that $L^{n} = 0$.
 \end{boxdefinition}
 
-Indeed, there is the following relationship between solvability and nilpotency.
+The name is not accidental: in nilpotent Lie algebras, all adjoint maps are nilpotent. We will prove this, and even more interesting facts, in due course.
+
+We have already encountered a trivial family of nilpotent Lie algebras.
+
+\begin{boxexample}
+    Every abelian Lie algebra $L$ is nilpotent. Its lower central series is simply
+    \begin{align*}
+        L = L^{0} \supseteq L^{1} = \brac{L, L} = 0
+    \end{align*}
+\end{boxexample}
+
+There are nontrivial examples as well, but it will be easier to construct them once we develop more machinery.
+
+There is a very important relationship between the derived series and the lower central series.
 
 \begin{boxlemma}\label{Ch1:Lemma:DerivedSeriesContainedInLowerCentralSeries}
     For all $i \in \N$, $L^i \supseteq L^{(i)}$.
@@ -49,33 +108,85 @@ Indeed, there is the following relationship between solvability and nilpotency.
     where the inclusion on the third line follows from the fact that $L^{(i)} \subseteq L$. This completes the induction and proves the desired result for all $i \in \N$.
 \end{proof}
 
-\begin{boxcorollary}
+This gives us a natural relationship between nilpotency and solvability.
+
+\begin{boxcorollary}\label{Ch1:Cor:NilpotentImpliesSolvable}
     If $L$ is nilpotent, then $L$ is solvable.
 \end{boxcorollary}
 \begin{proof}
     \Cref{Ch1:Lemma:DerivedSeriesContainedInLowerCentralSeries} tells us that for all $n \in \N$, $L^n = 0$ implies $L^{(n)} = 0$. Thus, if such an $n$ exists that makes $L$ nilpotent, the same $n$ would also make $L$ solvable.
 \end{proof}
 
-The converse is not true. We need to develop a bit of theory to see this.
+The converse is not true.
+
+\begin{boxcexample}[A Lie algebra that is solvable but not nilpotent]\label{Ch1:CEg:2D_NonAbelian_Lie_Algebra_solvable_not_nilpotent}
+    In \Cref{Ch1:Eg:2D_NonAbelian_Lie_Algebra_solvable}, we saw that $\r_2$ is solvable. However, $\r_2$ is not nilpotent: its lower central series stabilises at a nonzero ideal. Explicitly,
+    \begin{align*}
+        \r_2 &= \r_2^{0} = \Span{
+            \begin{bmatrix}
+                1 & 0 \\ 0 & 1
+            \end{bmatrix},
+            \begin{bmatrix}
+                0 & 1 \\ 0 & 0
+            \end{bmatrix}
+        } \\
+        &\supsetneq \r_2^{1} = \brac{\r_2, \r_2} = \Span{
+            \begin{bmatrix}
+                0 & 1 \\ 0 & 0
+            \end{bmatrix}
+        } \\
+        &= \r_2^{2} = \brac{\r_2, \r_2^1} = \Span{
+            \brac{
+                \begin{bmatrix}
+                    1 & 0 \\ 0 & 0
+                \end{bmatrix},
+                \begin{bmatrix}
+                    0 & 1 \\ 0 & 0
+                \end{bmatrix}
+            }, \brac{
+                \begin{bmatrix}
+                    0 & 1 \\ 0 & 0
+                \end{bmatrix},
+                \begin{bmatrix}
+                    0 & 1 \\ 0 & 1
+                \end{bmatrix}
+            }
+        } = \Span{
+            \begin{bmatrix}
+                0 & 1 \\ 0 & 0
+            \end{bmatrix}
+        } \\
+        &= \r_2^{3} = \r_2^{4} = \cdots \\
+        &\neq 0
+    \end{align*}
+\end{boxcexample}
+
+In fact, one can construct several more counterexamples. Once we develop more machinery, we will be able to show, among other things, that every $\t{n}$ is solvable but not nilpotent.
+
+For now, we end this subsection with a fact about the centres of nonzero, nilpotent Lie algebras. The point of the following is that the converse tells us when a nonzero Lie algebra is \textit{not} nilpotent, allowing us to construct counterexamples to the converse of \Cref{Ch1:Cor:NilpotentImpliesSolvable}.
 
 \begin{boxlemma}\label{Ch1:Lemma:NilpotentCentreNonzero}
-    If $L$ is nilpotent, its centre is nonzero.
+    If $L$ is nonzero and nilpotent, its centre is nonzero.
 \end{boxlemma}
 \begin{proof}
-    Let $n \in \N$ be such that
+    Let $n$ be the largest natural number such that $L^n \neq 0$. That is, let $n \in \N$ be such that
     \begin{align*}
-        L = L^0 \supseteq L^1 \supseteq \cdots \supseteq L^n \subsetneq L^{n+1} = 0
+        L = L^0 \supseteq L^1 \supseteq \cdots \supseteq L^n \supsetneq L^{n+1} = 0
     \end{align*}
-    with $L^n \neq 0$.
+    We know such an $n$ exists not only because $L$ is nilpotent but also because $L \neq 0$, meaning that the lower central series cannot be trivial (ie, it consists of at least one proper inclusion---namely, that of the zero ideal with a non-zero ideal). By definition, $\brac{L, L^n} = L^{n+1} = 0$. Hence, $L^n = \Zof{L}$. And, as discussed above, $L^n \neq 0$. Therefore, $\Zof{L} \neq 0$, as required.
 \end{proof}
+
+We now develop some machinery that allows us to construct solvable and nilpotent Lie \textit{sub}algebras (that would, in particular, imply solvability and nilpotency when we view these Lie subalgebras as Lie algebras in their own right).
 
 \subsection{Ideals, Quotients and Subalgebras}
 
-Throughout this subsection, let $I \nsg L$ and $K \leq L$. Recall that $I$ is a Lie subalgebra of $L$ (cf. \Cref{Ch1:Lemma:IdealSubalg}), meaning we can impose solvability and nilpotency conditions on $I$ as well.
+For a subalgebra to be solvable means exactly what one would imagine.
 
 \begin{boxdefinition}[Solvability of Subalgebras]
     We say a subalgebra of $L$ is \textbf{solvable} if it is solvable as a Lie algebra in its own right.
 \end{boxdefinition}
+
+For the remainder of this subsection, fix a Lie algebra $L$ and let $I \nsg L$ and $K \leq L$. It is interesting to explore the relationship between the solvability of $L$, $I$ and $K$.
 
 \begin{boxproposition}[Solvability Conditions]\label{Ch1:Prop:SolvabilityConditions}
     \hfill
@@ -139,6 +250,8 @@ We have similar results for nilpotency.
     We say a subalgebra of $L$ is \textbf{nilpotent} if it is solvable as a Lie algebra in its own right.
 \end{boxdefinition}
 
+As before, fix a Lie algebra $L$ and let $I \nsg L$ and $K \leq L$. Imposing nilpotency conditions on $L$ allows us to infer the same about $\quotient{L}{I}$ and $K$.
+
 \begin{boxproposition}[Nilpotency Conditions]
     \hfill
     \begin{enumerate}[label = \normalfont\arabic*., noitemsep]
@@ -147,45 +260,49 @@ We have similar results for nilpotency.
     \end{enumerate}
 \end{boxproposition}
 
-We will not prove these results here, as they are very similar to the corresponding results for solvability. We will, however, mention that the reason why we do not have a nilpotency condition for $L$ when $I$ and $\quotient{L}{I}$ are nilpotent is that it is not, in general, true that $\parenth{L^i}^j = L^{i + j}$ for $i, j \in \N$, as we can easily see from the following counterexample.
+We will not prove these results here, as they are very similar to the corresponding results for solvability. We will, however, mention that the reason why we do not have a nilpotency condition for $L$ when $I$ and $\quotient{L}{I}$ are nilpotent is that it is not, in general, true that $\parenth{L^i}^j = L^{i + j}$ for $i, j \in \N$. The reason why this holds in the derived series is that the derived series is a recursive definition that \textit{does not involve the base case}, meaning that $\parenth{L^{(i)}}^{(j)} = L^{\parenth{i + j}}$---that is, ``taking the derived subalgebra $i$ times and then taking it $j$ times is tantamount to taking it $i + j$ times''---is simply a consequence of ``doing a thing $i$ times and then doing the same thing $j$ times is tantamount to doing it $i + j$ times''. In the case of the lower central series, however, the fact that the recursive definition \textit{involves the base case} makes things problematic, because when we compute the $j$th lower central ideal of $L^i$, \textit{we have a different base case}: we are computing Lie brackets with respect to $L^i$ instead of $L$, meaning that we are ``doing a thing $i$ times and then doing a \textit{different} (if analogous) thing $j$ times''. We see this clearly in the following counterexample.
 
-\begin{boxcexample}
-    \sorry
+\begin{boxcexample}[$\r_2$, again]
+    $\r_2$ has an ideal $I$ of dimension and co-dimension $1$ spanned by the matrix $E_{12}$ with a $1$ in the $12$ entry and $0$s everywhere else (we have already indirectly shown this in \Cref{Ch1:Eg:2D_NonAbelian_Lie_Algebra_solvable}, so we do not do so explicitly here). Since the dimension and co-dimension of $I$ are $1$, both $I$ and $\quotient{\r_2}{I}$ are abelian, making them nilpotent. However, $\r_2$ is not nilpotent, as we have already shown in \Cref{Ch1:CEg:2D_NonAbelian_Lie_Algebra_solvable_not_nilpotent}. \\
+
+    As one might expect, this is connected to the above discussion. For all $i, j \in \N$, if $i \geq 1$, then $\r_2^{i+j} = I$. However, $\r_2^i = I$ as well, and $I$ is abelian, meaning that $I^j = 0$ if additionally $j \geq 1$. Therefore, for all $i, j \geq 1$, we have $\parenth{\r_2^i}^j = 0 \neq I = \r_2^{i + j}$.
 \end{boxcexample}
 
-We will end the discussion on solvability and nilpotency by saying a bit about the derived subalgebra. We first make a general observation.
+It turns out that solvability also tells us about the derived subalgebra and codimesions. We begin with a simple observation.
 
 \begin{boxlemma}\label{Ch1:Lemma:AllDerivsOfDerivEqTop}
-    If $L = L'$, then for all $i \in \N$, $L^{(i)} = L^{(1)} = L' = L$.
+    $L = L'$ if and only if $\forall i \in \N$, $L^{(i)} = L^{(1)} = L' = L$.
 \end{boxlemma}
 \begin{proof}
-    We argue by induction on $i$. The base case is trivial, because $L^{(0)} = L$. Now, fix $i \in \N$ and assume that $L^{(i)} = L$. Then,
+    One direction is trivial, so we do not bother to prove it. To prove that if $L$ equals its derived subalgebra then $L$ equals all subsequent derived subalgebras, we argue by induction on $i$. The base case is trivial, because $L^{(0)} = L$. Now, fix $i \in \N$ and assume that $L^{(i)} = L$. Then,
     \begin{align*}
         L^{(i + 1)} = \brac{L^{(i)}, L^{(i)}} = \brac{L, L} = L'
     \end{align*}
     Furthermore, it is clear that $L^{(1)} = L'$, and, by assumption, $L' = L$. This completes the induction and proves the desired result for all $i \in \N$.
 \end{proof}
 
-There is an immediate consequence.
+There is an immediate (and somewhat trivial) consequence.
 
-\begin{corollary}\label{Ch1:Cor:DerivedSubalgLtOfSolvable}
-    If $L \neq 0$ and $L$ is solvable, then $L' < L$.
-\end{corollary}
+\begin{boxcorollary}\label{Ch1:Cor:DerivedSubalgLtOfSolvable}
+    If $L \neq 0$, then $L$ is solvable if and only if $L' < L$.
+\end{boxcorollary}
 \begin{proof}
-    We argue by contraposition. If $L' = L$, then we know that $L^{(i)} = L$ for all $i \in \N$. In particular, since $L$ is nonzero, none of the $L^{(i)}$ can be zero. $L$ is therefore not solvable.
+    We know, from \Cref{Ch1:Lemma:AllDerivsOfDerivEqTop}, that $L' = L$ if and only if $L^{(i)} = L$ for all $i \in \N$. In particular, since $L$ is nonzero, none of the $L^{(i)}$ can be zero, which is true if and only if $L$ is not solvable. Therefore, $L$ is solvable if and only if $L' \neq L$, which is equivalent to $L' < L$.
 \end{proof}
 
-We will be more interested the following, somewhat less immediate consequence that comes from combining applying the Correspondence Theorem to the ideals of quotient spaces of solvable Lie algebras.
+There is also a less immediate consequence that comes from applying a combination of \Cref{Ch1:Cor:DerivedSubalgLtOfSolvable} and the Correspondence Theorem (\Cref{SP:Thm:Correspondence}) to the ideals of quotient spaces of solvable Lie algebras.
 
-\begin{boxproposition}\label{Ch1:Prop:ExistsIdealCodim1}
-If $L$ is solvable, there exists an ideal $I \nsg L$ of codimension $1$.
-\end{boxproposition}
+\begin{boxcorollary}\label{Ch1:Cor:ExistsIdealCodim1}
+If $L \neq 0$ and $L$ is solvable, there exists an ideal $I \nsg L$ of codimension $1$.
+\end{boxcorollary}
 \begin{proof}
-    Consider the quotient Lie algebra $K := \quotient{L}{L'}$. We know that $0 < K$, because $K = 0$ would imply that $L = L'$, which is impossible because $L$ is solvable, as shown in \Cref{Ch1:Cor:DerivedSubalgLtOfSolvable}. Therefore, $K$ contains a subspace $W$ of codimension $1$. Since $K$ is abelian, \Cref{Ch1:Prop:SubspaceIdealOfAbelian} tells us that $W$ is an ideal of $K$. \Cref{SP:Thm:Correspondence} tells us that the preimage $V$ of $W$ under the quotient epimorphism is an ideal of $L$ that contains $L'$. Simple arithmetic and dimension results from linear algebra then tell us
+    Consider the quotient Lie algebra $K := \quotient{L}{L'}$. We know that $0 < K$, because $K = 0$ would imply that $L = L'$, which is impossible because $L$ is solvable, as shown in \Cref{Ch1:Cor:DerivedSubalgLtOfSolvable}. Therefore, $K$ contains a subspace $W$ of dimension $1$. Since $K$ is abelian, \Cref{Ch1:Prop:SubspaceIdealOfAbelian} tells us that $W$ is an ideal of $K$. The Correspondence Theorem (\Cref{SP:Thm:Correspondence}) then tells us that the preimage $V$ of $W$ under the quotient epimorphism is an ideal of $L$ that contains $L'$. Simple arithmetic and dimension results from linear algebra then tell us
     \begin{align*}
         \pdim{V} = \pdim{W} + \pdim{L'} = \parenth{\pdim{L} - \pdim{L'} - 1} + \pdim{L'} = \pdim{L} - 1
     \end{align*}
 \end{proof}
+
+% Is the converse true? I wanna say it is... surely if such an I exists then L / I is an ideal of L / L'...
 
 \subsection{The Radical Ideal}
 
@@ -193,11 +310,32 @@ Throughout this subsection, we will assume that $L$ is finite-dimensional.
 
 We begin with a basic result about the sums of ideals.
 
+\begin{boxlemma}\label{Ch1:Lemma:DerivedSeries_sum_contained_sum_derivedSeries}
+    Let $I, J \nsg L$. For all $k \in \N$, we have
+    \begin{align*}
+        \parenth{I + J}^{(k)} \subseteq I^{(k)} + J^{(k)}
+    \end{align*}
+\end{boxlemma}
+\begin{proof}
+    We argue by induction on $k$. The base case is trivial, because $(I + J)^{(0)} = I + J = I^{(0)} + J^{(0)}$. Now, fix $k \in \N$ and assume that $(I + J)^{(k)} \subseteq I^{(k)} + J^{(k)}$. Then,
+    \begin{align*}
+        (I + J)^{(k + 1)} &= \brac{(I + J)^{(k)}, (I + J)^{(k)}} \\
+        &\subseteq \brac{I^{(k)} + J^{(k)}, I^{(k)} + J^{(k)}} \\
+        &\subseteq \brac{I^{(k)}, I^{(k)}} + \brac{I^{(k)}, J^{(k)}} + \brac{J^{(k)}, I^{(k)}} + \brac{J^{(k)}, J^{(k)}} \\
+        &\subseteq I^{(k + 1)} + J^{(k + 1)}
+    \end{align*}
+    as required.
+\end{proof}
+
 \begin{boxlemma}\label{Ch1:Lemma:SumIdealSolvable}
     Let $I, J \nsg L$. If $I$ and $J$ are solvable, then so is $I + J \nsg L$.
 \end{boxlemma}
 \begin{proof}
-    \sorry
+    Let $n \in \N$ be such that $I^{(n)} = 0$ and let $m \in \N$ be such that $J^{(m)} = 0$. Since $m + n \geq m, n$ and $I^{(n)} = J^{(m)} = 0$, we know that $I^{(n + m)} = J^{(n + m)} = 0$. Then, applying \Cref{Ch1:Lemma:DerivedSeries_sum_contained_sum_derivedSeries}, we have
+    \begin{align*}
+        (I + J)^{(n + m)} \subseteq I^{(n + m)} + J^{(n + m)} = 0 + 0 = 0
+    \end{align*}
+    proving that the derived series of $I + J$ eventually stabilises at $0$. Therefore, $I + J$ is solvable.
     % Apply 2nd iso thm
 \end{proof}
 

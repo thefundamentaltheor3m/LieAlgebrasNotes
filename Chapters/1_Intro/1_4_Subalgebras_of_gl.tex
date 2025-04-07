@@ -131,7 +131,7 @@ such that $N(V_i) \subseteq V_{i - 1}$. We will refine this sequence so that $m 
 \begin{align*}
     \pdim{\quotient{V_{i}}{V_{i - 1}}} = 1
 \end{align*}
-using \Cref{Ch1:Prop:ExistsIdealCodim1}. We can then take distinguished elements from each of the quotients to form a basis of $\C^n$, and this will be the basis with respect to which every element of $N$ is upper-triangular.
+using \Cref{Ch1:Cor:ExistsIdealCodim1}. We can then take distinguished elements from each of the quotients to form a basis of $\C^n$, and this will be the basis with respect to which every element of $N$ is upper-triangular.
 
 We will now show that $U_n$ is, indeed, nonzero.
 
@@ -301,9 +301,9 @@ Finally, we underscore the importance of weight spaces by mentioning that they c
     Consider the subspace $L := \Span{A, B} \leq \gl{n}$. Observe that since $A$ and $B$ commute, $\brac{A, B} = 0$. Therefore, $L$ is an abelian Lie subalgebra of $\gl{n}$. The idea is that the weight space of 
 \end{proof}
 
-\begin{corollary}
+\begin{boxcorollary}
     Let $A, B \in \gl{n}$ be diagonalisable. If $A$ and $B$ commute, then $A + B$ is diagonalisable.
-\end{corollary}
+\end{boxcorollary}
 \begin{proof}
     Rewrite $A$ and $B$ in the basis given in the previous lemma. Their sum is then a sum of diagonal matrices, which is diagonal (in that same basis).
 \end{proof}

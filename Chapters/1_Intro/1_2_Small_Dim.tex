@@ -110,9 +110,9 @@ We already know the isomorphism class of all abelian Lie algebras of dimension $
 
 We begin with a simple observation. Let $L$ be a Lie algebra of dimension $3$. Assume that $L$ is non-abelian. Then, we know that $\Zof{L} \neq L$ and that $L' = \brac{L, L} \neq 0$. We can then conclude that $\pdim{\Zof{L}} \in \set{0, 1, 2}$ and $\pdim{L'} \in \set{1, 2, 3}$. The strategy we use to determine the isomorphism class of $L$ will be to consider all possible dimensions of $L'$ and use our understanding of $\Zof{L}$ to distinguish between isomorphism classes given a dimension of $L'$.
 
-\subsubsection{\underline{The Case where $\pdim{L'} = 1$.}}
+\subsubsection{\underline{The case where $\pdim{L'} = 1$.}}
 
-We have two possibilities: either $L' \subseteq \Zof{L}$ or $L' \not\subseteq \Zof{L}$. We will consider both cases separately.
+We have two possibilities: either $L' \subseteq \Zof{L}$ or $L' \not\subseteq \Zof{L}$. We will consider both cases separately. We begin with an example of a $3$-dimensional Lie algebra $L$ such that $\pdim{L'} = 1$ and $L' \subseteq \Zof{L}$.
 
 \begin{boxexample}[The Heisenberg Lie Algebra of Dimension $3$]\label{Ch1:Eg:Heisenberg_Lie_Algebra}
     Define the \textbf{Heisenberg Lie Algebra} $\u{n}$ (for $n \in \N$) to be all matrices of the form
@@ -125,7 +125,7 @@ We have two possibilities: either $L' \subseteq \Zof{L}$ or $L' \not\subseteq \Z
     \end{align*}
     That is, $\u{n}$ is the set of all upper-triangular matrices in $\gl{n}$ with zeroes on the diagonal. One can apply \Cref{Ch1:Prop:Subalg_Commbracket} to show that $\u{n}$ is a Lie subalgebra of $\gl{n}$ because it is an associative subalgebra of $\gl{n}$, which one can show by showing it is an associative subalgebra of $\t{n}$ (the diagonal of a product of upper-triangular matrices is the componentwise product of the diagonals, so when the diagonals are zero, so is that of the product). \\
 
-    In the specific case of $n = 3$, if $L = \u{3}$, then we can show that $\pdim{L'} = 1$ and $L' \subseteq \Zof{L}$. \\
+    We now consider the specific case of $n = 3$. Denote by $E_{ij}$ the $3 \times 3$ matrix whose $ij$ entry is $1$ and whose other entries are all $0$. It is easily seen that $\set{E_{12}, E_{13}, E_{23}}$ is a basis of $\u{3}$. Therefore, we can, indeed, see that $\u{3}$ is $3$-dimensional. Indeed, if $L = \u{3}$, then we can show that $\pdim{L'} = 1$ and $L' \subseteq \Zof{L}$. \\
     
     To show that $\pdim{L'} = 1$, we can compute the commutator of two matrices in $\u{3}$. Define
     \begin{align*}
@@ -173,9 +173,9 @@ We have two possibilities: either $L' \subseteq \Zof{L}$ or $L' \not\subseteq \Z
             0 & 0 & 0
         \end{bmatrix}
     \end{align*}
-    The span of every such commutator is easily seen to be the one-dimensional subspace spanned by the matrix $E_{13}$ with a one in the $13$-position and zeroes everywhere else (in particular, $E_{13}$ is the commutator of two matrices). Therefore, $\pdim{L'} = 1$. \\
+    The span of every such commutator is easily seen to be the one-dimensional subspace spanned by $E_{13}$. Indeed, $E_{13}= \brac{E_{12}, E_{21}} \in \brac{L, L} = L'$. Therefore, $\pdim{L'} = 1$. \\
 
-    Since we have computed $L'$ explicitly, to show that $L' \subseteq \Zof{L}$, we only need to show that $E_{13}$ commutes with every element of $L$. Indeed, for an arbitrary matrix $X \in \u{3}$ as defined above, we have
+    Since we have computed $L'$ explicitly, to show that $L' \subseteq \Zof{L}$, we only need to show that $E_{13}$ commutes with every element of $L$. Indeed, for an arbitrary $X \in \u{3}$ as defined above,
     \begin{align*}
         \brac{X, E_{13}} = \begin{bmatrix}
             0 & a & b \\
@@ -199,6 +199,30 @@ We have two possibilities: either $L' \subseteq \Zof{L}$ or $L' \not\subseteq \Z
     proving that $L' \subseteq \Zof{L}$.
 \end{boxexample}
 
+It turns out that up to isomorphism, there is no other Lie algebra of dimension $3$ with $\pdim{L'} = 1$ and $L' \subseteq \Zof{L}$.
 
+\begin{boxtheorem}
+    Let $L$ be a Lie algebra of dimension $3$ such that $\pdim{L'} = 1$ and $L' \subseteq \Zof{L}$. Then, $L$ is isomorphic to the Heisenberg Lie algebra $\u{3}$.
+\end{boxtheorem}
+\begin{proof}
+    Since $\pdim{L'} = 1$, there exists some $z \in L'$ such that $L' = \Span{z}$. Indeed, since $z \in L' = \brac{L, L}$, we can conclude that there exist $f, g \in L$ such that $z = \brac{f, g}$. Our strategy is to show that $\set{f, g, z}$ is a basis of $L$. Then, the linear isomorphism from $L$ to $\u{3}$ identifying $f$ with $E_{12}$, $g$ with $E_{21}$ and $z$ with $E_{13}$ will be a Lie algebra isomorphism, proving the theorem.
+
+    To show that $\set{f, g, z}$ is a basis of $L$, we only need to show that $f$, $g$ and $z$ are linearly independent. To that end, fix constants $\alpha, \beta, \gamma \in \C$ and assume that
+    \begin{align}
+        \alpha f + \beta g + \gamma z = 0
+        \label{Ch1:Eq:3_Dim_classification_iso_heisenberg}
+    \end{align}
+    Since we assumed that $L' \subseteq \Zof{L}$, we know that $z \in \Zof{L}$. That is, its Lie bracket with any element of $L$ is $0$. We can take advantage of this to show that $\alpha = \beta = 0$, forcing $\gamma = 0$ as well. To show that $\alpha = 0$, we bracket \eqref{Ch1:Eq:3_Dim_classification_iso_heisenberg} with $g$:
+    \begin{align*}
+        \alpha \brac{f, g} + \beta \brac{g, g} + \gamma \brac{z, g} = 0 \iff \alpha z = 0 \iff z = 0
+    \end{align*}
+    because $z \neq 0$. In similar fashion, if we bracket \eqref{Ch1:Eq:3_Dim_classification_iso_heisenberg} with $f$, we can show that $\beta = 0$. This forces $\gamma = 0$ because again, $z \neq 0$, proving that $\set{f, g, z}$ is linearly independent. Therefore, $\set{f, g, z}$ is a basis of $L$, and we can conclude that $L$ is isomorphic to $\u{3}$.
+\end{proof}
+
+Now that we have classified all $3$-dimensional Lie algebras $L$ with $\pdim{L'} = 1$ and $L' \subseteq \Zof{L}$, we can turn our attention to the case where $L' \not\subseteq \Zof{L}$. We will begin with an example.
+
+\begin{boxexample}\label{Ch1:Eg:3D_Nonabelian_Derived_not_subset_Z}
+    Let $L = \t{2}$ be the set of $2 \times 2$ upper-triangular matrices (cf. \Cref{Ch1:Eg:UpperTriangularLieAlg}) with basis $\set{E_{11}, E_{12}, E_{22}}$ of matrices $E_{ij}$ with $1$s in the $ij$ entries and $0$s everywhere else. It turns out that $L \cong \r_2 \+ \gl{1}$, where $\gl{1}$ is $\C$ under the commutator bracket and $\r_2$ is as defined in \Cref{Ch1:Eg:2D_NonAbelian_Lie_Algebra}: one can show that the linear isomorphism mapping $E_{11}$ to $\parenth{E_{11}, 0}$, $E_{12}$ to $\parenth{E_{12}, 0}$ and $E_{22}$ to $\parenth{0, 1}$ is invariant under the Lie bracket. Furthermore, one can show that 
+\end{boxexample}
 
 \sorry
