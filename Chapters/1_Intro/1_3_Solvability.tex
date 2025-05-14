@@ -343,7 +343,7 @@ We begin with a basic result about the sums of ideals.
     There exists a solvable ideal of $L$ that contains all other solvable ideals of $L$.
 \end{boxcorollary}
 \begin{proof}
-    Let $R$ be a solvable ideal of $L$ of maximal dimension.\footnote{When we say maximal dimension, we mean that the dimension of $R$ is the largest possible dimension such that a solvable ideal of that dimension exists. This is well-defined because $L$ is finite-dimensional, and the dimension of any ideal of $L$ is necessarily $\leq \pdim{L}$.} Now, fix any $I \nsg L$. \Cref{Ch1:Lemma:SumIdealSolvable} tells us that $I + R$ is a solvable ideal of $L$. But, since $R$ is of maximal dimension, we know that $\pdim{I + R} \leq \pdim{R}$. Therefore, we must have that $I + R = R$. Then, we must have that $I \subseteq R$, as any $i \in I$ is expressible as $i + 0$, and since $0 \in R$, we have $i = i + 0 \in I + R = R$.
+    Let $R$ be a solvable ideal of $L$ of maximal dimension.\footnote{When we say maximal dimension, we mean that the dimension of $R$ is the largest possible dimension such that a solvable ideal of that dimension exists. This is well-defined because $L$ is finite-dimensional, and the dimension of any ideal of $L$ is necessarily $\leq \pdim{L}$.} Now, fix any $I \nsg L$. \Cref{Ch1:Lemma:SumIdealSolvable} tells us that $I + R$ is a solvable ideal of $L$. But, since $R$ is of maximal dimension, we know that $\pdim{I + R} \leq \pdim{R}$. Therefore, we must have that $I + R = R$. Then, we must have that $I \subseteq R$, as any $i \in I$ is expressible as $i + 0$, and since $0 \in R$, we have $i = i + 0 \in I + R = R$. Hence, $I \subseteq R$, proving that $R$ contains any ideal of $L$ that is solvable.
 \end{proof}
 
 This solvable ideal has a name.
@@ -352,19 +352,23 @@ This solvable ideal has a name.
     The \textbf{radical ideal} of $L$ is the solvable ideal of $L$ that contains all other solvable ideals of $L$, which we know exists from \Cref{Ch1:Cor:RadExists}.
 \end{boxdefinition}
 
-We can now define what it means for a Lie algebra to be semi-simple. We will be very interested in this class of Lie algebras going forward.
+Given that we frame simplicity in terms of normal subgroups in group theory, and given that their analogue in the theory of Lie algebras is ideal, we will define semi-simplicity to be a weak form of simplicity, where the non-trivial ideals that are not allowed to exist are \textit{semi-simple}.
 
 \begin{boxdefinition}[Semi-Simplicity]\label{Ch1:Def:SemiSimple}
     We say that $L$ is \textbf{semi-simple} if its radical ideal is the $0$ ideal.
 \end{boxdefinition}
 
-Our aim for this module will be to classify all semi-simple Lie algebras. We will do this by first classifying all solvable Lie algebras and then using that classification to classify all semi-simple Lie algebras. We will need a \textit{lot} more machinery before we can do this, but we will get there eventually.
+It is clear, from the definition of the radical ideal, that semi-simple Lie algebras are precisely those that contain no nontrivial solvable ideals (and are not solvable themselves).
 
-We also have a notion of simplicity, which is no different from what we would expect in groups.
+Our aim for this module will be to classify all semi-simple Lie algebras over $\C$. We will do this by first classifying all solvable Lie algebras and then using that classification to classify all semi-simple Lie algebras. We will need a \textit{lot} more machinery before we can do this, but we will get there eventually.
+
+While we have already alluded to the following definition, we will mention it explicitly for completeness. It is no different from what we would expect in groups.
 
 \begin{boxdefinition}[Simplicity]
     We say that $L$ is \textbf{simple} if it has no nontrivial ideals.
 \end{boxdefinition}
+
+As we have mentioned, semi-simple Lie algebras contain no nontrivial \textit{solvable} ideals (and are not solvable themselves). Simple Lie algebras contain no nontrivial ideals of \textit{any} kind, solvable or otherwise. Hence, semi-simple Lie algebras are simple, and semi-simplicity is a strictly weaker notion than simplicity.\footnote{Some authors require that a simple Lie algebra have dimension $\geq 1$, thereby excluding the $0$ Lie algebra from being simple. Under this definition, $0$ would be semi-simple but not simple, unless we also required the dimension to be at least $1$ in the definition of semi-simplicity. These are minutia, which would be very important if we were to study Lie algebras in a very formal setting, but there is no need to consider these cases in this module.}
 
 \subsection{Ascending Series of Ideals}
 

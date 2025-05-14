@@ -607,17 +607,38 @@ We therefore have the following chain of Lie algebra inclusions.
     We only need to show that $\pad{L} \leq \Der{L}$, because we have already shown that $\Der{L} \leq \gl{L}$ in \Cref{Ch1:Prop:DerLieSubalg}. By \Cref{Ch1:Prop:ad_mem_Der}, we know $\pad{L} \subseteq \Der{L}$. We know that $\pad{L}$ is a linear subspace of $\Der{L}$ because it is a linear subspace of $\gl{L}$ that is contained in $\Der{L}$. For the same reason, it is also a Lie subalgebra of $\Der{L}$, because we know that the commutator of two adjoints is the adjoint of some Lie bracket in $L$ (cf. \Cref{Ch1:Prop:AdjointLieAlgHom}). In particular, it is contained in $\Der{L}$ because it is the adjoint of some element of $L$ (by \Cref{Ch1:Prop:ad_mem_Der}). Therefore, $\pad{L}$ is a Lie subalgebra of $\Der{L}$.
 \end{proof}
 
-\Cref{Ch1:Lemma:adSubalgDer} is hardly surprising, given the facts we have already proven. What is a lot less obvious, though, is that $\pad{L}$ is more than just a subalgebra of $\Der{L}$: it is an ideal.
+\Cref{Ch1:Lemma:adSubalgDer} is hardly surprising, given the facts we have already proven. What is a lot less obvious, though, is that $\pad{L}$ is more than just a subalgebra of $\Der{L}$: it is an ideal. We begin by proving a cute fact.
 
-\begin{boxlemma}
-    $\pad{L}$ is an ideal of $\Der{L}$ in $\gl{L}$.
+\begin{boxlemma}\label{Ch1:Lemma:commbrac_der_ad_eq_ad_der}
+    For all $\ell \in L$ and $D \in \Der{L}$,
+    \begin{align*}
+        \brac{D, \pad{\ell}} = \pad{D\of{\ell}}
+    \end{align*}
 \end{boxlemma}
 \begin{proof}
-    Fix $D \in \Der{L}$ and $\pad{\ell} \in \pad{L}$ for some $\ell \in L$. We need to show that the commutator bracket
+    Fix $\ell \in L$ and $D \in \Der{L}$. For all $x \in L$, bearing in mind that the $\liebrac$ notation here is used for both the commutator bracket in $\gl{L}$ and the Lie bracket in $L$,
     \begin{align*}
-        \brac{D, \pad{\ell}} = D \circ \pad{\ell} - \pad{\ell} \circ D
+        \brac{D, \pad{\ell}}\of{x}
+        &= \parenth{D \circ \pad{\ell} - \pad{\ell} \circ D}\of{x} \\
+        &= D\of{\pad{\ell}\of{x}} - \pad{\ell}\of{D\of{x}} \\
+        % &= D\of{\brac{\ell, x}} - \pad{\ell}\of{\brac{x, D\of{y}} + \brac{D\of{x}, y}} \nonumber \\
+        &= D\of{\brac{\ell, x}} - \brac{\ell, D\of{x}} \\
+        &= \brac{\ell, D\of{x}} + \brac{D\of{\ell}, x} - \brac{\ell, D\of{x}} \\
+        &= \brac{D\of{\ell}, x}
     \end{align*}
-    is a derivation. To that end, fix $x, y \in L$. We need to show that
+    as required.
+\end{proof}
+
+It follows quite readily that $\pad{L} \nsg \Der{L}$.
+
+\begin{boxcorollary}
+    $\pad{L}$ is an ideal of $\Der{L}$ in $\gl{L}$.
+\end{boxcorollary}
+\begin{proof}
+    \Cref{Ch1:Lemma:commbrac_der_ad_eq_ad_der} clearly tells us the commutator of a derivation and an adjunction is an adjunction, which is exactly what it means for $\pad{L}$ to be an ideal of $\Der{L}$ in $\gl{L}$.
+    % THE FOLLOWING (from an older version of the notes) IS UNNECESSARY! An adjoint composed with a derivation is a derivation for the same reason that a derivation composed with a derivation is a derivation, because an adjoint is a derivation (by the previous result). What's a lot less trivial, and what's required to prove this result, is the fact that an adjoint composed with a derivation is again an adjoint.
+    \begin{comment}
+    derivation. To that end, fix $x, y \in L$. We need to show that
     \begin{align}
         \brac{D, \pad{\ell}}\of{\brac{x, y}} = \brac{x, \brac{D, \pad{\ell}}\of{y}} + \brac{\brac{D, \pad{\ell}}\of{x}, y}
         \label{Ch1:Eq:ad_ideal_der}
@@ -645,7 +666,18 @@ We therefore have the following chain of Lie algebra inclusions.
         =& -\brac{x, \brac{y, D\of{\ell}}} - \brac{y, \brac{D\of{\ell}, x}} \label{Ch1:Eq:ad_ideal_der_RHS}
     \end{align}
     where the last equality follows from antisymmetry \eqref{SP:Eq:LieBracAntisymm}. The Jacobi Identity \eqref{SP:eq:JacobiIdentity} then allows us to put \eqref{Ch1:Eq:ad_ideal_der_LHS} and \eqref{Ch1:Eq:ad_ideal_der_RHS} together and conclude that \eqref{Ch1:Eq:ad_ideal_der} holds, as required. Therefore, the commutator of a derivation and an adjoint is indeed a derivation, proving that $\pad{L}$ is indeed an ideal of $\Der{L}$ with respect to the Lie algebra structure it inherits from $\gl{L}$.
+    \end{comment}
 \end{proof}
+
+The containment of $\pad{L}$ in $\Der{L}$ can be proper, though this is not necessary.
+
+\begin{boxexample}[Adjunctions and Derivations in Abelian Lie Algebras]
+    Let $L$ be an abelian Lie algebra. Then, any linear map $T \in \gl{L}$ is a derivation: for all $x, y \in L$,
+    \begin{align*}
+        T\of{\brac{x, y}} = T\of{0} = 0 = 0 + 0 = \brac{T\of{x}, y} + \brac{x, T\of{y}}
+    \end{align*}
+    Furthermore, since $\pad{L} = \set{0}$ (because $L$ is abelian), if $T$ is any non-zero linear map---for example, $T = \id_L$---then $T$ is a derivation that is not an adjunction, making the inclusion of $\pad{L}$ into $\Der{L}$ strict.
+\end{boxexample}
 
 \subsection{Structure Constants}
 
