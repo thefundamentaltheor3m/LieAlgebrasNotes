@@ -22,10 +22,10 @@
 \contentsline {subsection}{\numberline {1.3.3}The Radical Ideal}{42}{subsection.1.3.3}%
 \contentsline {subsection}{\numberline {1.3.4}Ascending Series of Ideals}{44}{subsection.1.3.4}%
 \contentsline {section}{\numberline {1.4}Subalgebras of $\mathfrak {gl}\!\left ( n \right )$}{45}{section.1.4}%
-\contentsline {subsection}{\numberline {1.4.1}Induced Actions on Quotients by Invariant Subspaces}{45}{subsection.1.4.1}%
+\contentsline {subsection}{\numberline {1.4.1}Induced Actions on Quotients by Invariant Subspaces}{46}{subsection.1.4.1}%
 \contentsline {subsection}{\numberline {1.4.2}Linear Algebraic and Lie Algebraic Nilpotency}{46}{subsection.1.4.2}%
-\contentsline {subsection}{\numberline {1.4.3}Weights of Lie Algebras}{50}{subsection.1.4.3}%
-\contentsline {subsection}{\numberline {1.4.4}Lie's Theorem}{52}{subsection.1.4.4}%
+\contentsline {subsection}{\numberline {1.4.3}Weights of Lie Algebras}{51}{subsection.1.4.3}%
+\contentsline {subsection}{\numberline {1.4.4}Lie's Theorem}{53}{subsection.1.4.4}%
 \contentsline {chapter}{\numberline {2}Representations of Lie Algebras}{55}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Important Definitions and First Examples}{55}{section.2.1}%
 \contentsline {subsection}{\numberline {2.1.1}Representations and Modules}{55}{subsection.2.1.1}%
